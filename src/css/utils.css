@@ -1,0 +1,64 @@
+/* Buttons */
+
+.btn_blue {
+  box-shadow: 0 0 10px #0ef;
+  background: #0ef;
+  color: #333;
+  padding: 12px 32px;
+  border-radius: 6px;
+  margin: 12px 0;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  letter-spacing: 1px;
+}
+
+.btn_yellow {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: var(--text-base);
+  padding: 0.5em 4em;
+  border-radius: 1rem;
+  border: 2px solid #ca8a04;
+  text-align: center;
+  user-select: none;
+  font-weight: 500;
+  width: 100%;
+  display: block;
+}
+
+.btn_yellow:hover {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background-color: rgb(202, 138, 4, 0.2);
+}
+
+::placeholder {
+  color: rgba(0, 0, 0);
+  font-weight: 400;
+}
+
+/* Sections */
+
+/* 2xl */
+/* @media (max-width: 1536px) {
+} */
+
+/* xl */
+/* @media (max-width: 1280px) {
+} */
+
+/* lg */
+/* @media (max-width: 1024px) {
+} */
+
+/* md */
+/* @media (max-width: 768px) {
+} */
+
+/* sm */
+/* @media (max-width: 640px) {
+} */
+
+/* xs */
+/* @media (max-width: 475px) {
+} */
