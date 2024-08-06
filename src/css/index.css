@@ -12,10 +12,10 @@
 
 .dark-mode {
   /* colors */
-  --bg-color: #f5f5f5;
-  --header-color: ;
-  --clr-default: #0a0a0a;
-  --clr-primary: ;
+  --bg-color: #0f172a;
+  --header-color: #334155;
+  --clr-default: #f8fafc;
+  --clr-primary: #cbd5e1;
 
   /* Box Shadows */
   --header-shadow: 0 6px 9px -4px rgba(0, 0, 0, 0.5);
@@ -30,7 +30,7 @@
   --clr-primary: #cbd5e1;
 
   /* Box Shadows */
-  --header-shadow: 0 6px 9px -4px rgba(0, 0, 0, 0.4);
+  --header-shadow: 0 6px 9px -4px rgba(0, 0, 0);
   --sidebar-shadow: 0 3px 17px rgba(0, 0, 0, 0.4);
 
   /* sizes */
@@ -54,8 +54,8 @@
   --font-family: 'Poppins', sans-serif;
 
   /* Container */
-  --container-width: ;
-  --container-margin: ;
+  --container-width: 1900px;
+  --container-padding: 0.5rem;
 }
 
 html {

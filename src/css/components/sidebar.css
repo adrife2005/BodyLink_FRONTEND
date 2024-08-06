@@ -1,0 +1,75 @@
+.sidebar {
+  padding: 0 5px;
+  position: fixed;
+  left: 0;
+  height: calc(100svh - 70px);
+  background-color: var(--header-color);
+  border-right: 3px solid var(--bg-color);
+  min-width: 275px;
+}
+
+.sidebar__container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.sidebar__home {
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid var(--bg-color);
+}
+
+.sidebar__comunidad {
+  padding: 10px;
+  width: 100%;
+}
+
+.sidebar__home__container {
+  display: flex;
+  align-items: center;
+  padding-inline: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+
+.sidebar__home__container__active {
+  background-color: var(--bg-color);
+}
+
+.sidebar__home__container:hover {
+  background-color: var(--bg-color);
+}
+
+.sidebar__home__container .sidebar__icon {
+  font-size: var(--text-2xl);
+  margin-right: 15px;
+}
+
+/* Sections */
+
+/* 2xl */
+/* @media (max-width: 1536px) {
+} */
+
+/* xl */
+/* @media (max-width: 1280px) {
+} */
+
+/* lg */
+/* @media (max-width: 1024px) {
+} */
+
+/* md */
+/* @media (max-width: 768px) {
+} */
+
+/* sm */
+/* @media (max-width: 640px) {
+} */
+
+/* xs */
+/* @media (max-width: 475px) {
+} */
