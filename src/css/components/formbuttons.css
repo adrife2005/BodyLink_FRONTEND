@@ -1,0 +1,35 @@
+.form__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  width: 100%;
+  top: -75px;
+  left: 0;
+  margin-inline: auto;
+  background-color: var(--header-color);
+}
+
+.form__register__btn {
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--clr-default);
+  font-weight: bold;
+  font-size: var(--text-lg);
+}
+
+.form__loging__btn {
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--header-color);
+  color: var(--clr-default);
+  font-weight: bold;
+  font-size: var(--text-lg);
+}
