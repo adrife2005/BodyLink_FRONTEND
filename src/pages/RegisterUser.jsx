@@ -90,7 +90,8 @@ const RegisterUser = () => {
     // const registerData = Object.fromEntries(data.entries())
   }
 
-  console.log(values);
+
+
   return (
     <div className="form__register">
       <form onSubmit={registerUser} className='form__register__submit'>

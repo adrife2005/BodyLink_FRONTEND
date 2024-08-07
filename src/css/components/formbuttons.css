@@ -21,9 +21,11 @@
   color: var(--clr-default);
   font-weight: bold;
   font-size: var(--text-lg);
+  text-align: center;
 }
 
 .form__loging__btn {
+  text-align: center;
   border-radius: 5px;
   width: 100%;
   padding: 10px;
