@@ -4,13 +4,20 @@
   height: 100vh;
 }
 
+.form__register__form {
+  margin-inline: auto;
+  height: 700px;
+  padding: 0 15px;
+  width: 500px;
+}
+
 .form__register__submit {
   background-color: var(--header-color);
   padding: 0 30px;
   border-radius: 10px;
-  width: 500px;
-  margin-inline: auto;
+  width: 100%;
   position: relative;
+  margin-top: 100px;
 }
 
 .form__register__submit .btn {
@@ -27,7 +34,12 @@
 }
 
 .form__register__title {
-  margin: 20px 0 25px 0;
+  padding: 20px 0;
+  font-size: var(--text-sm);
+}
+
+.form__register__title p {
+  margin-top: 10px;
 }
 
 .form__register__start {

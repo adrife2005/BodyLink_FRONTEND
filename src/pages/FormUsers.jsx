@@ -25,6 +25,7 @@ const FormUser = () => {
 
   const [register, setRegister] = useState(true);
   const [login, setLogin] = useState(false);
+  const [infoUser, setInfoUser] = useState(false)
   const navigate = useNavigate()
 
 
@@ -37,6 +38,35 @@ const FormUser = () => {
     setRegister(true)
     setLogin(false)
   }
+
+  const inputsInfo = [
+    {
+      id: 3,
+      name: "edad",
+      type: "number",
+      errorMessage: "Debes ingresar tu edad",
+      label: "Edad",
+      required: true
+    }
+    ,
+    {
+      id: 4,
+      name: "altura",
+      type: "text",
+      errorMessage: "Debes ingresar tu estatura",
+      label: "Estatura",
+      required: true
+    }
+    ,
+    {
+      id: 5,
+      name: "peso",
+      type: "number",
+      errorMessage: "Debes ingresar tu peso",
+      label: "Peso",
+      required: true
+    }
+  ]
 
   const inputsRegister = [
     {
@@ -56,33 +86,6 @@ const FormUser = () => {
       label: "Email",
       required: true
     },
-    // {
-    //   id: 3,
-    //   name: "edad",
-    //   type: "number",
-    //   errorMessage: "Debes ingresar tu edad",
-    //   label: "Edad",
-    //   required: true
-    // }
-    // ,
-    // {
-    //   id: 4,
-    //   name: "estatura",
-    //   type: "text",
-    //   errorMessage: "Debes ingresar tu estatura",
-    //   label: "Estatura",
-    //   required: true
-    // }
-    // ,
-    // {
-    //   id: 5,
-    //   name: "peso",
-    //   type: "text",
-    //   errorMessage: "Debes ingresar tu peso",
-    //   label: "Peso",
-    //   required: true
-    // }
-    ,
     {
       id: 6,
       name: "contraseña",
@@ -146,7 +149,8 @@ const FormUser = () => {
 
     // const data = new FormData(e.target)
     // const registerData = Object.fromEntries(data.entries())
-    navigate('/')
+
+    setInfoUser((prev) => !prev);
   }
 
   const loginUser = (e) => {
@@ -154,6 +158,14 @@ const FormUser = () => {
 
     // const data = new FormData(e.target)
     // const registerData = Object.fromEntries(data.entries())
+    navigate('/')
+  }
+
+  const registerFullUser = (e) => {
+    e.preventDefault();
+
+    console.log(valuesRegister);
+    console.log('Successfully Added the data');
     navigate('/')
   }
 
@@ -167,7 +179,7 @@ const FormUser = () => {
         </div>
         <div className="form__register__start__welcome">
           <h3>
-            Bienvenido a la plataforma BodyLink, aqui podras encontrar planes de nutrición y entrenamiento
+            Bienvenido a BodyLink, aqui podras encontrar planes de nutrición y entrenamiento
             por parte de profesionales de nutrición y deporte.
           </h3>
         </div>
@@ -176,21 +188,31 @@ const FormUser = () => {
           <Link to='/auth/profesional' className='form__register__start__btn'>Profesional</Link>
         </div>
       </div>
-      <form onSubmit={register ? registerUser : loginUser} className='form__register__submit'>
-        <div className="form__register__title">
-          <h1>{ register ? 'Registrate' : 'Iniciar Seción' }</h1>
-        </div>
-        <FormButtons closeLoginForm={closeLoginForm} closeRegisterForm={ closeRegisterForm} register={register} login={login} />
-        {
-          register ?
-          inputsRegister.map((input) => (
-            <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} />
-          )) : inputsLogIn.map((input) => (
-            <FormInput key={input.id} {...input} value={valuesLogIn[[input.name]]} onChange={onChangeLogIn} />
-          ))
-        }
-        <button className='btn' type="submit">Submit</button>
-      </form>
+      <div className="form__register__form">
+        <form onSubmit={!infoUser ? register ? registerUser : loginUser : registerFullUser} className='form__register__submit'>
+          <div className="form__register__title">
+            <h1>{ !infoUser ? register ? 'Registrate' : 'Iniciar Seción' : "Medidas del cuerpo" }</h1>
+            <p>Favor de ingresar correctamente tus datos.</p>
+          </div>
+          <FormButtons closeLoginForm={closeLoginForm} closeRegisterForm={ closeRegisterForm} register={register} login={login} />
+          {
+            !infoUser
+              ?
+
+                register ?
+                inputsRegister.map((input) => (
+                  <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} />
+                )) : inputsLogIn.map((input) => (
+                  <FormInput key={input.id} {...input} value={valuesLogIn[[input.name]]} onChange={onChangeLogIn} />
+                ))
+
+              :
+              inputsInfo.map((input) => (
+                <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} /> ))
+          }
+          <button className='btn' type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   )
 }

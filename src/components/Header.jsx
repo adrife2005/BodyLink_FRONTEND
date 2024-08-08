@@ -2,13 +2,11 @@ import { LuSunMedium } from "react-icons/lu";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import '../css/components/header.css'
 import Sidebar from "./Sidebar";
-import { useState } from "react";
 
 const Header = () => {
-const [openTheme, setOpenTheme] = useState(false)
 
   const changeTheme = () => {
-    setOpenTheme(true)
+    document.body.classList.toggle('light__mode')
   }
 
 
@@ -28,7 +26,7 @@ const [openTheme, setOpenTheme] = useState(false)
           </span>
           <span className="header__profile__line"></span>
           <div className="header__profile__config">
-            <img src="./meFace.jpg" alt="Profile" />
+            <img src="./me.jpg" alt="Profile" />
           </div>
         </div>
       </div>

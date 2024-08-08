@@ -10,12 +10,12 @@
   line-height: calc(1em + 0.5rem);
 }
 
-.dark-mode {
+.light__mode {
   /* colors */
-  --bg-color: #0f172a;
-  --header-color: #334155;
-  --clr-default: #f8fafc;
-  --clr-primary: #cbd5e1;
+  --bg-color: #cbd5e1;
+  --header-color: #94a3b8;
+  --clr-default: #0f172a;
+  --clr-primary: #1e293b;
 
   /* Box Shadows */
   --header-shadow: 0 6px 9px -4px rgba(0, 0, 0, 0.5);

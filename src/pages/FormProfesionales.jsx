@@ -55,35 +55,17 @@ const FormProfesionales = () => {
       label: "Email",
       required: true
     },
-    // {
-    //   id: 3,
-    //   name: "edad",
-    //   type: "number",
-    //   errorMessage: "Debes ingresar tu edad",
-    //   label: "Edad",
-    //   required: true
-    // }
-    // ,
-    // {
-    //   id: 4,
-    //   name: "estatura",
-    //   type: "text",
-    //   errorMessage: "Debes ingresar tu estatura",
-    //   label: "Estatura",
-    //   required: true
-    // }
-    // ,
-    // {
-    //   id: 5,
-    //   name: "peso",
-    //   type: "text",
-    //   errorMessage: "Debes ingresar tu peso",
-    //   label: "Peso",
-    //   required: true
-    // }
-    ,
     {
-      id: 6,
+      id: 3,
+      name: "estudios",
+      type: "file",
+      errorMessage: "Debes ingresar tu reconocimiento",
+      label: "Estudios",
+      accept: "image/jpeg, image/png, image/jpg",
+      required: true
+    },
+    {
+      id: 4,
       name: "contraseña",
       type: "password",
       errorMessage: "La contraseña debe tener 8-16 letras y una mayuscula ",
@@ -92,7 +74,7 @@ const FormProfesionales = () => {
       required: true
     },
     {
-      id: 7,
+      id: 5,
       name: "reafirmarcontraseña",
       type: "password",
       errorMessage: "La contraseña no es la misma",
@@ -145,7 +127,7 @@ const FormProfesionales = () => {
 
     // const data = new FormData(e.target)
     // const registerData = Object.fromEntries(data.entries())
-    navigate('/')
+    navigate('/profesionales')
   }
 
   const loginUser = (e) => {
@@ -153,7 +135,7 @@ const FormProfesionales = () => {
 
     // const data = new FormData(e.target)
     // const registerData = Object.fromEntries(data.entries())
-    navigate('/')
+    navigate('/profesionales')
   }
 
 
@@ -172,22 +154,25 @@ const FormProfesionales = () => {
         <Link to='/auth/user' className='form__register__start__btn'>Usuario</Link>
         <Link to='/auth/profesional' className='form__register__start__btn'>Profesional</Link>
       </div>
-    </div>
-    <form onSubmit={register ? registerUser : loginUser} className='form__register__submit'>
-      <div className="form__register__title">
-        <h1>{ register ? 'Registrate' : 'Iniciar Seción' }</h1>
       </div>
-      <FormButtons closeLoginForm={closeLoginForm} closeRegisterForm={ closeRegisterForm} register={register} login={login} />
-      {
-        register ?
-        inputsRegister.map((input) => (
-          <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} />
-        )) : inputsLogIn.map((input) => (
-          <FormInput key={input.id} {...input} value={valuesLogIn[[input.name]]} onChange={onChangeLogIn} />
-        ))
-      }
-      <button className='btn' type="submit">Submit</button>
-    </form>
+      <div className="form__register__form">
+        <form onSubmit={register ? registerUser : loginUser} className='form__register__submit'>
+          <div className="form__register__title">
+            <h1>{register ? 'Registrate' : 'Iniciar Seción'}</h1>
+            <p>Favor de ingresar correctamente tus datos.</p>
+          </div>
+          <FormButtons closeLoginForm={closeLoginForm} closeRegisterForm={ closeRegisterForm} register={register} login={login} />
+          {
+            register ?
+            inputsRegister.map((input) => (
+              <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} />
+            )) : inputsLogIn.map((input) => (
+              <FormInput key={input.id} {...input} value={valuesLogIn[[input.name]]} onChange={onChangeLogIn} />
+            ))
+          }
+          <button className='btn' type="submit">Submit</button>
+        </form>
+      </div>
   </div>
   )
 }
