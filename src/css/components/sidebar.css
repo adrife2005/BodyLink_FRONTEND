@@ -1,5 +1,5 @@
 .sidebar {
-  padding: 0 5px;
+  padding: 5px;
   position: fixed;
   left: 0;
   height: calc(100svh - 70px);

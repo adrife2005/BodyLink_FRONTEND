@@ -16,7 +16,7 @@ const FormInput = (props) => {
       <div className="FormInput">
         <label>{label}</label>
         <input {...inputProps} onChange={onChange} onBlur={handleFocus} focused={focused.toString() } onFocus={() => inputProps.name === "reafirmarcontraseña" && setFocused(true)} autoComplete='off'/>
-        <span>{errorMessage}</span>
+        <p>{errorMessage}</p>
       </div>
     </>
   )

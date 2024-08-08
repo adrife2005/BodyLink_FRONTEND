@@ -1,7 +1,6 @@
 .form__register {
   display: flex;
   align-items: center;
-  justify-content: center;
   height: 100vh;
 }
 
@@ -10,7 +9,7 @@
   padding: 0 30px;
   border-radius: 10px;
   width: 500px;
-  margin-inline: 10px;
+  margin-inline: auto;
   position: relative;
 }
 
@@ -28,10 +27,63 @@
 }
 
 .form__register__title {
+  margin: 20px 0 25px 0;
+}
+
+.form__register__start {
+  background-color: var(--header-color);
+  height: 100%;
+  width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin: 20px 0 25px 0;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form__register__start__img {
+  margin: 50px 0;
+}
+
+.form__register__start__img img {
+  width: 400px;
+  height: 60px;
+}
+
+.form__register__start__welcome {
+  text-align: center;
+  max-width: 60ch;
+}
+
+.form__register__start__welcome h3 {
+  font-size: var(--text-lg);
+  margin: 0 0 50px 0;
+}
+
+.form__register__start__questions {
+  text-align: center;
+  max-width: 60ch;
+}
+
+.form__register__start__questions {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 50px;
+  margin-inline: 20px;
+}
+
+.form__register__start__btn {
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--clr-default);
+  font-weight: bold;
+  font-size: var(--text-lg);
+  margin-inline: 20px;
 }
 
 /* Sections */

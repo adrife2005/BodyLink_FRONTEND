@@ -2,15 +2,14 @@ import { Link } from 'react-router-dom'
 import '../css/components/formbuttons.css'
 import { useState } from 'react'
 
-const FormButtons = () => {
-  const [user, setUser] = useState(false);
-  const [profesional, setProfesional] = useState(false)
+const FormButtons = (props) => {
+
 
   return (
     <>
       <div className="form__buttons">
-        <button onClick={() => setUser(prev => !prev)} type="button" className='form__loging__btn'>Usuario</button>
-        <button onClick={() => setProfesional(prev => !prev)} type="button" className='form__register__btn'>Profesional</button>
+        <button onClick={props.closeLoginForm} type="button" className={props.login ? 'form__register__btn' : 'form__loging__btn' }>Iniciar Seción</button>
+        <button onClick={props.closeRegisterForm} type="button" className={props.register ? 'form__register__btn' : 'form__loging__btn' }>Registrarse</button>
       </div>
     </>
   )

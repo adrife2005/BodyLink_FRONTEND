@@ -14,11 +14,11 @@
   color: var(--clr-primary);
 }
 
-.FormInput span {
+.FormInput p {
   font-size: var(--text-xs);
   padding: 3px;
   display: none;
-  color: rgb(255, 0, 0);
+  color: red;
 }
 
 .FormInput {
@@ -27,7 +27,7 @@
   width: 100%;
 }
 
-.FormInput input:invalid[focused='true'] ~ span {
+.FormInput input:invalid[focused='true'] ~ p {
   display: block;
 }
 

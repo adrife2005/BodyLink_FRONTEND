@@ -41,7 +41,7 @@ const Sidebar = () => {
             <MdOutlineFoodBank className='sidebar__icon' />
             <span className='sidebar__text'>Dietas</span>
           </NavLink>
-          <NavLink className={linkClass} to='/ejercisios' >
+          <NavLink className={linkClass} to='/auth/user' >
             <RiWeightLine className='sidebar__icon' />
             <span className='sidebar__text'>Ejercisios</span>
           </NavLink>
