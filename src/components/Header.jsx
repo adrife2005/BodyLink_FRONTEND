@@ -4,6 +4,12 @@ import '../css/components/header.css'
 import Sidebar from "./Sidebar";
 
 const Header = () => {
+
+  const changeTheme = () => {
+    document.body.classList.toggle('light__mode')
+  }
+
+
   return (
     <>
     <header className="header">
@@ -12,15 +18,15 @@ const Header = () => {
           <img src="./BodyLink.png" alt="" />
         </div>
         <div className="header__profile">
-          <span className="header__profile__theme">
+          <span className="header__profile__theme" onClick={changeTheme}>
             <LuSunMedium  />
           </span>
           <span className="header__profile__theme">
-          <IoIosNotificationsOutline />
+            <IoIosNotificationsOutline />
           </span>
           <span className="header__profile__line"></span>
           <div className="header__profile__config">
-            <img src="./meFace.jpg" alt="Profile" />
+            <img src="./me.jpg" alt="Profile" />
           </div>
         </div>
       </div>

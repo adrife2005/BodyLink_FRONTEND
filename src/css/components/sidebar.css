@@ -1,5 +1,5 @@
 .sidebar {
-  padding: 0 5px;
+  padding: 5px;
   position: fixed;
   left: 0;
   height: calc(100svh - 70px);
@@ -46,6 +46,14 @@
 .sidebar__home__container .sidebar__icon {
   font-size: var(--text-2xl);
   margin-right: 15px;
+}
+
+.sidebar__logout {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  width: 100%;
 }
 
 /* Sections */

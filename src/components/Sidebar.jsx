@@ -6,6 +6,8 @@ import { BsPersonVcard } from "react-icons/bs";
 import { MdOutlineFoodBank } from "react-icons/md";
 import { RiWeightLine } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
+
 
 
 const Sidebar = () => {
@@ -13,7 +15,11 @@ const Sidebar = () => {
   const linkClass = ({ isActive }) => (
     !isActive
     ? 'sidebar__home__container'
-    : 'sidebar__home__container sidebar__home__container__active')
+      : 'sidebar__home__container sidebar__home__container__active')
+  
+  const deleteUser = () => {
+    console.log("Deleted..");
+  }
 
   return (
     <header className='sidebar'>
@@ -44,6 +50,12 @@ const Sidebar = () => {
           <NavLink className={linkClass} to='/ejercisios' >
             <RiWeightLine className='sidebar__icon' />
             <span className='sidebar__text'>Ejercisios</span>
+          </NavLink>
+        </div>
+        <div className="sidebar__logout">
+          <NavLink className={linkClass} to='/auth/user' onClick={deleteUser} >
+            <IoLogOutOutline className='sidebar__icon'/>
+            <span className='sidebar__text'>Log Out</span>
           </NavLink>
         </div>
       </div>

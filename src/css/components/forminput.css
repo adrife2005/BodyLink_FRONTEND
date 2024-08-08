@@ -1,0 +1,36 @@
+.FormInput input {
+  padding: 8px 12px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  outline: 1px solid var(--bg-color);
+  background-color: inherit;
+  border: none;
+  color: var(--clr-default);
+  font-weight: 500;
+}
+
+.FormInput label {
+  font-size: var(--text-sm);
+  color: var(--clr-primary);
+}
+
+.FormInput p {
+  font-size: var(--text-xs);
+  padding: 3px;
+  display: none;
+  color: red;
+}
+
+.FormInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.FormInput input:invalid[focused='true'] ~ p {
+  display: block;
+}
+
+.FormInput input:invalid[focused='true'] {
+  outline: 1px solid red;
+}
