@@ -53,12 +53,13 @@
 }
 
 .form__register__start__img {
-  margin: 50px 0;
+  box-shadow: 0 12px 40px -4px rgb(15, 23, 42);
+  padding: 40px;
+  margin: 0 0 50px 0;
 }
 
 .form__register__start__img img {
-  width: 400px;
-  height: 60px;
+  width: 200px;
 }
 
 .form__register__start__welcome {

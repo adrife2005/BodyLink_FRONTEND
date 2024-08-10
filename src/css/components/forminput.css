@@ -28,7 +28,7 @@
 }
 
 .FormInput input:invalid[focused='true'] ~ p {
-  display: block;
+  display: flex;
 }
 
 .FormInput input:invalid[focused='true'] {

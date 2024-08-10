@@ -168,6 +168,7 @@ const FormUser = () => {
     console.log('Successfully Added the data');
     navigate('/')
   }
+  
 
 
 
@@ -175,12 +176,12 @@ const FormUser = () => {
     <div className="form__register">
       <div className="form__register__start">
         <div className="form__register__start__img">
-          <img src="../../BodyLink.png" alt="logo" />
+          <img src="../../BodyLinkForm.png" alt="logo" />
         </div>
         <div className="form__register__start__welcome">
           <h3>
-            Bienvenido a BodyLink, aqui podras encontrar planes de nutrición y entrenamiento
-            por parte de profesionales de nutrición y deporte.
+            Bienvenido ala plataforma BodyLink.  Aqui podras encontrar planes de nutrición y entrenamiento
+            por parte de profesionales certificados en las areas de nutrición y deporte.
           </h3>
         </div>
         <div className="form__register__start__questions">
