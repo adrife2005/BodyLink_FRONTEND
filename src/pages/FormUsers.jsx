@@ -168,7 +168,7 @@ const FormUser = () => {
     console.log('Successfully Added the data');
     navigate('/')
   }
-  
+
 
 
 

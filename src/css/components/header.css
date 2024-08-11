@@ -38,6 +38,24 @@
   position: relative;
 }
 
+.form__updateInfo__open {
+  position: absolute;
+  right: 0px;
+  top: 55px;
+  width: 300px;
+  height: 50svh;
+  background-color: var(--header-color);
+  box-shadow: var(--sidebar-shadow);
+  border-radius: 10px;
+}
+
+.form__updateInfo__open {
+}
+
+.form__updateInfo__close {
+  display: none;
+}
+
 .header__profile__line {
   height: 35px;
   border: 1px solid var(--bg-color);
@@ -45,8 +63,7 @@
 }
 
 .header__profile__config img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
   border-radius: 100%;
 }
 
