@@ -180,7 +180,7 @@ const FormUser = () => {
         </div>
         <div className="form__register__start__welcome">
           <h3>
-            Bienvenido ala plataforma BodyLink.  Aqui podras encontrar planes de nutrición y entrenamiento
+            Bienvenido a la plataforma BodyLink.  Aqui podras encontrar planes de nutrición y entrenamiento
             por parte de profesionales certificados en las areas de nutrición y deporte.
           </h3>
         </div>

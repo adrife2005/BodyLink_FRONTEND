@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section className='hero'>
       <div className='container'>
-        WASSUP
+        WASSUPNIIGGA
       </div>
     </section>
   )

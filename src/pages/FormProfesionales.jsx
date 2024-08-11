@@ -176,7 +176,7 @@ const FormProfesionales = () => {
       </div>
       <div className="form__register__start__welcome">
         <h3>
-          Bienvenido ala plataforma BodyLink. Aqui podras ofrecer tus planes de nutrición y entrenamiento a los usuarios.
+          Bienvenido a la plataforma BodyLink. Aqui podras ofrecer tus planes de nutrición y entrenamiento a los usuarios.
         </h3>
       </div>
       <div className="form__register__start__questions">

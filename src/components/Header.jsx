@@ -20,7 +20,9 @@ const Header = () => {
     document.body.classList.toggle('light__mode')
   }
 
-  const updateUserInfo = () => {
+  const updateUserInfo = (e) => {
+    e.preventDefault()
+    console.log(valuesUpdate);
     console.log("info updated");
   }
 
@@ -28,6 +30,7 @@ const Header = () => {
     setValuesUpdate({ ...valuesUpdate , [e.target.name]: e.target.value});
   }
 
+  console.log(profileImg);
 
   return (
     <>
@@ -45,21 +48,36 @@ const Header = () => {
           </span>
           <span className="header__profile__line"></span>
           <div  className="header__profile__config">
-              <img onClick={() => setOpenForm(prev => !prev)} src="./placeholder.webp" alt="Profile" />
+              <img onClick={() => setOpenForm(prev => !prev)} src={profileImg ? profileImg : "./placeholder.webp"} alt="Profile" />
               <div className={openForm ? "form__updateInfo__open" : "form__updateInfo__close" } >
-                <form  onSubmit={updateUserInfo}>
-                  <div className="form__updateIngo__controller">
-                    <img src="./placeholder.webp" alt="Profile" />
-                    <label className="form__updateIngo__label" htmlFor="infoImg">Agregar foto de perfil</label>
-                    <input id="infoImg"  type="image" accept="image/png, image/jpg" value={profileImg} onChange={(e) => setProfileImg(e.target.value)}/>
+                <form  onSubmit={updateUserInfo} className="form__updateInfo__wrapper">
+                  <div className="form__img__controller">
+                    <img className="form__img__img" src={profileImg ? profileImg : "./placeholder.webp"} alt="Profile" />
+                    <label className="form__info__label" htmlFor="infoImg">{profileImg ? "Actualizar Foto" : "Agregar Foto de Perfil" }</label>
+                    <input id="infoImg"  type="file" onChange={(e) => setProfileImg(e.target.files[0].name)}/>
                   </div>
-                  <div className="form__updateIngo__controller">
-                    <label className="form__updateIngo__label" htmlFor="name">Nombre Completo</label>
-                    <input type="text" name="name" id="name"  value={valuesUpdate.name} onChange={onChange}/>
+                  <div className="form__info__controller">
+                    <label className="form__info__label" htmlFor="name">Nombre</label>
+                    <input type="text" name="name" id="name"  value={valuesUpdate.name} onChange={onChange} autoComplete="off"/>
                   </div>
-                  <div className="form__updateIngo__controller">
-                    <label className="form__updateIngo__label" htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email"  value={valuesUpdate.email} onChange={onChange}/>
+                  <div className="form__info__controller">
+                    <label className="form__info__label" htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email"  value={valuesUpdate.email} onChange={onChange} autoComplete="off"/>
+                  </div>
+                  <div className="form__info__controller">
+                    <label className="form__info__label" htmlFor="edad">Edad</label>
+                    <input type="number" id="edad" name="edad"  value={valuesUpdate.edad} onChange={onChange} autoComplete="off"/>
+                  </div>
+                  <div className="form__info__controller">
+                    <label className="form__info__label" htmlFor="altura">Altura</label>
+                    <input type="number" id="altura" name="altura"  value={valuesUpdate.altura} onChange={onChange} autoComplete="off"/>
+                  </div>
+                  <div className="form__info__controller">
+                    <label className="form__info__label" htmlFor="peso">Peso</label>
+                    <input type="number" id="peso" name="peso"  value={valuesUpdate.peso} onChange={onChange} autoComplete="off"/>
+                  </div>
+                  <div className="form__info__controller">
+                    <button type="submit" className="btn__update">Actualizar Datos</button>
                   </div>
                 </form>
               </div>

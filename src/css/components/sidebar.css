@@ -48,6 +48,10 @@
   margin-right: 15px;
 }
 
+.sidebar__home__container {
+  font-weight: 500;
+}
+
 .sidebar__logout {
   position: absolute;
   bottom: 0;
