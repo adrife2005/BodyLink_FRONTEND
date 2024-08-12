@@ -2,6 +2,17 @@
   padding-left: 275px;
 }
 
+.nutricionista__container {
+  margin-inline: auto;
+  padding: 15px;
+}
+
+.nutricionistas__sort__search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 /* Sections */
 
 /* 2xl */

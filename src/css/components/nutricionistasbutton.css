@@ -1,0 +1,108 @@
+.nutricionistas__sort__buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 5px;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.nutricionistas__sort__conf {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: var(--sidebar-shadow);
+  outline: 1px solid var(--header-color);
+  font-weight: 600;
+  position: relative;
+}
+
+.nutricionistas__sort__conf:hover .nutricionistas__experiencia__menu {
+  position: absolute;
+  display: flex;
+  visibility: visible;
+  top: 50px;
+  right: -25px;
+  box-shadow: var(--sidebar-shadow);
+  outline: 1px solid var(--header-color);
+  border-radius: 5px;
+}
+
+.nutricionistas__sort__conf .nutricionistas__experiencia__menu {
+  visibility: collapse;
+  position: absolute;
+  display: flex;
+  top: 50px;
+  right: 0px;
+  box-shadow: var(--sidebar-shadow);
+  outline: 1px solid var(--header-color);
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.nutricionistas__experiencia__menu .nutrionistas__experiencia__menu__buttons {
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.nutricionistas__experiencia__menu
+  .nutrionistas__experiencia__menu__buttons:hover {
+  background-color: var(--header-color);
+}
+
+.nutricionistas__sort__conf:hover .nutricionistas__costo__menu {
+  position: absolute;
+  display: flex;
+  visibility: visible;
+  top: 50px;
+  right: -60px;
+  box-shadow: var(--sidebar-shadow);
+  outline: 1px solid var(--header-color);
+  border-radius: 5px;
+}
+
+.nutricionistas__sort__conf .nutricionistas__costo__menu {
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  top: 50px;
+  right: 0px;
+  box-shadow: var(--sidebar-shadow);
+  outline: 1px solid var(--header-color);
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.nutricionistas__costo__menu .nutricionistas__costo__menu__buttons {
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.nutricionistas__costo__menu .nutricionistas__costo__menu__buttons:hover {
+  background-color: var(--header-color);
+}
+
+/* Sections */
+
+/* 2xl */
+/* @media (max-width: 1536px) {
+} */
+
+/* xl */
+/* @media (max-width: 1280px) {
+} */
+
+/* lg */
+/* @media (max-width: 1024px) {
+} */
+
+/* md */
+/* @media (max-width: 768px) {
+} */
+
+/* sm */
+/* @media (max-width: 640px) {
+} */
+
+/* xs */
+/* @media (max-width: 475px) {
+} */
