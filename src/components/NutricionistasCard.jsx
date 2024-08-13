@@ -1,3 +1,4 @@
+import '../css/components/nutricionistascard.css'
 
 const NutricionistasCard = () => {
   return (

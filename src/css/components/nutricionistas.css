@@ -13,6 +13,17 @@
   margin-bottom: 20px;
 }
 
+.nutricionistas__sort {
+  margin-bottom: 75px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nutricionistas__profesionals {
+
+}
+
 /* Sections */
 
 /* 2xl */

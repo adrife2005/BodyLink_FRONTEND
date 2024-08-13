@@ -2,6 +2,7 @@ import '../css/components/nutricionistas.css'
 import { AiFillStar } from "react-icons/ai";
 import NutricionistasButtons from '../components/NutricionistasButtons';
 import NutricionistasInput from '../components/NutricionistasInput';
+import NutricionistasCard from '../components/NutricionistasCard';
 
 
 const Nutricionistas = () => {
@@ -336,6 +337,9 @@ const Nutricionistas = () => {
               <div className="nutricionistas__sort__buttons">
                 <NutricionistasButtons/>
               </div>
+            </div>
+            <div className="nutricionistas__profesionals">
+              <NutricionistasCard/>
             </div>
         </div>
       </section>
