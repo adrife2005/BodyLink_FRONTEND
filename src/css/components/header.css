@@ -5,6 +5,12 @@
   border-bottom: 3px solid var(--bg-color);
 }
 
+.header__active {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .header__container {
   max-width: 1900px;
   margin-inline: auto;
@@ -33,21 +39,109 @@
   cursor: pointer;
 }
 
+.header__profile__config img {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  outline: 1px solid var(--bg-color);
+}
+
 .header__profile__config {
   cursor: pointer;
   position: relative;
+}
+
+.form__updateInfo__open {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  width: 340px;
+  background-color: var(--header-color);
+  box-shadow: var(--header-shadow);
+  border-radius: 10px;
+}
+
+.form__updateInfo__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+
+.form__img__controller {
+  border-radius: 10px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--sidebar-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__img__controller .form__img__img {
+  width: 75px;
+  height: 75px;
+  outline: 1px solid var(--bg-color);
+}
+
+.form__img__controller .form__info__label {
+  padding: 10px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.form__info__controller {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form__info__controller label {
+  font-size: var(--text-sm);
+  color: var(--clr-primary);
+}
+
+.form__info__controller input {
+  padding: 6px 12px;
+  border-radius: 5px;
+  outline: 1px solid var(--bg-color);
+  background-color: inherit;
+  border: none;
+  color: var(--clr-default);
+  font-weight: 500;
+}
+
+.btn__update {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--clr-default);
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: var(--text-sm);
+}
+
+#infoImg {
+  display: none;
+}
+
+.form__updateInfo__close {
+  display: none;
 }
 
 .header__profile__line {
   height: 35px;
   border: 1px solid var(--bg-color);
   margin: 0 10px;
-}
-
-.header__profile__config img {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
 }
 
 /* Sections */

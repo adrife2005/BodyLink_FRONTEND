@@ -1,0 +1,49 @@
+.nutricionistas {
+  padding-left: 275px;
+}
+
+.nutricionista__container {
+  margin-inline: auto;
+  padding: 15px;
+}
+
+.nutricionistas__sort__search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nutricionistas__profesionals {
+  padding-left: 10px;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Sections */
+
+/* 2xl */
+/* @media (max-width: 1536px) {
+} */
+
+/* xl */
+/* @media (max-width: 1280px) {
+} */
+
+/* lg */
+/* @media (max-width: 1024px) {
+} */
+
+/* md */
+/* @media (max-width: 768px) {
+} */
+
+/* sm */
+/* @media (max-width: 640px) {
+} */
+
+/* xs */
+/* @media (max-width: 475px) {
+} */

@@ -1,0 +1,59 @@
+.nutricionistas__input__search {
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nutricionistas__input__search input {
+  border: none;
+  outline: 1px solid var(--header-color);
+  background-color: inherit;
+  border-start-start-radius: 5px;
+  border-end-start-radius: 5px;
+  padding: 7px 14px;
+  color: var(--clr-default);
+  width: 300px;
+}
+
+.nutricionistas__input__search input::placeholder {
+  color: var(--clr-default);
+}
+
+.nutricionistas__input__wrapper {
+  padding: 8px 14px;
+  outline: 1px solid var(--header-color);
+  border-start-end-radius: 5px;
+  border-end-end-radius: 5px;
+}
+
+.nutricionistas__input__search .nutricionistas__input__icon {
+  font-size: var(--text-xl);
+  color: var(--clr-default);
+}
+
+/* Sections */
+
+/* 2xl */
+/* @media (max-width: 1536px) {
+} */
+
+/* xl */
+/* @media (max-width: 1280px) {
+} */
+
+/* lg */
+/* @media (max-width: 1024px) {
+} */
+
+/* md */
+/* @media (max-width: 768px) {
+} */
+
+/* sm */
+/* @media (max-width: 640px) {
+} */
+
+/* xs */
+/* @media (max-width: 475px) {
+} */

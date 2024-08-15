@@ -1,0 +1,92 @@
+.nutricionistas__card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+  background-color: var(--header-color);
+  box-shadow: var(--sidebar-shadow);
+  padding: 15px;
+  cursor: pointer;
+}
+
+.nutricionista__card__img {
+  max-width: 100%;
+}
+
+.nutricionista__card__img img {
+  border-radius: 10px;
+  width: 100%;
+  height: 150px;
+  margin-inline: auto;
+}
+
+.nutricionista__card__conf {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--sidebar-shadow);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.nutricionista__card__title {
+  text-align: center;
+}
+
+.nutricionista__card__title span {
+  color: var(--clr-default);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.nutriconista__card__configuration {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nutriconista__card__configuration__icon {
+  font-size: var(--text-xl);
+}
+
+.nutricionista__card__reviews {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nutricionista__card__estrellas {
+  display: flex;
+  color: rgba(255, 255, 0, 0.808);
+}
+
+.nutricionista__card__reviews__count {
+  font-size: var(--text-sm);
+}
+
+/* Sections */
+
+/* 2xl */
+/* @media (max-width: 1536px) {
+} */
+
+/* xl */
+/* @media (max-width: 1280px) {
+} */
+
+/* lg */
+/* @media (max-width: 1024px) {
+} */
+
+/* md */
+/* @media (max-width: 768px) {
+} */
+
+/* sm */
+/* @media (max-width: 640px) {
+} */
+
+/* xs */
+/* @media (max-width: 475px) {
+} */
