@@ -14,7 +14,6 @@ const Header = () => {
     altura: "",
     peso: ""
   })
-  
 
   const changeTheme = () => {
     document.body.classList.toggle('light__mode')
@@ -30,11 +29,9 @@ const Header = () => {
     setValuesUpdate({ ...valuesUpdate , [e.target.name]: e.target.value});
   }
 
-  console.log(profileImg);
-
   return (
     <>
-    <header className="header">
+    <header  className="header header__active">
       <div className="header__container">
         <div className="header__logo">
           <img src="./BodyLink.png" alt="" />

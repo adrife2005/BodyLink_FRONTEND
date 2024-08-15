@@ -14,10 +14,12 @@
 }
 
 .nutricionistas__profesionals {
+  padding-left: 10px;
   margin-top: 100px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 /* Sections */

@@ -5,6 +5,12 @@
   border-bottom: 3px solid var(--bg-color);
 }
 
+.header__active {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
 .header__container {
   max-width: 1900px;
   margin-inline: auto;
