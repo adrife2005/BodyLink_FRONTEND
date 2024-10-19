@@ -4,16 +4,36 @@ import '../css/components/header.css'
 import Sidebar from "./Sidebar";
 import { useState } from "react";
 
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error)
+    };
+  })
+}
+
 const Header = () => {
   const [openForm, setOpenForm] = useState(false);
   const [profileImg, setProfileImg] = useState('');
   const [valuesUpdate, setValuesUpdate] = useState({
     name: "",
     email: "",
-    edad: "",
-    altura: "",
-    peso: ""
+    age: "",
+    height: "",
+    weight: ""
   })
+
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    setProfileImg(base64);
+  }
+
 
   const changeTheme = () => {
     document.body.classList.toggle('light__mode')
@@ -21,8 +41,6 @@ const Header = () => {
 
   const updateUserInfo = (e) => {
     e.preventDefault()
-    console.log(valuesUpdate);
-    console.log("info updated");
   }
 
   const onChange = (e) => {
@@ -44,14 +62,14 @@ const Header = () => {
             <IoIosNotificationsOutline />
           </span>
           <span className="header__profile__line"></span>
-          <div  className="header__profile__config">
-              <img onClick={() => setOpenForm(prev => !prev)} src={profileImg ? profileImg : "./placeholder.webp"} alt="Profile" />
+          <div className="header__profile__config">
+              <img onClick={() => setOpenForm(prev => !prev)} src={profileImg || "./placeholder.webp"} alt="Profile" />
               <div className={openForm ? "form__updateInfo__open" : "form__updateInfo__close" } >
                 <form  onSubmit={updateUserInfo} className="form__updateInfo__wrapper">
                   <div className="form__img__controller">
                     <img className="form__img__img" src={profileImg ? profileImg : "./placeholder.webp"} alt="Profile" />
                     <label className="form__info__label" htmlFor="infoImg">{profileImg ? "Actualizar Foto" : "Agregar Foto de Perfil" }</label>
-                    <input id="infoImg"  type="file" onChange={(e) => setProfileImg(e.target.files[0].name)}/>
+                    <input id="infoImg"  type="file" accept=".jpeg, .png, .jpg" onChange={(e) => handleFileUpload(e)}/>
                   </div>
                   <div className="form__info__controller">
                     <label className="form__info__label" htmlFor="name">Nombre</label>
