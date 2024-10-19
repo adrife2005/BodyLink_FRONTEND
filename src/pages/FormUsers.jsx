@@ -169,9 +169,6 @@ const FormUser = () => {
     navigate('/')
   }
 
-
-
-
   return (
     <div className="form__register">
       <div className="form__register__start">

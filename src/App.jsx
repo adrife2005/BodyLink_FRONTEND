@@ -15,7 +15,7 @@ function App() {
     createRoutesFromElements(
       <>
       <Route path="/" element={<HeaderLayout/>} >
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path='/personal' element={<Nutricionista />} />
           <Route path='/nutricionistas' element={<Nutricionistas />} />
           <Route path='/comunidad' element={<Comunidad />} />

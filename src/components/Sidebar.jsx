@@ -16,7 +16,7 @@ const Sidebar = () => {
     !isActive
     ? 'sidebar__home__container'
       : 'sidebar__home__container sidebar__home__container__active')
-  
+
   const deleteUser = () => {
     console.log("Deleted..");
   }
