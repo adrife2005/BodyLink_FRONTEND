@@ -1,5 +1,4 @@
 import '../css/components/nutricionistas.css'
-import { AiFillStar } from "react-icons/ai";
 import NutricionistasButtons from '../components/NutricionistasButtons';
 import NutricionistasInput from '../components/NutricionistasInput';
 import NutricionistasCard from '../components/NutricionistasCard';

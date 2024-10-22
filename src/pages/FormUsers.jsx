@@ -4,8 +4,12 @@ import { useRef, useState } from 'react'
 import FormButtons from '../components/FormButtons'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import getToken from '../assets/getToken'
 
 const FormUser = () => {
+  const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user' : 'Nothing here yet';
+
   const [valuesRegister, setValuesRegister] = useState({
     name: "",
     email: "",
@@ -168,9 +172,6 @@ const FormUser = () => {
     console.log('Successfully Added the data');
     navigate('/')
   }
-
-
-
 
   return (
     <div className="form__register">

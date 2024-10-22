@@ -40,10 +40,10 @@
 }
 
 .header__profile__config img {
+  object-fit: cover;
   width: 45px;
   height: 45px;
   border-radius: 100%;
-  outline: 1px solid var(--bg-color);
 }
 
 .header__profile__config {
@@ -81,9 +81,8 @@
 }
 
 .form__img__controller .form__img__img {
-  width: 75px;
-  height: 75px;
-  outline: 1px solid var(--bg-color);
+  width: 125px;
+  height: 125px;
 }
 
 .form__img__controller .form__info__label {
