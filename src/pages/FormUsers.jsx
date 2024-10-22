@@ -5,7 +5,10 @@ import FormButtons from '../components/FormButtons'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import getToken from '../assets/getToken'
+import { setToken, getToken } from '../assets/confTokens.js'
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/ReactToastify.css'
+import { toast } from 'react-toastify'
 
 const FormUser = () => {
   const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user' : 'Nothing here yet';
@@ -13,11 +16,11 @@ const FormUser = () => {
   const [valuesRegister, setValuesRegister] = useState({
     name: "",
     email: "",
-    edad: "",
-    altura: "",
-    peso: "",
-    contraseña: "",
-    reafirmarcontraseña: "",
+    password: "",
+    confirmPassword: "",
+    age: "",
+    height: "",
+    weight: ""
   })
 
   const [valuesLogIn, setValuesLogIn] = useState({
@@ -46,7 +49,7 @@ const FormUser = () => {
   const inputsInfo = [
     {
       id: 3,
-      name: "edad",
+      name: "age",
       type: "number",
       errorMessage: "Debes ingresar tu edad",
       label: "Edad",
@@ -55,7 +58,7 @@ const FormUser = () => {
     ,
     {
       id: 4,
-      name: "altura",
+      name: "height",
       type: "text",
       errorMessage: "Debes ingresar tu estatura",
       label: "Estatura",
@@ -64,9 +67,9 @@ const FormUser = () => {
     ,
     {
       id: 5,
-      name: "peso",
+      name: "weight",
       type: "number",
-      errorMessage: "Debes ingresar tu peso",
+      errorMessage: "Debes ingresar tu weight",
       label: "Peso",
       required: true
     }
@@ -92,7 +95,7 @@ const FormUser = () => {
     },
     {
       id: 6,
-      name: "contraseña",
+      name: "password",
       type: "password",
       errorMessage: "La contraseña debe tener 8-16 letras y una mayuscula ",
       label: "Contraseña",
@@ -101,11 +104,11 @@ const FormUser = () => {
     },
     {
       id: 7,
-      name: "reafirmarcontraseña",
+      name: "confirmPassword",
       type: "password",
       errorMessage: "La contraseña no es la misma",
       label: "Confirmar Contraseña",
-      pattern: valuesRegister.contraseña,
+      pattern: valuesRegister.password,
       required: true
     }
   ]
@@ -151,30 +154,38 @@ const FormUser = () => {
   const registerUser = (e) => {
     e.preventDefault()
 
-    // const data = new FormData(e.target)
-    // const registerData = Object.fromEntries(data.entries())
-
     setInfoUser((prev) => !prev);
   }
 
   const loginUser = (e) => {
     e.preventDefault()
 
+    toast.success('YWESSSS')
+    console.log(toast.success('yeess'));
     // const data = new FormData(e.target)
     // const registerData = Object.fromEntries(data.entries())
-    navigate('/')
   }
 
-  const registerFullUser = (e) => {
+  const registerFullUser = async (e) => {
     e.preventDefault();
 
-    console.log(valuesRegister);
-    console.log('Successfully Added the data');
-    navigate('/')
+    const newUser = {
+      ...valuesRegister
+    }
+
+    try {
+      const res = await axios.post(API_URI, newUser);
+      setToken(await res.data.token)
+      toast.success(`Welcome ${await res.data.name} to your dashboard`)
+      navigate('/')
+    } catch (error) {
+      toast.error('Something went wrong')
+    }
   }
 
   return (
     <div className="form__register">
+      <ToastContainer />
       <div className="form__register__start">
         <div className="form__register__start__img">
           <img src="../../BodyLinkForm.png" alt="logo" />

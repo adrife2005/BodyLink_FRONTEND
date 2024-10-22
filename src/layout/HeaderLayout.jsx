@@ -2,6 +2,9 @@ import { Outlet } from "react-router-dom"
 import Header from "../components/Header"
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/ReactToastify.css'
+
 
 const HeaderLayout = () => {
   const navigate = useNavigate();
@@ -16,7 +19,8 @@ const HeaderLayout = () => {
   return (
     <>
       <Header/>
-      <Outlet/>
+      <Outlet />
+      <ToastContainer />
     </>
   )
 }
