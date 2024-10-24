@@ -176,8 +176,8 @@ const FormUser = () => {
     try {
       const res = await axios.post(API_URI, newUser);
       setToken(await res.data.token)
-      toast.success(`Welcome ${await res.data.name} to your dashboard`)
       navigate('/')
+      toast.success(`Welcome ${await res.data.name} to your dashboard`)
     } catch (error) {
       toast.error('Something went wrong')
     }
