@@ -12,6 +12,7 @@ import { toast } from 'react-toastify'
 
 const FormUser = () => {
   const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user' : 'Nothing here yet';
+  const API_URI_LOGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user/login' : 'Nothing here yet';
 
   const [valuesRegister, setValuesRegister] = useState({
     name: "",
@@ -25,8 +26,8 @@ const FormUser = () => {
 
   const [valuesLogIn, setValuesLogIn] = useState({
     email: "",
-    contraseña: "",
-    reafirmarcontraseña: "",
+    password: "",
+    confirmPassword: "",
   })
 
 
@@ -125,7 +126,7 @@ const FormUser = () => {
     },
     {
       id: 2,
-      name: "contraseña",
+      name: "password",
       type: "password",
       errorMessage: "La contraseña debe tener 8-16 letras y una mayuscula ",
       label: "Contraseña",
@@ -134,7 +135,7 @@ const FormUser = () => {
     },
     {
       id: 3,
-      name: "reafirmarcontraseña",
+      name: "confirmPassword",
       type: "password",
       errorMessage: "La contraseña no es la misma",
       label: "Confirmar Contraseña",
@@ -157,13 +158,21 @@ const FormUser = () => {
     setInfoUser((prev) => !prev);
   }
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault()
 
-    toast.success('YWESSSS')
-    console.log(toast.success('yeess'));
-    // const data = new FormData(e.target)
-    // const registerData = Object.fromEntries(data.entries())
+    const loginUser = {
+      ...valuesLogIn
+    }
+
+    try {
+      const res = axios.post(API_URI_LOGIN, loginUser)
+      localStorage.setItem('session', JSON.stringify((await res).data.token));
+      navigate('/')
+      toast.success(`Welcome ${res.data.name} to your dashboard`)
+    } catch (error) {
+      toast.error('Something went wrong when trying to login')
+    }
   }
 
   const registerFullUser = async (e) => {
@@ -175,17 +184,18 @@ const FormUser = () => {
 
     try {
       const res = await axios.post(API_URI, newUser);
+      toast.success(`Welcome ${await res.data.name} to your dashboard`)
       setToken(await res.data.token)
       navigate('/')
-      toast.success(`Welcome ${await res.data.name} to your dashboard`)
     } catch (error) {
       toast.error('Something went wrong')
     }
   }
 
   return (
+    <>
+     <ToastContainer />
     <div className="form__register">
-      <ToastContainer />
       <div className="form__register__start">
         <div className="form__register__start__img">
           <img src="../../BodyLinkForm.png" alt="logo" />
@@ -227,6 +237,7 @@ const FormUser = () => {
         </form>
       </div>
     </div>
+    </>
   )
 }
 

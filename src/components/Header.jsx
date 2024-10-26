@@ -7,18 +7,18 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { getToken } from "../assets/confTokens";
 
-// function convertToBase64(file) {
-//   return new Promise((resolve, reject) => {
-//     const fileReader = new FileReader();
-//     fileReader.readAsDataURL(file);
-//     fileReader.onload = () => {
-//       resolve(fileReader.result);
-//     };
-//     fileReader.onerror = (error) => {
-//       reject(error)
-//     };
-//   })
-// }
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error)
+    };
+  })
+}
 
 const Header = () => {
 
@@ -35,23 +35,21 @@ const Header = () => {
 
   const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user/' : 'Nothing here yet';
 
-  useEffect(() => {
-    const goals = async () => {
-      try {
-        const res = await axios.get(API_URI, getToken())
-        setValuesUpdate(res.data);
-      } catch (error) {
-        toast.error('Something went wrong when getting the user')
-      }
-    }
+  const getUser = async () => {
+    setOpenForm((prev) => !prev);
 
-    goals();
-  }, [])
+    try {
+      const res = await axios.get(API_URI, getToken())
+      setValuesUpdate(res.data);
+    } catch (error) {
+      toast.error('Something went wrong when getting the user')
+    }
+  }
 
   const handleFileUpload = async (e) => {
-    const file = e.target.files[0].name;
-    // const base64 = await convertToBase64(file);
-    setValuesUpdate({ ...valuesUpdate, [e.target.name]: file });
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    setValuesUpdate({ ...valuesUpdate, [e.target.name]: base64 });
     await getId()
   }
 
@@ -100,7 +98,7 @@ const Header = () => {
           </span>
           <span className="header__profile__line"></span>
           <div className="header__profile__config">
-              <img onClick={() => setOpenForm(prev => !prev)} src={valuesUpdate.profile || "./placeholder.webp"} alt="Profile" />
+              <img onClick={() => getUser()} src={valuesUpdate.profile || "./placeholder.webp"} alt="Profile" />
               <div className={openForm ? "form__updateInfo__open" : "form__updateInfo__close" } >
                 <form  onSubmit={updateUserInfo} className="form__updateInfo__wrapper">
                   <div className="form__img__controller">
