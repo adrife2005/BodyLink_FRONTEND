@@ -9,6 +9,7 @@ import { setToken, getToken } from '../assets/confTokens.js'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/ReactToastify.css'
 import { toast } from 'react-toastify'
+import Loading from '../components/Loading.jsx'
 
 const FormUser = () => {
   const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user' : 'Nothing here yet';
@@ -30,6 +31,7 @@ const FormUser = () => {
     confirmPassword: "",
   })
 
+  const [isLoading, setIsLoading] = useState(false);
 
   const [register, setRegister] = useState(true);
   const [login, setLogin] = useState(false);
@@ -161,6 +163,8 @@ const FormUser = () => {
   const loginUser = async (e) => {
     e.preventDefault()
 
+    setIsLoading(true)
+
     const loginUser = {
       ...valuesLogIn
     }
@@ -170,13 +174,17 @@ const FormUser = () => {
       localStorage.setItem('session', JSON.stringify((await res).data.token));
       navigate('/')
       toast.success(`Welcome ${res.data.name} to your dashboard`)
+      setIsLoading(false)
     } catch (error) {
       toast.error('Something went wrong when trying to login')
+      setIsLoading(false)
     }
   }
 
   const registerFullUser = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     const newUser = {
       ...valuesRegister
@@ -184,11 +192,13 @@ const FormUser = () => {
 
     try {
       const res = await axios.post(API_URI, newUser);
-      toast.success(`Welcome ${await res.data.name} to your dashboard`)
+      setIsLoading(false);
+      toast.success(`Welcome ${res.data.name} to your dashboard`)
       setToken(await res.data.token)
       navigate('/')
     } catch (error) {
       toast.error('Something went wrong')
+      setIsLoading(false);
     }
   }
 
@@ -233,7 +243,7 @@ const FormUser = () => {
               inputsInfo.map((input) => (
                 <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} /> ))
           }
-          <button className='btn' type="submit">Submit</button>
+            <button className='btn' type="submit">{ isLoading ? <Loading/> : 'Submit' }</button>
         </form>
       </div>
     </div>

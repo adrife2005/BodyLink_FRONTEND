@@ -21,6 +21,7 @@ function convertToBase64(file) {
 }
 
 const Header = () => {
+  const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user/' : 'Nothing here yet';
 
   const [openForm, setOpenForm] = useState(false);
   const [valuesUpdate, setValuesUpdate] = useState({
@@ -33,18 +34,22 @@ const Header = () => {
     _id: ""
   })
 
-  const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user/' : 'Nothing here yet';
-
-  const getUser = async () => {
-    setOpenForm((prev) => !prev);
-
-    try {
-      const res = await axios.get(API_URI, getToken())
-      setValuesUpdate(res.data);
-    } catch (error) {
-      toast.error('Something went wrong when getting the user')
+  useEffect(() => {
+    if (!localStorage.getItem('session')) {
+      return undefined;
     }
-  }
+
+    const getUser = async () => {
+      try {
+        const res = await axios.get(API_URI, getToken())
+        setValuesUpdate(res.data);
+      } catch (error) {
+        toast.error('Something went wrong when getting the user')
+      }
+    }
+
+    return getUser;
+  }, [])
 
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
@@ -52,7 +57,6 @@ const Header = () => {
     setValuesUpdate({ ...valuesUpdate, [e.target.name]: base64 });
     await getId()
   }
-
 
   const updateProfileUser = async (id) => {
     try {
@@ -62,7 +66,6 @@ const Header = () => {
       toast.error('Something went wrong went you try tu update your info')
     }
   }
-
 
   const changeTheme = () => {
     document.body.classList.toggle('light__mode')
@@ -98,13 +101,13 @@ const Header = () => {
           </span>
           <span className="header__profile__line"></span>
           <div className="header__profile__config">
-              <img onClick={() => getUser()} src={valuesUpdate.profile || "./placeholder.webp"} alt="Profile" />
+              <img onClick={() => setOpenForm((prev) => !prev)} src={valuesUpdate.profile || "./placeholder.webp"} alt="Profile" />
               <div className={openForm ? "form__updateInfo__open" : "form__updateInfo__close" } >
                 <form  onSubmit={updateUserInfo} className="form__updateInfo__wrapper">
                   <div className="form__img__controller">
                     <img className="form__img__img" src={valuesUpdate.profile ? valuesUpdate.profile : "./placeholder.webp"} alt="Profile" />
                     <label className="form__info__label" htmlFor="infoImg">{valuesUpdate.profile ? "Actualizar Foto" : "Agregar Foto de Perfil" }</label>
-                    <input id="infoImg" name="profile"  type="file" accept=".jpeg, .png, .jpg" onChange={(e) => handleFileUpload(e)}/>
+                    <input id="infoImg" name="profile"  type="file" accept="image/*" onChange={(e) => handleFileUpload(e)}/>
                   </div>
                   <div className="form__info__controller">
                     <label className="form__info__label" htmlFor="name">Nombre</label>
