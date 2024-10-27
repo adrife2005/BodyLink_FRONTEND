@@ -44,7 +44,7 @@ const Header = () => {
         const res = await axios.get(API_URI, getToken())
         setValuesUpdate(res.data);
       } catch (error) {
-        toast.error('Something went wrong when getting the user')
+        toast.error('Something went wrong when try getting your information')
       }
     }
 
@@ -52,9 +52,10 @@ const Header = () => {
   }, [])
 
   const handleFileUpload = async (e) => {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
-    setValuesUpdate({ ...valuesUpdate, [e.target.name]: base64 });
+    const file = e.target.files[0].name;
+    console.log(file);
+    // const base64 = await convertToBase64(file);
+    setValuesUpdate({ ...valuesUpdate, [e.target.name]: file });
     await getId()
   }
 

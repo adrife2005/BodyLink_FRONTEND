@@ -156,7 +156,7 @@ const FormProfesionales = () => {
 
     // const data = new FormData(e.target)
     // const registerData = Object.fromEntries(data.entries())
-    navigate('/profesionales')
+    navigate('/professional')
   }
 
   const registerFullUser = (e) => {
@@ -164,7 +164,7 @@ const FormProfesionales = () => {
 
     console.log(valuesRegister);
     console.log('Successfully Added the data');
-    navigate('/profesionales')
+    navigate('/professional')
   }
 
 

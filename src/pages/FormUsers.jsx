@@ -173,10 +173,9 @@ const FormUser = () => {
       const res = axios.post(API_URI_LOGIN, loginUser)
       localStorage.setItem('session', JSON.stringify((await res).data.token));
       navigate('/')
-      toast.success(`Welcome ${res.data.name} to your dashboard`)
       setIsLoading(false)
     } catch (error) {
-      toast.error('Something went wrong when trying to login')
+      toast.error('Credentials Not Authorized')
       setIsLoading(false)
     }
   }
@@ -192,10 +191,9 @@ const FormUser = () => {
 
     try {
       const res = await axios.post(API_URI, newUser);
-      setIsLoading(false);
-      toast.success(`Welcome ${res.data.name} to your dashboard`)
       setToken(await res.data.token)
       navigate('/')
+      setIsLoading(false);
     } catch (error) {
       toast.error('Something went wrong')
       setIsLoading(false);
