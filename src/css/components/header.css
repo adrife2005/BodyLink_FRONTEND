@@ -59,6 +59,10 @@
   background-color: var(--header-color);
   box-shadow: var(--header-shadow);
   border-radius: 10px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  max-height: 100svh;
 }
 
 .form__updateInfo__wrapper {
@@ -66,6 +70,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 15px;
+  height: 100%;
 }
 
 .form__img__controller {

@@ -8,6 +8,8 @@ import Nutricionistas from './pages/Nutricionistas'
 import Comunidad from './pages/Comunidad'
 import Ejercisios from './pages/Ejercisios'
 import Dietas from './pages/Dietas'
+import NutricionistasDetails from './pages/NutricionistasDetails'
+import HomeProfessional from './pages/HomeProfessional'
 
 
 function App() {
@@ -18,12 +20,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path='/personal' element={<Nutricionista />} />
           <Route path='/nutricionistas' element={<Nutricionistas />} />
+          <Route path='/nutricionistas/:id' element={<NutricionistasDetails />} />
           <Route path='/comunidad' element={<Comunidad />} />
           <Route path='/ejercisios' element={<Ejercisios />} />
           <Route path='/dietas' element={<Dietas />} />
       </Route>
         <Route path='/auth/user' element={<FormUser/>} />
-        <Route path='/auth/profesional' element={<FormProfesionales/>} />
+        <Route path='/auth/profesional' element={<FormProfesionales />} />
+        <Route path='/professional' element={<HomeProfessional />} />
       </>
     )
   )

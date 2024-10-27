@@ -9,9 +9,11 @@ import { setToken, getToken } from '../assets/confTokens.js'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/ReactToastify.css'
 import { toast } from 'react-toastify'
+import Loading from '../components/Loading.jsx'
 
 const FormUser = () => {
   const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user' : 'Nothing here yet';
+  const API_URI_LOGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user/login' : 'Nothing here yet';
 
   const [valuesRegister, setValuesRegister] = useState({
     name: "",
@@ -25,10 +27,11 @@ const FormUser = () => {
 
   const [valuesLogIn, setValuesLogIn] = useState({
     email: "",
-    contraseña: "",
-    reafirmarcontraseña: "",
+    password: "",
+    confirmPassword: "",
   })
 
+  const [isLoading, setIsLoading] = useState(false);
 
   const [register, setRegister] = useState(true);
   const [login, setLogin] = useState(false);
@@ -125,7 +128,7 @@ const FormUser = () => {
     },
     {
       id: 2,
-      name: "contraseña",
+      name: "password",
       type: "password",
       errorMessage: "La contraseña debe tener 8-16 letras y una mayuscula ",
       label: "Contraseña",
@@ -134,7 +137,7 @@ const FormUser = () => {
     },
     {
       id: 3,
-      name: "reafirmarcontraseña",
+      name: "confirmPassword",
       type: "password",
       errorMessage: "La contraseña no es la misma",
       label: "Confirmar Contraseña",
@@ -157,17 +160,30 @@ const FormUser = () => {
     setInfoUser((prev) => !prev);
   }
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault()
 
-    toast.success('YWESSSS')
-    console.log(toast.success('yeess'));
-    // const data = new FormData(e.target)
-    // const registerData = Object.fromEntries(data.entries())
+    setIsLoading(true)
+
+    const loginUser = {
+      ...valuesLogIn
+    }
+
+    try {
+      const res = axios.post(API_URI_LOGIN, loginUser)
+      localStorage.setItem('session', JSON.stringify((await res).data.token));
+      navigate('/')
+      setIsLoading(false)
+    } catch (error) {
+      toast.error('Credentials Not Authorized')
+      setIsLoading(false)
+    }
   }
 
   const registerFullUser = async (e) => {
     e.preventDefault();
+
+    setIsLoading(true);
 
     const newUser = {
       ...valuesRegister
@@ -177,15 +193,17 @@ const FormUser = () => {
       const res = await axios.post(API_URI, newUser);
       setToken(await res.data.token)
       navigate('/')
-      toast.success(`Welcome ${await res.data.name} to your dashboard`)
+      setIsLoading(false);
     } catch (error) {
       toast.error('Something went wrong')
+      setIsLoading(false);
     }
   }
 
   return (
+    <>
+     <ToastContainer />
     <div className="form__register">
-      <ToastContainer />
       <div className="form__register__start">
         <div className="form__register__start__img">
           <img src="../../BodyLinkForm.png" alt="logo" />
@@ -223,10 +241,11 @@ const FormUser = () => {
               inputsInfo.map((input) => (
                 <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} /> ))
           }
-          <button className='btn' type="submit">Submit</button>
+            <button className='btn' type="submit">{ isLoading ? <Loading/> : 'Submit' }</button>
         </form>
       </div>
     </div>
+    </>
   )
 }
 

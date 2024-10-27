@@ -2,6 +2,7 @@ import '../css/components/nutricionistas.css'
 import NutricionistasButtons from '../components/NutricionistasButtons';
 import NutricionistasInput from '../components/NutricionistasInput';
 import NutricionistasCard from '../components/NutricionistasCard';
+import { Link } from 'react-router-dom';
 
 
 const Nutricionistas = () => {
@@ -239,7 +240,9 @@ const Nutricionistas = () => {
             </div>
           <div className="nutricionistas__profesionals">
             {dataProfesional.map((data, indx) => (
-              <NutricionistasCard key={indx} data={data}/>
+              <Link key={indx} to={`/nutricionistas/${indx}`}>
+                <NutricionistasCard  data={data}/>
+              </Link>
             ))}
             </div>
         </div>

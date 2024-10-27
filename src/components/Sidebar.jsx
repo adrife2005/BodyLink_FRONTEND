@@ -7,6 +7,7 @@ import { MdOutlineFoodBank } from "react-icons/md";
 import { RiWeightLine } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
+import { deleteToken } from '../assets/confTokens';
 
 
 
@@ -18,7 +19,7 @@ const Sidebar = () => {
       : 'sidebar__home__container sidebar__home__container__active')
 
   const deleteUser = () => {
-    console.log("Deleted..");
+    deleteToken()
   }
 
   return (
