@@ -4,28 +4,36 @@ import { useRef, useState } from 'react'
 import FormButtons from '../components/FormButtons'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import {setToken} from '../assets/confTokens.js'
+import { toast } from 'react-toastify'
+import Loading from '../components/Loading.jsx'
 
 
 const FormProfesionales = () => {
+  const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/professional' : 'Nothing here yet';
+  const API_URI_LOGIN = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/professional/login' : 'Nothing here yet';
+
   const [valuesRegister, setValuesRegister] = useState({
     name: "",
     email: "",
-    universidad: "",
-    experiencia: "",
-    estudios: "",
-    contraseña: "",
-    reafirmarcontraseña: "",
+    university: "",
+    experience: "",
+    title: "",
+    password: "",
+    confirmPassword: "",
   })
 
   const [valuesLogIn, setValuesLogIn] = useState({
     email: "",
-    contraseña: "",
-    reafirmarcontraseña: "",
+    password: "",
+    confirmPassword: "",
   })
 
   const [register, setRegister] = useState(true);
   const [login, setLogin] = useState(false);
   const [infoUser, setInfoUser] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate()
 
 
@@ -42,7 +50,7 @@ const FormProfesionales = () => {
   const inputsInfo = [
     {
       id: 1,
-      name: "universidad",
+      name: "university",
       type: "text",
       errorMessage: "Debes ingresar la universidad donde egresaste",
       label: "Universidad",
@@ -50,7 +58,7 @@ const FormProfesionales = () => {
     },
     {
       id: 2,
-      name: "experiencia",
+      name: "experience",
       type: "number",
       errorMessage: "Debes ingresar tus años de experiencia",
       label: "Experiencia",
@@ -58,7 +66,7 @@ const FormProfesionales = () => {
     },
     {
       id: 3,
-      name: "estudios",
+      name: "title",
       type: "file",
       errorMessage: "Debes ingresar tu reconocimiento",
       label: "Estudios",
@@ -87,7 +95,7 @@ const FormProfesionales = () => {
     },
     {
       id: 4,
-      name: "contraseña",
+      name: "password",
       type: "password",
       errorMessage: "La contraseña debe tener 8-16 letras y una mayuscula ",
       label: "Contraseña",
@@ -96,7 +104,7 @@ const FormProfesionales = () => {
     },
     {
       id: 5,
-      name: "reafirmarcontraseña",
+      name: "confirmPassword",
       type: "password",
       errorMessage: "La contraseña no es la misma",
       label: "Confirmar Contraseña",
@@ -117,7 +125,7 @@ const FormProfesionales = () => {
     },
     {
       id: 2,
-      name: "contraseña",
+      name: "password",
       type: "password",
       errorMessage: "La contraseña debe tener 8-16 letras y una mayuscula ",
       label: "Contraseña",
@@ -126,7 +134,7 @@ const FormProfesionales = () => {
     },
     {
       id: 3,
-      name: "reafirmarcontraseña",
+      name: "confirmPassword",
       type: "password",
       errorMessage: "La contraseña no es la misma",
       label: "Confirmar Contraseña",
@@ -146,25 +154,48 @@ const FormProfesionales = () => {
   const registerUser = (e) => {
     e.preventDefault()
 
-    // const data = new FormData(e.target)
-    // const registerData = Object.fromEntries(data.entries())
     setInfoUser((prev) => !prev);
   }
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault()
 
-    // const data = new FormData(e.target)
-    // const registerData = Object.fromEntries(data.entries())
-    navigate('/professional')
+    setIsLoading(true);
+
+    const loginProfessional = {
+      ...valuesLogIn
+    }
+
+    try {
+      const res = await axios.post(API_URI_LOGIN, loginProfessional)
+      setToken(await res.data.token)
+      navigate('/professional')
+      setIsLoading(false)
+    } catch (error) {
+      toast.error('Something went wrong, pls be sure that you enter your right credentials')
+      setIsLoading(false)
+    }
   }
 
-  const registerFullUser = (e) => {
+  const registerFullUser = async (e) => {
     e.preventDefault();
 
-    console.log(valuesRegister);
-    console.log('Successfully Added the data');
-    navigate('/professional')
+    setIsLoading(true);
+
+    const newProfessional = {
+      ...valuesRegister
+    }
+
+    try {
+      const res = await axios.post(API_URI, newProfessional)
+      setToken(await res.data.token)
+      navigate('/professional')
+      setIsLoading(false)
+    } catch (error) {
+      toast.error('Something went wrong, pls be sure that you enter your right credentials')
+      setIsLoading(false)
+    }
+
   }
 
 
@@ -206,7 +237,7 @@ const FormProfesionales = () => {
                 inputsInfo.map((input) => (
                   <FormInput key={input.id} {...input} value={valuesRegister[[input.name]]} onChange={onChangeRegister} /> ))
             }
-            <button className='btn' type="submit">Submit</button>
+          <button className='btn' type="submit">{ isLoading ? <Loading/> : 'Submit'}</button>
           </form>
       </div>
   </div>
