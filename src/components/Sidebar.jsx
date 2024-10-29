@@ -8,10 +8,16 @@ import { RiWeightLine } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
 import { deleteToken } from '../assets/confTokens';
-
-
+import { useState, useEffect} from 'react';
 
 const Sidebar = () => {
+  const [isUser, setIsUser] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('auth') === 'true') {
+      setIsUser(true);
+    }
+  }, [])
 
   const linkClass = ({ isActive }) => (
     !isActive
@@ -25,7 +31,10 @@ const Sidebar = () => {
   return (
     <header className='sidebar'>
       <div className="sidebar__container">
-        <div className="sidebar__home">
+        {
+          isUser ?
+          <>
+         <div className="sidebar__home">
           <NavLink className={linkClass} to='/' >
               <GoHome className='sidebar__icon' />
               <span className='sidebar__text'>Home</span>
@@ -36,7 +45,7 @@ const Sidebar = () => {
           </NavLink>
         </div>
         <div className="sidebar__comunidad">
-        <NavLink className={linkClass} to='/nutricionistas' >
+          <NavLink className={linkClass} to='/nutricionistas' >
             <SlPeople className='sidebar__icon'/>
             <span className='sidebar__text'>Nutricionistas</span>
           </NavLink>
@@ -52,7 +61,15 @@ const Sidebar = () => {
             <RiWeightLine className='sidebar__icon' />
             <span className='sidebar__text'>Ejercisios</span>
           </NavLink>
+          <NavLink className={linkClass} to='/ejercisios' >
+            <RiWeightLine className='sidebar__icon' />
+            <span className='sidebar__text'>Solo profesionales</span>
+          </NavLink>
         </div>
+          </> : <>
+            <h1>Noting Here yet</h1>
+            </>
+        }
         <div className="sidebar__logout">
           <NavLink className={linkClass} to='/auth/user' onClick={deleteUser} >
             <IoLogOutOutline className='sidebar__icon'/>
