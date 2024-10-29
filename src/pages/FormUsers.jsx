@@ -5,7 +5,8 @@ import FormButtons from '../components/FormButtons'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import { setToken, getToken } from '../assets/confTokens.js'
+import { setToken } from '../assets/confTokens.js'
+import { setLocalStorage } from '../assets/authLocalStorage.js'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/ReactToastify.css'
 import { toast } from 'react-toastify'
@@ -172,6 +173,7 @@ const FormUser = () => {
     try {
       const res = axios.post(API_URI_LOGIN, loginUser)
       localStorage.setItem('session', JSON.stringify((await res).data.token));
+      localStorage.setItem('auth', (await res).data.user);
       navigate('/')
       setIsLoading(false)
     } catch (error) {
@@ -192,6 +194,7 @@ const FormUser = () => {
     try {
       const res = await axios.post(API_URI, newUser);
       setToken(await res.data.token)
+      setLocalStorage(await res.data.user)
       navigate('/')
       setIsLoading(false);
     } catch (error) {
