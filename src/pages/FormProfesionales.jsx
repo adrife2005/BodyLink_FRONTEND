@@ -169,7 +169,7 @@ const FormProfesionales = () => {
     try {
       const res = await axios.post(API_URI_LOGIN, loginProfessional)
       setToken(await res.data.token)
-      navigate('/professional')
+      navigate('/')
       setIsLoading(false)
     } catch (error) {
       toast.error('Something went wrong, pls be sure that you enter your right credentials')

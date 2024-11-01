@@ -62,7 +62,7 @@
   scroll-behavior: smooth;
   overflow-y: scroll;
   scrollbar-width: none;
-  max-height: 100svh;
+  max-height: calc(100svh - 72px);
 }
 
 .form__updateInfo__wrapper {
