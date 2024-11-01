@@ -61,10 +61,6 @@ const Sidebar = () => {
             <RiWeightLine className='sidebar__icon' />
             <span className='sidebar__text'>Ejercisios</span>
           </NavLink>
-          <NavLink className={linkClass} to='/ejercisios' >
-            <RiWeightLine className='sidebar__icon' />
-            <span className='sidebar__text'>Solo profesionales</span>
-          </NavLink>
         </div>
           </> : <>
             <h1>Noting Here yet</h1>

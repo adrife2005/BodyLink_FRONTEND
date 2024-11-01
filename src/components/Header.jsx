@@ -22,6 +22,7 @@ function convertToBase64(file) {
 
 const Header = () => {
   const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user/' : 'Nothing here yet';
+  const API_URI_PROFESSIONAL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user/' : 'Nothing here yet';
 
   const [openForm, setOpenForm] = useState(false);
   const [valuesUpdate, setValuesUpdate] = useState({
@@ -39,23 +40,32 @@ const Header = () => {
       return undefined;
     }
 
-    const getUser = async () => {
-      try {
-        const res = await axios.get(API_URI, getToken())
-        setValuesUpdate(res.data);
-      } catch (error) {
-        toast.error('Something went wrong when try getting your information')
+    const fethCredentials = async () => {
+      if (localStorage.getItem('auth') === 'true') {
+          try {
+            const res = await axios.get(API_URI, getToken())
+            setValuesUpdate(res.data);
+          } catch (error) {
+            toast.error('Something went wrong when try getting your information')
+          }
+      } else {
+        try {
+          const res = await axios.get(API_URI_PROFESSIONAL, getToken())
+          setValuesUpdate(res.data);
+        } catch (error) {
+          toast.error('Something went wrong when try getting your information')
+        }
       }
     }
 
-    return getUser;
+    return fethCredentials;
   }, [])
 
   const handleFileUpload = async (e) => {
-    const file = e.target.files[0].name;
-    console.log(file);
-    // const base64 = await convertToBase64(file);
-    setValuesUpdate({ ...valuesUpdate, [e.target.name]: file });
+    const file = e.target.files[0];
+    const base64 = await convertToBase64(file);
+    console.log(base64);
+    setValuesUpdate({ ...valuesUpdate, [e.target.name]: base64 });
     await getId()
   }
 
