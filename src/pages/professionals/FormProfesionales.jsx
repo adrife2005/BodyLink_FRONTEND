@@ -1,13 +1,13 @@
-import '../css/components/registeruser.css'
-import FormInput from '../components/FormInput'
+import '../../css/components/registeruser.css'
+import FormInput from '../../components/FormInput'
 import { useRef, useState } from 'react'
-import FormButtons from '../components/FormButtons'
+import FormButtons from '../../components/FormButtons'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import {setToken} from '../assets/confTokens.js'
+import {setToken} from '../../assets/confTokens.js'
 import { toast } from 'react-toastify'
-import Loading from '../components/Loading.jsx'
+import Loading from '../../components/Loading.jsx'
 
 
 const FormProfesionales = () => {

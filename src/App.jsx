@@ -2,12 +2,12 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import Home from './pages/Home'
 import HeaderLayout from './layout/HeaderLayout'
 import Nutricionista from './pages/Nutricionista'
-import FormUser from './pages/FormUsers'
-import FormProfesionales from './pages/FormProfesionales'
+import FormUser from './pages/users/FormUsers'
+import FormProfesionales from './pages/professionals/FormProfesionales'
 import Nutricionistas from './pages/Nutricionistas'
-import Comunidad from './pages/Comunidad'
-import Ejercisios from './pages/Ejercisios'
-import Dietas from './pages/Dietas'
+import Comunidad from './pages/users/Comunidad'
+import Ejercisios from './pages/users/Ejercisios'
+import Dietas from './pages/users/Dietas'
 import NutricionistasDetails from './pages/NutricionistasDetails'
 
 function App() {

@@ -1,16 +1,16 @@
-import '../css/components/registeruser.css'
-import FormInput from '../components/FormInput'
+import '../../css/components/registeruser.css'
+import FormInput from '../../components/FormInput'
 import { useRef, useState } from 'react'
-import FormButtons from '../components/FormButtons'
+import FormButtons from '../../components/FormButtons.jsx'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
-import { setToken } from '../assets/confTokens.js'
-import { setLocalStorage } from '../assets/authLocalStorage.js'
+import { setToken } from '../../assets/confTokens.js'
+import { setLocalStorage } from '../../assets/authLocalStorage.js'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/ReactToastify.css'
 import { toast } from 'react-toastify'
-import Loading from '../components/Loading.jsx'
+import Loading from '../../components/Loading.jsx'
 
 const FormUser = () => {
   const API_URI = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/api/user' : 'Nothing here yet';

@@ -258,7 +258,7 @@ const Nutricionistas = () => {
             </div>
           <div className="nutricionistas__profesionals">
             {professional.map((data, indx) => (
-              <Link key={indx} to={`/nutricionistas/${indx}`}>
+              <Link key={indx} to={`/nutricionistas/${data._id}`}>
                 <NutricionistasCard  data={data}/>
               </Link>
             ))}

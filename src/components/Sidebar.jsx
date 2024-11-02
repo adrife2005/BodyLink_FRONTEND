@@ -8,7 +8,10 @@ import { RiWeightLine } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
 import { deleteToken } from '../assets/confTokens';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import { PiMoneyThin } from "react-icons/pi";
+import { deleteLocalStorage } from '../assets/authLocalStorage';
+import { MdOutlineWorkOutline } from "react-icons/md";
 
 const Sidebar = () => {
   const [isUser, setIsUser] = useState(false);
@@ -26,6 +29,7 @@ const Sidebar = () => {
 
   const deleteUser = () => {
     deleteToken()
+    deleteLocalStorage()
   }
 
   return (
@@ -62,8 +66,29 @@ const Sidebar = () => {
             <span className='sidebar__text'>Ejercisios</span>
           </NavLink>
         </div>
-          </> : <>
-            <h1>Noting Here yet</h1>
+            </> :
+            <>
+            <div className='sidebar__home'>
+          <NavLink className={linkClass} to='/' >
+              <GoHome className='sidebar__icon' />
+              <span className='sidebar__text'>Home</span>
+          </NavLink>
+                <NavLink className={linkClass} to='/servicios'>
+              <MdOutlineWorkOutline className='sidebar__icon' />
+                <span className='sidebar__text'>Servicio</span>
+              </NavLink>
+          <NavLink className={linkClass} to='/chat'>
+            <IoPersonOutline className='sidebar__icon'/>
+            <span className='sidebar__text'>Chat</span>
+                </NavLink>
+
+            </div>
+              <div className="sidebar__comunidad">
+              <NavLink className={linkClass} to='/incomes'>
+          <PiMoneyThin className='sidebar__icon'/>
+            <span className='sidebar__text'>Ingresos</span>
+          </NavLink>
+            </div>
             </>
         }
         <div className="sidebar__logout">
