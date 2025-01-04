@@ -5,6 +5,7 @@ export type ButtonProps = {
 	className: CSSProperties
 	type?: 'button' | 'submit' | 'reset'
 	onClick?: () => void
+	disabled?: boolean
 }
 
 export type ButtonStylesProps = {
