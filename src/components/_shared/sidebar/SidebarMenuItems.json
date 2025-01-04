@@ -1,0 +1,32 @@
+[
+  {
+    "key": "Inicio",
+    "icon": "LayoutGrid",
+    "path": "/"
+  },
+  {
+    "key": "Pacientes",
+    "icon": "UsersRound",
+    "path": "/pacientes"
+  },
+  {
+    "key": "Citas",
+    "icon": "CalendarDays",
+    "path": "/citas"
+  },
+  {
+    "key": "Finanzas",
+    "icon": "ChartColumnDecreasing",
+    "path": "/finanzas"
+  },
+  {
+    "key": "Mensajes",
+    "icon": "MessageSquare",
+    "path": "/mensajes"
+  },
+  {
+    "key": "Noticias",
+    "icon": "Newspaper",
+    "path": "/noticias"
+  }
+]

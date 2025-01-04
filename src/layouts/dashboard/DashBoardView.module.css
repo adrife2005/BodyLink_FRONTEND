@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.main {
+  flex: 1;
+  padding-top: 60px;
+  height: 100vh;
+}

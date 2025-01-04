@@ -1,0 +1,72 @@
+:root, .dark {
+  --body-color: #111111;
+  --container-color: #1D1D1D;
+  --border-color: #343434;
+  --primary-text: #FFFFFF;
+  --secondary-text: #ACAEB3;
+  --input-text: #ACAEB3;
+  --accent-color: #19A853;
+  --destructive-color: #FF4F52;
+}
+
+.light {
+  --body-color: #F4F5F7;
+  --container-color: #FFFFFF;
+  --border-color: #C8CCD5;
+  --primary-text: #111111;
+  --secondary-text: #9CA3AF;
+  --input-text: #ACAEB3;
+  --accent-color: #19A853;
+  --destructive-color: #FF4F52;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", serif;
+  background-color: var(--body-color);
+  color: var(--primary-text);
+  overflow-x: hidden;
+}
+
+/* Defaults styles */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  border: 0;
+}
+
+button {
+  display: inline-block;
+  padding: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}

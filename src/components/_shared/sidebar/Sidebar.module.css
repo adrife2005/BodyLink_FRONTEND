@@ -1,0 +1,28 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding-inline: 1.5rem;
+  background-color: var(--container-color);
+  border-right: 1px solid var(--border-color);
+}
+
+.sidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: var(--accent-color);
+  font-weight:900;
+  padding: .5rem 0;
+  gap: 1rem;
+
+  span {
+    font-size: 1rem;
+  }
+}
