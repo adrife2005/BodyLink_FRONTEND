@@ -6,24 +6,21 @@ import {
   MessageSquare,
   Newspaper,
 } from 'lucide-react';
+import { type ReactElement } from 'react';
 
-const getIcon = (icon: string) => {
-  switch (icon) {
-    case 'LayoutGrid':
-      return <LayoutGrid />;
-    case 'UsersRound':
-      return <UsersRound />;
-    case 'CalendarDays':
-      return <CalendarDays />;
-    case 'ChartColumnDecreasing':
-      return <ChartColumnDecreasing />;
-    case 'MessageSquare':
-      return <MessageSquare />;
-    case 'Newspaper':
-      return <Newspaper />;
-    default:
-      return null;
-  }
-};
+interface Icons {
+  [index: string]: ReactElement
+}
+
+const icons: Icons = {
+  'LayoutGrid': <LayoutGrid />,
+  'UsersRound': <UsersRound />,
+  'CalendarDays': <CalendarDays />,
+  'ChartColumnDecreasing': <ChartColumnDecreasing />,
+  'MessageSquare': <MessageSquare />,
+  'Newspaper': <Newspaper />,
+}
+
+const getIcon = (icon: string): ReactElement => icons[icon];
 
 export default getIcon;
