@@ -10,7 +10,7 @@ export function CustomButton({
 }: ButtonProps) {
 	return (
 		<button
-			datatest-id="customButton"
+			data-testid="customButton"
 			type={type}
 			className={styles.button}
 			style={className}
