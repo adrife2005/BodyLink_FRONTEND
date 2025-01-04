@@ -1,8 +1,9 @@
+import { SidebarItem } from './components/SidebarItem';
+import { useLocation } from 'react-router-dom';
+
 import styles from './Sidebar.module.css';
-import { SidebarItems } from './components/SidebarItems';
 import items from './SidebarMenuItems.json';
 import getIcon from '../../../utils/getIcons';
-import { useLocation } from 'react-router-dom';
 
 export function Sidebar() {
   const location = useLocation();
@@ -18,14 +19,14 @@ export function Sidebar() {
         </div>
         <div>
           {items.map((item, index) => (
-            <SidebarItems
+            <SidebarItem
               active={isActive(item.path)}
               key={index}
               href={item.path}
             >
               {getIcon(item.icon)}
-              {item.key}
-            </SidebarItems>
+              {item.title}
+            </SidebarItem>
           ))}
         </div>
       </div>

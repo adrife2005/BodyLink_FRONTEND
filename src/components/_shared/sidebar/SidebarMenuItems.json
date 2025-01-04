@@ -1,31 +1,31 @@
 [
   {
-    "key": "Inicio",
+    "title": "Inicio",
     "icon": "LayoutGrid",
     "path": "/"
   },
   {
-    "key": "Pacientes",
+    "title": "Pacientes",
     "icon": "UsersRound",
     "path": "/pacientes"
   },
   {
-    "key": "Citas",
+    "title": "Citas",
     "icon": "CalendarDays",
     "path": "/citas"
   },
   {
-    "key": "Finanzas",
+    "title": "Finanzas",
     "icon": "ChartColumnDecreasing",
     "path": "/finanzas"
   },
   {
-    "key": "Mensajes",
+    "title": "Mensajes",
     "icon": "MessageSquare",
     "path": "/mensajes"
   },
   {
-    "key": "Noticias",
+    "title": "Noticias",
     "icon": "Newspaper",
     "path": "/noticias"
   }
