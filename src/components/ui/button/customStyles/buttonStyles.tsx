@@ -1,4 +1,4 @@
-import { ButtonStylesProps } from '../../../types'
+import { ButtonStylesProps } from '../../../../types'
 
 export const btnPrimaryStyles: ButtonStylesProps = {
 	gap: '10px',

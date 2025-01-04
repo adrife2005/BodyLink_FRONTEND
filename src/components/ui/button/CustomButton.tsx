@@ -1,7 +1,7 @@
 import styles from './Button.module.css'
 import { ButtonProps } from '../../../types'
 
-export function CustomeButton({ children, className, type }: ButtonProps) {
+export function CustomButton({ children, className, type }: ButtonProps) {
 	return (
 		<button type={type} className={styles.button} style={className}>
 			{children}
