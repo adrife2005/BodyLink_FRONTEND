@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom'
 import {
   HomePage,
   Citas,
@@ -6,8 +6,8 @@ import {
   Mensajes,
   Noticias,
   Pacientes,
-} from './pages';
-import { DashBoardView } from './layouts';
+} from './pages'
+import { DashBoardView } from './layouts'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path='/noticias' element={<Noticias />} />
       </Route>
     </Routes>
-  );
+  )
 }
 
-export default App;
+export default App

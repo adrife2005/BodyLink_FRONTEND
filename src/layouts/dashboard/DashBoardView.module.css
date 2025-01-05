@@ -1,10 +1,14 @@
 .wrapper {
-	display: flex;
-	height: 100vh;
+  display: grid;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    'sidebar header header'
+    'sidebar main main';
+  height: 100vh;
 }
 
 .main {
-	flex: 1;
-	margin-top: 60px;
-	padding: 60px;
+  grid-area: main;
+  padding: 60px;
 }
