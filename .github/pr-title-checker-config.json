@@ -5,7 +5,7 @@
   },
   "CHECKS": {
     "prefixes": ["fix: ", "feat: ", "docs: ", "refactor: ", "chore: "],
-    "ignoreLabels" : ["dont-check-PRs-with-this-label"]
+    "ignoreLabels": ["dont-check-PRs-with-this-label"]
   },
   "MESSAGES": {
     "success": "All OK",
