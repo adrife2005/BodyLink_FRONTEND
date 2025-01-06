@@ -25,8 +25,13 @@ export function Pacients() {
         <p>354 resultados</p>
       </section>
       <section className={styles['filter-labels']}>
-        {labels.map(label => (
-          <Label text={label.text} color={label.color} icon={label.icon} />
+        {labels.map((label, index) => (
+          <Label
+            text={label.text}
+            color={label.color}
+            icon={label.icon}
+            key={index}
+          />
         ))}
       </section>
     </>
