@@ -1,3 +1,3 @@
 export function Mensajes() {
-  return <h1>Mensajes</h1>;
+  return <h1>Mensajes</h1>
 }

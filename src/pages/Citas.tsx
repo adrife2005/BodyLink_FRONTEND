@@ -1,3 +1,3 @@
 export function Citas() {
-  return <h1>Citas</h1>;
+  return <h1>Citas</h1>
 }

@@ -1,3 +1,3 @@
 export function Noticias() {
-  return <h1>Noticias</h1>;
+  return <h1>Noticias</h1>
 }
