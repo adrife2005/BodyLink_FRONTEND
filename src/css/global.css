@@ -1,54 +1,68 @@
 :root,
 .dark {
-	--body-color: #111111;
-	--container-color: #1d1d1d;
-	--border-color: #343434;
-	--primary-text: #ffffff;
-	--secondary-text: #acaeb3;
-	--input-text: #acaeb3;
-	--accent-color: #19a853;
-	--destructive-color: #ff4f52;
+  --body-color: #111111;
+  --container-color: #1d1d1d;
+  --border-color: #343434;
+  --primary-text: #ffffff;
+  --secondary-text: #acaeb3;
+  --input-text: #acaeb3;
+  --accent-color: #19a853;
+  --destructive-color: #ff4f52;
 }
 
 .light {
-	--body-color: #f4f5f7;
-	--container-color: #ffffff;
-	--border-color: #c8ccd5;
-	--primary-text: #111111;
-	--secondary-text: #9ca3af;
-	--input-text: #acaeb3;
-	--accent-color: #19a853;
-	--destructive-color: #ff4f52;
+  --body-color: #f4f5f7;
+  --container-color: #ffffff;
+  --border-color: #c8ccd5;
+  --primary-text: #111111;
+  --secondary-text: #9ca3af;
+  --input-text: #acaeb3;
+  --accent-color: #19a853;
+  --destructive-color: #ff4f52;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-	font-family: 'Inter', serif;
-	background-color: var(--body-color);
-	color: var(--primary-text);
-	overflow-x: hidden;
+  font-family: 'Inter', serif;
+  background-color: var(--body-color);
+  color: var(--primary-text);
+  overflow-x: hidden;
 }
 
 /* Defaults styles */
 
 a {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  color: white;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  color: var(--secondary-text);
 }
 
 img,
@@ -56,20 +70,20 @@ picture,
 video,
 canvas,
 svg {
-	display: block;
-	max-width: 100%;
-	height: auto;
-	user-select: none;
-	border: 0;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  border: 0;
 }
 
 button {
-	display: inline-block;
-	padding: none;
-	border: none;
-	background: none;
-	cursor: pointer;
-	color: inherit;
+  display: inline-block;
+  padding: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
 }
 
 /* 2xl */

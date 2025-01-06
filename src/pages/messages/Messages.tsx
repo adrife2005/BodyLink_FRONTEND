@@ -1,3 +1,14 @@
+import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
+import { MessageSquare } from 'lucide-react'
+
 export function Messages() {
-  return <h1>Mensajes</h1>
+  return (
+    <>
+      <SectionHeader
+        icon={<MessageSquare />}
+        title='Mensajes'
+        description='Description'
+      />
+    </>
+  )
 }

@@ -1,3 +1,14 @@
+import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
+import { ChartColumnDecreasing } from 'lucide-react'
+
 export function Finances() {
-  return <h1>Finanzas</h1>
+  return (
+    <>
+      <SectionHeader
+        icon={<ChartColumnDecreasing />}
+        title='Mensajes'
+        description='Description'
+      />
+    </>
+  )
 }

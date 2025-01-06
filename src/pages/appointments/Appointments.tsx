@@ -1,3 +1,14 @@
+import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
+import { CalendarDays } from 'lucide-react'
+
 export function Appointments() {
-  return <h1>Citas</h1>
+  return (
+    <>
+      <SectionHeader
+        icon={<CalendarDays />}
+        title='Mensajes'
+        description='Description'
+      />
+    </>
+  )
 }

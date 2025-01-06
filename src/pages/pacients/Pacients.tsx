@@ -1,3 +1,14 @@
+import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
+import { UsersRound } from 'lucide-react'
+
 export function Pacients() {
-  return <h1>Pacientes</h1>
+  return (
+    <>
+      <SectionHeader
+        icon={<UsersRound />}
+        title='Pacientes'
+        description='Registra, administra y archiva perfiles'
+      />
+    </>
+  )
 }
