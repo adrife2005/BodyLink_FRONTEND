@@ -1,0 +1,15 @@
+[
+  {
+    "text": "Nombre",
+    "color": "red",
+    "icon": "X"
+  },
+  {
+    "text": "Estado",
+    "color": "red"
+  },
+  {
+    "text": "Archivado",
+    "icon": "X"
+  }
+]
