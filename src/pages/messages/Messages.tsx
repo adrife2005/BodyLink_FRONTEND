@@ -7,7 +7,7 @@ export function Messages() {
       <SectionHeader
         icon={<MessageSquare />}
         title='Mensajes'
-        description='Description'
+        description='Descripcion'
       />
     </>
   )

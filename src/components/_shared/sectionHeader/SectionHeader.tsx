@@ -8,11 +8,11 @@ interface Props {
 }
 export function SectionHeader({ icon, title, description }: Props) {
   return (
-    <div className={styles.header}>
+    <div data-testid='section-header' className={styles.header}>
       <div className={styles.icon}> {icon} </div>
       <div className={styles.info}>
-        <h1> {title} </h1>
-        <p> {description} </p>
+        <h1 data-testid='section-header-title'>{title}</h1>
+        <p data-testid='section-header-description'>{description}</p>
       </div>
     </div>
   )

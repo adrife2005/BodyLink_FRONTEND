@@ -6,8 +6,8 @@ export function Appointments() {
     <>
       <SectionHeader
         icon={<CalendarDays />}
-        title='Mensajes'
-        description='Description'
+        title='Citas'
+        description='Descripcion'
       />
     </>
   )

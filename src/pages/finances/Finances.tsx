@@ -6,8 +6,8 @@ export function Finances() {
     <>
       <SectionHeader
         icon={<ChartColumnDecreasing />}
-        title='Mensajes'
-        description='Description'
+        title='Finanzas'
+        description='Descripcion'
       />
     </>
   )
