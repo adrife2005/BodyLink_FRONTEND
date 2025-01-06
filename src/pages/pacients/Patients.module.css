@@ -1,21 +1,16 @@
 .search-section {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  width: 620px;
+  justify-content: space-between;
   margin-top: 60px;
   margin-bottom: 16px;
 
-  p {
+  & > div {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    padding-left: 16px;
-    border-left: 1px solid var(--border-color);
-  }
-}
+    gap: 16px;
+    width: 620px;
 
 .filter {
   display: flex;
@@ -28,8 +23,19 @@
   padding: 12px 23px;
   cursor: pointer;
 
-  svg {
-    width: 18px;
+      svg {
+        width: 18px;
+      }
+    }
+
+    & p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding-left: 16px;
+      border-left: 1px solid var(--border-color);
+    }
   }
 }
 
