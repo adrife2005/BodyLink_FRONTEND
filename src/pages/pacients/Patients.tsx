@@ -1,26 +1,26 @@
 import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
 import { Label } from '@/components/ui/label/Label'
 import { UsersRound, SlidersHorizontal } from 'lucide-react'
-import styles from './Pacients.module.css'
+import styles from './Patients.module.css'
 import labels from './filter-labels.json'
 import { Input } from '@/components/ui/input/Input'
 
-export function Pacients() {
+export function Patients() {
   return (
     <>
       <SectionHeader
-        icon={<UsersRound />}
+        icon={<UsersRound aria-label='Pacientes' />}
         title='Pacientes'
         description='Registra, administra y archiva perfiles'
       />
-      <section className={styles['search-section']}>
+      <section data-testid='searchSection' className={styles['search-section']}>
         <Input
           icon='Search'
           type='text'
           placeholder='Busca clientes, Archivos, Etc...'
         />
         <div className={styles.filter}>
-          <SlidersHorizontal />
+          <SlidersHorizontal aria-label='filter' />
         </div>
         <p>354 resultados</p>
       </section>

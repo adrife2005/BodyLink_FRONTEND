@@ -36,8 +36,15 @@ const icons: Icons = {
   Search,
 }
 
-export const getIcon = (icon: string, props?: Props): ReactElement => {
-  const SVGComp = icons[icon]
+/**
+ * Returns SVG icons from lucide-react library based on the icon name.
+ *
+ * @param iconName
+ * @param props
+ * @returns ReactElement
+ */
+export const getIcon = (iconName: string, props?: Props): ReactElement => {
+  const SVGComp = icons[iconName]
 
-  return SVGComp && <SVGComp {...props} />
+  return SVGComp && <SVGComp aria-label={iconName} {...props} />
 }

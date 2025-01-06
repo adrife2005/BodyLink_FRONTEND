@@ -21,4 +21,12 @@
 
 .info {
   padding-inline: 16px 0;
+
+  & > h1 {
+    color: var(--primary-text);
+  }
+
+  & > p {
+    color: var(--secondary-text);
+  }
 }

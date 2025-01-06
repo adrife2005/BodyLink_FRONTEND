@@ -67,8 +67,11 @@ p {
 
 input {
   font-family: 'Inter', serif;
-  outline: none;
   border: 0;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 img,

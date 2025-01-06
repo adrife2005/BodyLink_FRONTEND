@@ -11,9 +11,11 @@ export function Input(props: Props) {
   const { icon, ...inputProps } = props
 
   return (
-    <div className={styles.searchBar}>
+    <div data-testid='inputSection' className={styles.inputSection}>
       <div>{getIcon(icon)}</div>
-      <input {...inputProps} />
+      <label htmlFor='customInput'>
+        <input id='customInput' {...inputProps} />
+      </label>
     </div>
   )
 }

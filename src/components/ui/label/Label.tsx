@@ -7,7 +7,7 @@ interface Props {
   icon?: string
 }
 
-export function Label({ text, color = '#fff', icon = '' }: Props) {
+export function Label({ text, color, icon = '' }: Props) {
   return (
     <>
       <div className={styles.label}>
