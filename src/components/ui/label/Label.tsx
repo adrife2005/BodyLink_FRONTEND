@@ -12,7 +12,7 @@ export function Label({ text, color = '#fff', icon = '' }: Props) {
     <>
       <div className={styles.label}>
         <p> {text} </p>
-        {getIcon(icon, color)}
+        {getIcon(icon, { color })}
       </div>
     </>
   )

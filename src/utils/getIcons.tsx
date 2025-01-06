@@ -5,22 +5,37 @@ import {
   ChartColumnDecreasing,
   MessageSquare,
   Newspaper,
+  X,
+  LucideProps,
 } from 'lucide-react'
-import { type ReactElement } from 'react'
+import {
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  type ReactElement,
+} from 'react'
 
 interface Icons {
-  [index: string]: ReactElement
+  [index: string]: ForwardRefExoticComponent<
+    Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
+  >
+}
+
+interface Props {
+  color?: string
 }
 
 const icons: Icons = {
-  LayoutGrid: <LayoutGrid />,
-  UsersRound: <UsersRound />,
-  CalendarDays: <CalendarDays />,
-  ChartColumnDecreasing: <ChartColumnDecreasing />,
-  MessageSquare: <MessageSquare />,
-  Newspaper: <Newspaper />,
+  LayoutGrid,
+  UsersRound,
+  CalendarDays,
+  ChartColumnDecreasing,
+  MessageSquare,
+  Newspaper,
+  X,
 }
 
-const getIcon = (icon: string): ReactElement => icons[icon]
+export const getIcon = (icon: string, props?: Props): ReactElement => {
+  const SVGComp = icons[icon]
 
-export default getIcon
+  return SVGComp && <SVGComp {...props} />
+}
