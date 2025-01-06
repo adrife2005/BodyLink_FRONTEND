@@ -7,6 +7,7 @@ import {
   Newspaper,
   X,
   LucideProps,
+  Search,
 } from 'lucide-react'
 import {
   type ForwardRefExoticComponent,
@@ -32,6 +33,7 @@ const icons: Icons = {
   MessageSquare,
   Newspaper,
   X,
+  Search,
 }
 
 export const getIcon = (icon: string, props?: Props): ReactElement => {

@@ -17,35 +17,6 @@
   }
 }
 
-.searchBar {
-  display: flex;
-  gap: 10.75px;
-  width: 399px;
-  height: 40px;
-  background-color: #171717;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 7px 0;
-    padding-inline: 10.75px;
-    border-right: 1px solid var(--border-color);
-
-    svg {
-      width: 22px;
-    }
-  }
-
-  input {
-    flex: 1;
-    background: inherit;
-    color: white;
-  }
-}
-
 .filter {
   display: flex;
   align-items: center;
