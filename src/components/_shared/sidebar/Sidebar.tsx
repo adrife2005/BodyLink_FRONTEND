@@ -12,24 +12,20 @@ export function Sidebar() {
 	return (
 		<div data-testid="sidebard" className={styles.sidebar}>
 			<div className={styles.sidebarContent}>
-				<div className={styles.sidebarWrapper}>
-					<div>
-						<h1 className={styles.logo}>
-							BD <span>Body Link</span>
-						</h1>
-					</div>
-					<div>
-						{items.map((item, index) => (
-							<SidebarItem
-								active={isActive(item.path)}
-								key={index}
-								href={item.path}
-							>
-								{getIcon(item.icon)}
-								{item.title}
-							</SidebarItem>
-						))}
-					</div>
+				<h1 className={styles.logo}>
+					BD <span>Body Link</span>
+				</h1>
+				<div>
+					{items.map((item, index) => (
+						<SidebarItem
+							active={isActive(item.path)}
+							key={index}
+							href={item.path}
+						>
+							{getIcon(item.icon)}
+							{item.title}
+						</SidebarItem>
+					))}
 				</div>
 			</div>
 		</div>
