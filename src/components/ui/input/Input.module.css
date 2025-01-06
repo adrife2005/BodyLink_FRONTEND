@@ -1,4 +1,5 @@
 .input-section {
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -11,6 +12,8 @@
 }
 
 .labeled-input {
+=======
+>>>>>>> 156f761 (feat: added register patient button in the patient page)
   display: flex;
   gap: 10.75px;
   width: 100%;
