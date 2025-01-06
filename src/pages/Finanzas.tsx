@@ -1,3 +1,3 @@
 export function Finanzas() {
-  return <h1>Finanzas</h1>;
+  return <h1>Finanzas</h1>
 }

@@ -6,28 +6,28 @@ import items from './SidebarMenuItems.json'
 import getIcon from '../../../utils/getIcons'
 
 export function Sidebar() {
-	const location = useLocation()
-	const isActive = (path: string): boolean => location.pathname === path
+  const location = useLocation()
+  const isActive = (path: string): boolean => location.pathname === path
 
-	return (
-		<div data-testid="sidebard" className={styles.sidebar}>
-			<div className={styles.sidebarContent}>
-				<h1 className={styles.logo}>
-					BD <span>Body Link</span>
-				</h1>
-				<div>
-					{items.map((item, index) => (
-						<SidebarItem
-							active={isActive(item.path)}
-							key={index}
-							href={item.path}
-						>
-							{getIcon(item.icon)}
-							{item.title}
-						</SidebarItem>
-					))}
-				</div>
-			</div>
-		</div>
-	)
+  return (
+    <div data-testid='sidebard' className={styles.sidebar}>
+      <div className={styles.sidebarContent}>
+        <h1 className={styles.logo}>
+          BD <span>Body Link</span>
+        </h1>
+        <div>
+          {items.map((item, index) => (
+            <SidebarItem
+              active={isActive(item.path)}
+              key={index}
+              href={item.path}
+            >
+              {getIcon(item.icon)}
+              {item.title}
+            </SidebarItem>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
 }
