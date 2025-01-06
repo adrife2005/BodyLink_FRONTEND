@@ -40,7 +40,6 @@ const icons: Icons = {
   MessageSquare,
   Newspaper,
   X,
-<<<<<<< HEAD
   Search,
   UserRoundPen,
   Calendar,
@@ -62,12 +61,4 @@ export const getIcon = (iconName: string, props?: Props): ReactElement => {
   const SVGComp = icons[iconName]
 
   return SVGComp && <SVGComp aria-label={iconName} {...props} />
-=======
-}
-
-export const getIcon = (icon: string, props?: Props): ReactElement => {
-  const SVGComp = icons[icon]
-
-  return SVGComp && <SVGComp {...props} />
->>>>>>> 1927a10 (refactor: getIcons is more dynamic, accepting props)
 }
