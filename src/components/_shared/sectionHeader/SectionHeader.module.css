@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  width: auto;
+  height: 48px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--container-color);
+
+  svg {
+    width: 26px;
+  }
+}
+
+.info {
+  padding-inline: 16px 0;
+}

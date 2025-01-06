@@ -1,8 +1,8 @@
-import styles from './Header.module.css'
+import { CustomButton } from '@/components/ui/button/CustomButton'
+import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 import { Sun, Bell, ChevronDown, ChevronRight } from 'lucide-react'
+import styles from './Header.module.css'
 import { useLocation } from 'react-router-dom'
-import { CustomButton } from '../../ui'
-import { btnPrimaryStyles } from '../../ui/button/customStyles/buttonStyles'
 import { useState } from 'react'
 
 export function Header() {

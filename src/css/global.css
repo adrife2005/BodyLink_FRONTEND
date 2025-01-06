@@ -51,6 +51,20 @@ ul {
   margin: 0;
 }
 
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29.05px;
+  color: white;
+}
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  color: var(--secondary-text);
+}
+
 img,
 picture,
 video,

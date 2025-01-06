@@ -1,24 +1,22 @@
+import { DashBoardView } from './layouts/dashboard/DashBoardView'
+import { HomePage } from './pages/home/Home'
+import { Pacients } from './pages/pacients/Pacients'
+import { Appointments } from './pages/appointments/Appointments'
+import { Finances } from './pages/finances/Finances'
+import { Messages } from './pages/messages/Messages'
+import { News } from './pages/news/News'
 import { Route, Routes } from 'react-router-dom'
-import {
-  HomePage,
-  Citas,
-  Finanzas,
-  Mensajes,
-  Noticias,
-  Pacientes,
-} from './pages'
-import { DashBoardView } from './layouts'
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<DashBoardView />}>
         <Route path='/' element={<HomePage />} />
-        <Route path='/pacientes' element={<Pacientes />} />
-        <Route path='/citas' element={<Citas />} />
-        <Route path='/finanzas' element={<Finanzas />} />
-        <Route path='/mensajes' element={<Mensajes />} />
-        <Route path='/noticias' element={<Noticias />} />
+        <Route path='/pacientes' element={<Pacients />} />
+        <Route path='/citas' element={<Appointments />} />
+        <Route path='/finanzas' element={<Finances />} />
+        <Route path='/mensajes' element={<Messages />} />
+        <Route path='/noticias' element={<News />} />
       </Route>
     </Routes>
   )

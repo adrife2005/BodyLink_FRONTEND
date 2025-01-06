@@ -1,6 +1,6 @@
+import { SidebarItemProps } from '@/types/components/sidebaritem'
 import styles from './SidebarItem.module.css'
 import { Link } from 'react-router-dom'
-import { SidebarItemProps } from '../../../../types'
 
 export function SidebarItem({ children, href, active }: SidebarItemProps) {
   return (
