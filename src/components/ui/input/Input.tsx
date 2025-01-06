@@ -15,6 +15,7 @@ export function Input(props: Props) {
   const { icon, width, label, property, type, placeholder } = props
 
   return (
+<<<<<<< HEAD
     <div
       data-testid='inputSection'
       className={styles['input-section']}
@@ -36,6 +37,13 @@ export function Input(props: Props) {
           )}
         </label>
       </div>
+=======
+    <div data-testid='inputSection' className={styles['input-section']}>
+      <div>{getIcon(icon)}</div>
+      <label htmlFor='customInput'>
+        <input name='customInput' {...inputProps} />
+      </label>
+>>>>>>> 156f761 (feat: added register patient button in the patient page)
     </div>
   )
 }
