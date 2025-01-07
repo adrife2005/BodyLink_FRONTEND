@@ -19,10 +19,14 @@
   border: 1px solid var(--border-color);
   border-radius: 12px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: var(--primary-text);
 =======
   color: white;
 >>>>>>> 3bdae39 (feat: added generic modal and register modal)
+=======
+  color: var(--primary-text);
+>>>>>>> 0921ba3 (feat: added register modal tests)
   padding: 48px;
 
   & > div {
@@ -34,9 +38,13 @@
       font-size: 30px;
       font-weight: 700;
 <<<<<<< HEAD
+<<<<<<< HEAD
       color: var(--primary-text);
 =======
 >>>>>>> 3bdae39 (feat: added generic modal and register modal)
+=======
+      color: var(--primary-text);
+>>>>>>> 0921ba3 (feat: added register modal tests)
     }
 
     & > svg {
