@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import styles from './Sidebar.module.css'
 import items from './SidebarMenuItems.json'
-import getIcon from '@/utils/getIcons'
+import { getIcon } from '@/utils/getIcons'
 
 export function Sidebar() {
   const location = useLocation()

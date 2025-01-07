@@ -1,6 +1,6 @@
 import { DashBoardView } from './layouts/dashboard/DashBoardView'
 import { HomePage } from './pages/home/Home'
-import { Pacients } from './pages/pacients/Pacients'
+import { Patients } from './pages/pacients/Patients'
 import { Appointments } from './pages/appointments/Appointments'
 import { Finances } from './pages/finances/Finances'
 import { Messages } from './pages/messages/Messages'
@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path='/' element={<DashBoardView />}>
         <Route path='/' element={<HomePage />} />
-        <Route path='/pacientes' element={<Pacients />} />
+        <Route path='/pacientes' element={<Patients />} />
         <Route path='/citas' element={<Appointments />} />
         <Route path='/finanzas' element={<Finances />} />
         <Route path='/mensajes' element={<Messages />} />

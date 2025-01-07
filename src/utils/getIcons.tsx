@@ -5,22 +5,46 @@ import {
   ChartColumnDecreasing,
   MessageSquare,
   Newspaper,
+  X,
+  LucideProps,
+  Search,
 } from 'lucide-react'
-import { type ReactElement } from 'react'
+import {
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  type ReactElement,
+} from 'react'
 
 interface Icons {
-  [index: string]: ReactElement
+  [index: string]: ForwardRefExoticComponent<
+    Omit<LucideProps, 'ref'> & RefAttributes<SVGSVGElement>
+  >
+}
+
+interface Props {
+  color?: string
 }
 
 const icons: Icons = {
-  LayoutGrid: <LayoutGrid />,
-  UsersRound: <UsersRound />,
-  CalendarDays: <CalendarDays />,
-  ChartColumnDecreasing: <ChartColumnDecreasing />,
-  MessageSquare: <MessageSquare />,
-  Newspaper: <Newspaper />,
+  LayoutGrid,
+  UsersRound,
+  CalendarDays,
+  ChartColumnDecreasing,
+  MessageSquare,
+  Newspaper,
+  X,
+  Search,
 }
 
-const getIcon = (icon: string): ReactElement => icons[icon]
+/**
+ * Returns SVG icons from lucide-react library based on the icon name.
+ *
+ * @param iconName
+ * @param props
+ * @returns ReactElement
+ */
+export const getIcon = (iconName: string, props?: Props): ReactElement => {
+  const SVGComp = icons[iconName]
 
-export default getIcon
+  return SVGComp && <SVGComp aria-label={iconName} {...props} />
+}

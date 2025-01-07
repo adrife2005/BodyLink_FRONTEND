@@ -23,11 +23,12 @@ export function Header() {
     <div className={styles.container}>
       <div className={styles.left}>
         {/* This will change */}
-        Inicio <ChevronRight /> {locationName && `${formatingLocation}`}
+        Inicio <ChevronRight aria-label='arrow' />
+        {locationName && `${formatingLocation}`}
       </div>
       <div className={styles.right}>
-        <Sun onClick={toggleDarkMode} />
-        <Bell />
+        <Sun aria-label='toggleDarkMode' onClick={toggleDarkMode} />
+        <Bell aria-label='notifications' />
         <CustomButton className={btnPrimaryStyles}>
           Dr. Carlos
           <ChevronDown />

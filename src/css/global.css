@@ -65,6 +65,15 @@ p {
   color: var(--secondary-text);
 }
 
+input {
+  font-family: 'Inter', serif;
+  border: 0;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 img,
 picture,
 video,
