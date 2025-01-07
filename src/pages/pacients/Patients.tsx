@@ -1,13 +1,24 @@
+import RegisterModal from './components/registerModal'
 import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
 import { Label } from '@/components/ui/label/Label'
-import { UsersRound, SlidersHorizontal, Plus } from 'lucide-react'
-import styles from './Patients.module.css'
-import labels from './filter-labels.json'
 import { Input } from '@/components/ui/input/Input'
 import { CustomButton } from '@/components/ui/button/CustomButton'
 import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 
+import { UsersRound, SlidersHorizontal, Plus } from 'lucide-react'
+import styles from './Patients.module.css'
+import labels from './filter-labels.json'
+
+import { useState } from 'react'
+import { createPortal } from 'react-dom'
+
 export function Patients() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const toggleRegisterModal = (value: boolean) => {
+    setIsModalOpen(value)
+  }
+
   return (
     <>
       <SectionHeader
@@ -20,6 +31,7 @@ export function Patients() {
           <Input
             icon='Search'
             type='text'
+            width='399px'
             placeholder='Busca clientes, Archivos, Etc...'
           />
           <div className={styles.filter}>
@@ -27,7 +39,10 @@ export function Patients() {
           </div>
           <p>354 resultados</p>
         </div>
-        <CustomButton className={btnPrimaryStyles}>
+        <CustomButton
+          className={btnPrimaryStyles}
+          onClick={() => toggleRegisterModal(true)}
+        >
           <Plus />
           Registrar paciente
         </CustomButton>
@@ -42,6 +57,11 @@ export function Patients() {
           />
         ))}
       </section>
+      {isModalOpen &&
+        createPortal(
+          <RegisterModal close={() => toggleRegisterModal(false)} />,
+          document.body
+        )}
     </>
   )
 }
