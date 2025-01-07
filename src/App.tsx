@@ -1,6 +1,6 @@
 import { DashBoardView } from './layouts/dashboard/DashBoardView'
 import { HomePage } from './pages/home/Home'
-import { Patients } from './pages/pacients/Patients'
+import { Patients } from './pages/patients/Patients'
 import { Appointments } from './pages/appointments/Appointments'
 import { Finances } from './pages/finances/Finances'
 import { Messages } from './pages/messages/Messages'

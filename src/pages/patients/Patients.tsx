@@ -1,4 +1,4 @@
-import RegisterModal from './components/registerModal'
+import RegisterModal from './components/RegisterModal'
 import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
 import { Label } from '@/components/ui/label/Label'
 import { Input } from '@/components/ui/input/Input'

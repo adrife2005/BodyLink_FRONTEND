@@ -13,10 +13,10 @@ export default function GenericModal({ title, children, blur, close }: Props) {
   return (
     <>
       {blur && <div className={styles.blur}></div>}
-      <div className={styles['generic-modal']}>
+      <div data-testid='genericModal' className={styles['generic-modal']}>
         <div>
           <h1> {title}</h1>
-          <X onClick={close} />
+          <X data-testid='modalCloseButton' onClick={close} />
         </div>
         <div>{children}</div>
       </div>
