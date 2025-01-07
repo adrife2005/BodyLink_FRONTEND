@@ -52,27 +52,34 @@
     align-items: center;
     flex: 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: var(--primary-text);
 =======
     color: white;
 >>>>>>> 3bdae39 (feat: added generic modal and register modal)
+=======
+    color: var(--primary-text);
+>>>>>>> 0921ba3 (feat: added register modal tests)
     padding-right: 10px;
 
     & input {
       width: 100%;
       color: var(--input-text);
       background-color: inherit;
+<<<<<<< HEAD
     }
 
     & select {
       width: 100%;
       color: var(--input-text);
       background-color: inherit;
+=======
+>>>>>>> 0921ba3 (feat: added register modal tests)
     }
 
     & select {
       width: 100%;
-      color: white;
+      color: var(--input-text);
       background-color: inherit;
     }
   }
