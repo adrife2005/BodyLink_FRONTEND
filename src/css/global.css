@@ -6,8 +6,13 @@
   --primary-text: #ffffff;
   --secondary-text: #9ca3af;
   --input-text: #acaeb3;
+  --input-bg-color: #171717;
   --accent-color: #19a853;
   --destructive-color: #ff4f52;
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 8px;
+  --border-radius-xl: 12px;
 }
 
 .light {

@@ -1,19 +1,4 @@
 .input-section {
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  & > span {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--secondary-text);
-  }
-}
-
-.labeled-input {
-=======
->>>>>>> 156f761 (feat: added register patient button in the patient page)
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -32,7 +17,7 @@
   height: 40px;
   background-color: var(--container-color);
   border: 1px solid var(--border-color);
-  border-radius: 6px;
+  border-radius: var(--border-radius-md);
 
   & div {
     display: flex;
@@ -51,30 +36,13 @@
     display: flex;
     align-items: center;
     flex: 1;
-<<<<<<< HEAD
-<<<<<<< HEAD
     color: var(--primary-text);
-=======
-    color: white;
->>>>>>> 3bdae39 (feat: added generic modal and register modal)
-=======
-    color: var(--primary-text);
->>>>>>> 0921ba3 (feat: added register modal tests)
     padding-right: 10px;
 
     & input {
       width: 100%;
       color: var(--input-text);
       background-color: inherit;
-<<<<<<< HEAD
-    }
-
-    & select {
-      width: 100%;
-      color: var(--input-text);
-      background-color: inherit;
-=======
->>>>>>> 0921ba3 (feat: added register modal tests)
     }
 
     & select {
