@@ -1,10 +1,10 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, MouseEvent } from 'react'
 
 export type ButtonProps = {
   children: React.ReactNode
   className: CSSProperties
   type?: 'button' | 'submit' | 'reset'
-  onClick?: () => void
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
 }
 

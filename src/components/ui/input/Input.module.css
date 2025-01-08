@@ -1,21 +1,33 @@
-.inputSection {
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & > span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--secondary-text);
+  }
+}
+
+.labeled-input {
   display: flex;
   gap: 10.75px;
-  width: 399px;
+  width: 100%;
   height: 40px;
   background-color: var(--container-color);
   border: 1px solid var(--border-color);
   border-radius: 6px;
 
-  div {
+  & div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin: 7px 0;
     padding-inline: 10.75px;
     border-right: 1px solid var(--border-color);
 
-    svg {
+    & svg {
       width: 22px;
     }
   }
@@ -24,15 +36,19 @@
     display: flex;
     align-items: center;
     flex: 1;
+    color: var(--primary-text);
+    padding-right: 10px;
 
-    input {
+    & input {
       width: 100%;
       color: var(--input-text);
       background-color: inherit;
+    }
 
-      &::placeholder {
-        color: var(--secondary-text);
-      }
+    & select {
+      width: 100%;
+      color: var(--input-text);
+      background-color: inherit;
     }
   }
 }

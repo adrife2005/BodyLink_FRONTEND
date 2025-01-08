@@ -8,6 +8,13 @@ import {
   X,
   LucideProps,
   Search,
+  UserRoundPen,
+  Calendar,
+  PersonStanding,
+  MapPin,
+  BriefcaseBusiness,
+  AtSign,
+  Smartphone,
 } from 'lucide-react'
 import {
   type ForwardRefExoticComponent,
@@ -34,6 +41,13 @@ const icons: Icons = {
   Newspaper,
   X,
   Search,
+  UserRoundPen,
+  Calendar,
+  PersonStanding,
+  MapPin,
+  BriefcaseBusiness,
+  AtSign,
+  Smartphone,
 }
 
 /**

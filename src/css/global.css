@@ -4,7 +4,7 @@
   --container-color: #1d1d1d;
   --border-color: #343434;
   --primary-text: #ffffff;
-  --secondary-text: #acaeb3;
+  --secondary-text: #9ca3af;
   --input-text: #acaeb3;
   --accent-color: #19a853;
   --destructive-color: #ff4f52;
@@ -74,6 +74,12 @@ input {
   }
 }
 
+select {
+  font-family: 'Inter', serif;
+  border: 0;
+  outline: none;
+}
+
 img,
 picture,
 video,
@@ -88,7 +94,7 @@ svg {
 
 button {
   display: inline-block;
-  padding: none;
+  padding: 0;
   border: none;
   background: none;
   cursor: pointer;

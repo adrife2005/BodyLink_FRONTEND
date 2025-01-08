@@ -14,7 +14,7 @@ export function CustomButton({
       type={type}
       className={styles.button}
       style={className}
-      onClick={onClick}
+      onClick={e => onClick && onClick(e)}
       disabled={disabled}
     >
       {children}
