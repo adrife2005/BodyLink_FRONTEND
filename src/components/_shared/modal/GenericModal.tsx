@@ -18,18 +18,6 @@ export default function GenericModal({ title, children, blur, close }: Props) {
           <h1> {title}</h1>
           <X data-testid='modalCloseButton' onClick={close} />
         </div>
-      </div>
-      <div className={styles['generic-modal']}>
-        <div>
-          <h1> {title}</h1>
-          <X onClick={close} />
-        </div>
-      </div>
-      <div data-testid='genericModal' className={styles['generic-modal']}>
-        <div>
-          <h1> {title}</h1>
-          <X data-testid='modalCloseButton' onClick={close} />
-        </div>
         <div>{children}</div>
       </div>
     </>
