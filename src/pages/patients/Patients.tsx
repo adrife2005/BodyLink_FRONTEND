@@ -54,7 +54,7 @@ export function Patients() {
           />
         ))}
       </section>
-      <section className={styles['patients-data']}>
+      <section data-testid='patients-data' className={styles['patients-data']}>
         <main className={styles['patients-table']}>
           <div>
             <button
