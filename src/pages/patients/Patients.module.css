@@ -51,7 +51,7 @@
   padding: 26px 0;
   width: 100%;
 
-  .patients-table {
+  & .patients-selection {
     display: flex;
     flex-direction: column;
     background-color: inherit;
@@ -74,5 +74,87 @@
         }
       }
     }
+
+    & > div:nth-child(2) div {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      & select {
+        color: var(--input-text);
+        background-color: var(--input-bg-color);
+      }
+
+      & svg {
+        width: 24px;
+        cursor: pointer;
+      }
+    }
+
+    & .patients-table {
+      & tbody {
+        display: block;
+        overflow-y: scroll;
+        height: 400px;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+
+        &::-webkit-scrollbar {
+          display: none; /* Chrome */
+        }
+      }
+
+      & tr {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 140px repeat(3, 218px) 140px;
+        background-color: var(--container-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-md);
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 32px;
+
+        tbody & {
+          margin-top: 8px;
+          cursor: pointer;
+
+          &:hover {
+            border: 1px solid var(--accent-color);
+          }
+        }
+      }
+
+      & td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+
+        & svg {
+          width: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  & > aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--container-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    width: 100%;
+    height: 100%;
   }
 }
