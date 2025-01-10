@@ -14,10 +14,7 @@ import { createPortal } from 'react-dom'
 
 export function Patients() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const toggleRegisterModal = (value: boolean) => {
-    setIsModalOpen(value)
-  }
+  const [activeView, setActiveView] = useState('Activos')
 
   return (
     <>
@@ -41,7 +38,7 @@ export function Patients() {
         </div>
         <CustomButton
           className={btnPrimaryStyles}
-          onClick={() => toggleRegisterModal(true)}
+          onClick={() => setIsModalOpen(true)}
         >
           <Plus />
           Registrar paciente
@@ -57,9 +54,27 @@ export function Patients() {
           />
         ))}
       </section>
+      <section data-testid='patients-data' className={styles['patients-data']}>
+        <main className={styles['patients-table']}>
+          <div>
+            <button
+              className={`${activeView === 'Activos' && styles.isActive}`}
+              onClick={() => setActiveView('Activos')}
+            >
+              Activos
+            </button>
+            <button
+              className={`${activeView === 'Archivados' && styles.isActive}`}
+              onClick={() => setActiveView('Archivados')}
+            >
+              Archivados
+            </button>
+          </div>
+        </main>
+      </section>
       {isModalOpen &&
         createPortal(
-          <RegisterModal close={() => toggleRegisterModal(false)} />,
+          <RegisterModal close={() => setIsModalOpen(false)} />,
           document.body
         )}
     </>
