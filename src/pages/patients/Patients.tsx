@@ -14,6 +14,7 @@ import {
   Pencil,
   Archive,
   ChevronRight,
+  ChevronLeft,
 } from 'lucide-react'
 import styles from './Patients.module.css'
 import labels from './filter-labels.json'
@@ -161,6 +162,20 @@ export function Patients() {
           />
           <p>Selectiona un paciente para ver la información previa</p>
         </aside>
+        <footer>
+          <div>
+            <ChevronLeft />
+          </div>
+          <div>
+            <p>1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+          </div>
+          <div>
+            <ChevronRight />
+          </div>
+        </footer>
       </section>
       {isModalOpen &&
         createPortal(
