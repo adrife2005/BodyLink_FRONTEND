@@ -3,7 +3,7 @@ import { ButtonProps } from '@/types/components/button'
 
 export function CustomButton({
   children,
-  className,
+  customStyle,
   type,
   onClick,
   disabled,
@@ -13,7 +13,7 @@ export function CustomButton({
       data-testid='customButton'
       type={type}
       className={styles.button}
-      style={className}
+      style={customStyle}
       onClick={e => onClick && onClick(e)}
       disabled={disabled}
     >

@@ -125,8 +125,20 @@
           margin-top: 8px;
           cursor: pointer;
 
+          & td:last-child {
+            justify-self: end;
+
+            & > svg {
+              visibility: hidden;
+            }
+          }
+
           &:hover {
             border: 1px solid var(--accent-color);
+
+            & td:last-child > svg {
+              visibility: visible;
+            }
           }
         }
       }
@@ -137,8 +149,11 @@
         align-items: center;
         gap: 5px;
 
-        & svg {
-          width: 15px;
+        tbody &:not(:first-child) {
+          color: var(--secondary-text);
+        }
+
+        thead & svg {
           cursor: pointer;
         }
       }

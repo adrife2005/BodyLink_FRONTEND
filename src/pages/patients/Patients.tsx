@@ -3,7 +3,6 @@ import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
 import { Label } from '@/components/ui/label/Label'
 import { Input } from '@/components/ui/input/Input'
 import { CustomButton } from '@/components/ui/button/CustomButton'
-import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 
 import {
   UsersRound,
@@ -12,6 +11,9 @@ import {
   ArrowUpDown,
   Grid2x2,
   CircleUser,
+  Pencil,
+  Archive,
+  ChevronRight,
 } from 'lucide-react'
 import styles from './Patients.module.css'
 import labels from './filter-labels.json'
@@ -19,10 +21,16 @@ import patients from './patients-table.json'
 
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 
 export function Patients() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [activeView, setActiveView] = useState('Activos')
+  const actionButtonStyle = {
+    padding: '8px 13px',
+    borderRadius: 'var(--border-radius-md)',
+    backgroundColor: 'var(--border-color)',
+  }
 
   return (
     <>
@@ -45,7 +53,7 @@ export function Patients() {
           <p>354 resultados</p>
         </div>
         <CustomButton
-          className={btnPrimaryStyles}
+          customStyle={btnPrimaryStyles}
           onClick={() => setIsModalOpen(true)}
         >
           <Plus />
@@ -129,6 +137,15 @@ export function Patients() {
                     <td>{patient.email}</td>
                     <td>{patient.lastAppointment}</td>
                     <td>{patient.objective}</td>
+                    <td>
+                      <CustomButton customStyle={actionButtonStyle}>
+                        <Pencil />
+                      </CustomButton>
+                      <CustomButton customStyle={actionButtonStyle}>
+                        <Archive />
+                      </CustomButton>
+                      <ChevronRight height={35} />
+                    </td>
                   </tr>
                 ))}
               </tbody>
