@@ -1,0 +1,35 @@
+.paginator {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 32px;
+
+  & > div {
+    cursor: pointer;
+
+    &:not(:nth-child(2)) {
+      background-color: var(--container-color);
+      border-radius: 50%;
+      padding: 8px;
+
+      & svg {
+        width: 16px;
+      }
+    }
+
+    &:nth-child(2) {
+      display: flex;
+      justify-content: space-aroun;
+      gap: 12px;
+      margin: 0 16px;
+      font-size: 16px;
+      font-weight: 500;
+
+      & p:first-child {
+        color: var(--accent-color);
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+  }
+}

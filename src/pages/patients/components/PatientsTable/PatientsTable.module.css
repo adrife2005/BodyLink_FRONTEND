@@ -1,0 +1,143 @@
+.patients-data {
+  display: grid;
+  grid-template-columns: 1000px 526px;
+  grid-template-rows: 566px 32px;
+  justify-items: center;
+  column-gap: 24px;
+  row-gap: 16px;
+  margin-top: 26px;
+  width: 100%;
+
+  & .patients-selection {
+    display: flex;
+    flex-direction: column;
+    background-color: inherit;
+
+    & > div:first-child {
+      width: max-content;
+      height: 40px;
+      padding: 5px;
+      background: var(--container-color);
+      border-radius: var(--border-radius-md);
+
+      & > button {
+        padding: 6px 35px;
+        height: 100%;
+        border-radius: var(--border-radius-sm);
+        font-size: 14px;
+        font-weight: 500;
+
+        &:hover,
+        &.isActive {
+          background-color: var(--border-color);
+        }
+      }
+    }
+
+    & > div:nth-child(2) div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 34px;
+      margin: 16px 0;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      & select {
+        color: var(--input-text);
+        background-color: var(--input-bg-color);
+      }
+
+      & svg {
+        width: 24px;
+        height: 40px;
+        cursor: pointer;
+      }
+    }
+
+    & .patients-table {
+      height: 460px;
+
+      & tbody {
+        display: block;
+        overflow-y: scroll;
+        height: 420px;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+
+        &::-webkit-scrollbar {
+          display: none; /* Chrome */
+        }
+      }
+
+      & tr {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 140px repeat(3, 218px) 140px;
+        background-color: var(--container-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-md);
+        font-size: 16px;
+        font-weight: 500;
+        height: 34px;
+
+        tbody & {
+          height: 62px;
+          margin-top: 8px;
+          cursor: pointer;
+
+          & td:last-child {
+            justify-self: end;
+
+            & > svg {
+              visibility: hidden;
+            }
+          }
+
+          &:hover {
+            border: 1px solid var(--accent-color);
+
+            & td:last-child > svg {
+              visibility: visible;
+            }
+          }
+        }
+      }
+
+      & td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+
+        tbody &:not(:first-child) {
+          color: var(--secondary-text);
+        }
+
+        thead & svg {
+          width: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  & > aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--container-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    width: 100%;
+    height: 100%;
+  }
+}

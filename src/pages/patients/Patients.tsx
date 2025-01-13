@@ -1,24 +1,13 @@
-import RegisterModal from './components/RegisterModal'
+import RegisterModal from './components/RegisterModal/RegisterModal'
+import PatientsTable from './components/PatientsTable/PatientsTable'
 import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
 import { Label } from '@/components/ui/label/Label'
 import { Input } from '@/components/ui/input/Input'
 import { CustomButton } from '@/components/ui/button/CustomButton'
 
-import {
-  UsersRound,
-  SlidersHorizontal,
-  Plus,
-  ArrowUpDown,
-  Grid2x2,
-  CircleUser,
-  Pencil,
-  Archive,
-  ChevronRight,
-  ChevronLeft,
-} from 'lucide-react'
+import { UsersRound, SlidersHorizontal, Plus } from 'lucide-react'
 import styles from './Patients.module.css'
 import labels from './filter-labels.json'
-import patients from './patients-table.json'
 
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
@@ -26,12 +15,6 @@ import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyl
 
 export function Patients() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [activeView, setActiveView] = useState('Activos')
-  const actionButtonStyle = {
-    padding: '8px 13px',
-    borderRadius: 'var(--border-radius-md)',
-    backgroundColor: 'var(--border-color)',
-  }
 
   return (
     <>
@@ -71,112 +54,7 @@ export function Patients() {
           />
         ))}
       </section>
-      <section data-testid='patients-data' className={styles['patients-data']}>
-        <main className={styles['patients-selection']}>
-          <div>
-            <button
-              className={`${activeView === 'Activos' && styles.isActive}`}
-              onClick={() => setActiveView('Activos')}
-            >
-              Activos
-            </button>
-            <button
-              className={`${activeView === 'Archivados' && styles.isActive}`}
-              onClick={() => setActiveView('Archivados')}
-            >
-              Archivados
-            </button>
-          </div>
-          <div>
-            <div>
-              <div>
-                <span>Vista por pagina</span>
-                <select defaultValue='6'>
-                  <option value='1'>1</option>
-                  <option value='1'>2</option>
-                  <option value='1'>3</option>
-                  <option value='1'>4</option>
-                  <option value='1'>5</option>
-                  <option value='1'>6</option>
-                  <option value='1'>7</option>
-                  <option value='1'>8</option>
-                  <option value='1'>9</option>
-                  <option value='1'>10</option>
-                </select>
-              </div>
-              <Grid2x2 />
-            </div>
-            <table className={styles['patients-table']}>
-              <thead>
-                <tr>
-                  <td>
-                    Paciente
-                    <ArrowUpDown />
-                  </td>
-                  <td>
-                    e-Mail
-                    <ArrowUpDown />
-                  </td>
-                  <td>
-                    Ultima consulta
-                    <ArrowUpDown />
-                  </td>
-                  <td>
-                    Objetivo
-                    <ArrowUpDown />
-                  </td>
-                  <td>Acción</td>
-                </tr>
-              </thead>
-              <tbody>
-                {patients.map(patient => (
-                  <tr key={patient.objective}>
-                    <td>
-                      <CircleUser color='#19a853' />
-                      {patient.name}
-                    </td>
-                    <td>{patient.email}</td>
-                    <td>{patient.lastAppointment}</td>
-                    <td>{patient.objective}</td>
-                    <td>
-                      <CustomButton customStyle={actionButtonStyle}>
-                        <Pencil />
-                      </CustomButton>
-                      <CustomButton customStyle={actionButtonStyle}>
-                        <Archive />
-                      </CustomButton>
-                      <ChevronRight height={35} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </main>
-        <aside>
-          <CircleUser
-            width={120}
-            height={120}
-            strokeWidth={1}
-            color='#9ca3af'
-          />
-          <p>Selectiona un paciente para ver la información previa</p>
-        </aside>
-        <footer>
-          <div>
-            <ChevronLeft />
-          </div>
-          <div>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-          </div>
-          <div>
-            <ChevronRight />
-          </div>
-        </footer>
-      </section>
+      <PatientsTable />
       {isModalOpen &&
         createPortal(
           <RegisterModal close={() => setIsModalOpen(false)} />,
