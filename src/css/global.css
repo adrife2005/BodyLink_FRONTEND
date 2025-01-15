@@ -41,7 +41,7 @@ body {
   font-family: 'Inter', serif;
   background-color: var(--body-color);
   color: var(--primary-text);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* Defaults styles */
