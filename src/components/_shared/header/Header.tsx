@@ -29,7 +29,7 @@ export function Header() {
       <div className={styles.right}>
         <Sun aria-label='toggleDarkMode' onClick={toggleDarkMode} />
         <Bell aria-label='notifications' />
-        <CustomButton className={btnPrimaryStyles}>
+        <CustomButton customStyle={btnPrimaryStyles}>
           Dr. Carlos
           <ChevronDown />
         </CustomButton>

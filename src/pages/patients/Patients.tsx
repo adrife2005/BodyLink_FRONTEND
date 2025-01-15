@@ -1,9 +1,9 @@
-import RegisterModal from './components/RegisterModal'
+import RegisterModal from './components/RegisterModal/RegisterModal'
+import PatientsTable from './components/PatientsTable/PatientsTable'
 import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
 import { Label } from '@/components/ui/label/Label'
 import { Input } from '@/components/ui/input/Input'
 import { CustomButton } from '@/components/ui/button/CustomButton'
-import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 
 import { UsersRound, SlidersHorizontal, Plus } from 'lucide-react'
 import styles from './Patients.module.css'
@@ -11,10 +11,10 @@ import labels from './filter-labels.json'
 
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 
 export function Patients() {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const [activeView, setActiveView] = useState('Activos')
 
   return (
     <>
@@ -37,7 +37,7 @@ export function Patients() {
           <p>354 resultados</p>
         </div>
         <CustomButton
-          className={btnPrimaryStyles}
+          customStyle={btnPrimaryStyles}
           onClick={() => setIsModalOpen(true)}
         >
           <Plus />
@@ -54,24 +54,7 @@ export function Patients() {
           />
         ))}
       </section>
-      <section data-testid='patients-data' className={styles['patients-data']}>
-        <main className={styles['patients-table']}>
-          <div>
-            <button
-              className={`${activeView === 'Activos' && styles.isActive}`}
-              onClick={() => setActiveView('Activos')}
-            >
-              Activos
-            </button>
-            <button
-              className={`${activeView === 'Archivados' && styles.isActive}`}
-              onClick={() => setActiveView('Archivados')}
-            >
-              Archivados
-            </button>
-          </div>
-        </main>
-      </section>
+      <PatientsTable />
       {isModalOpen &&
         createPortal(
           <RegisterModal close={() => setIsModalOpen(false)} />,

@@ -59,10 +59,10 @@ export default function RegisterModal({ close }: Props) {
           Acepta recibir notificaciones por correo
         </label>
         <div>
-          <CustomButton className={btnPrimaryStyles} onClick={close}>
+          <CustomButton customStyle={btnPrimaryStyles} onClick={close}>
             Cancelar
           </CustomButton>
-          <CustomButton className={btnPrimaryStyles} type='submit'>
+          <CustomButton customStyle={btnPrimaryStyles} type='submit'>
             <CircleCheckBig />
             Registrar
           </CustomButton>
