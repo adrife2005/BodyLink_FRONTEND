@@ -6,12 +6,10 @@
   column-gap: 24px;
   row-gap: 16px;
   margin-top: 26px;
-  width: 100%;
 
   & .patients-selection {
     display: flex;
     flex-direction: column;
-    background-color: inherit;
     width: 100%;
 
     & > div:first-child {

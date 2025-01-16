@@ -15,13 +15,14 @@ import objectives from './objectives'
 import { useState } from 'react'
 import Paginator from '../Paginator/Paginator'
 
+const actionButtonStyle = {
+  padding: '8px 13px',
+  borderRadius: 'var(--border-radius-md)',
+  backgroundColor: 'var(--border-color)',
+}
+
 export default function PatientsTable() {
   const [activeView, setActiveView] = useState('Activos')
-  const actionButtonStyle = {
-    padding: '8px 13px',
-    borderRadius: 'var(--border-radius-md)',
-    backgroundColor: 'var(--border-color)',
-  }
 
   return (
     <section data-testid='patients-data' className={styles['patients-data']}>
