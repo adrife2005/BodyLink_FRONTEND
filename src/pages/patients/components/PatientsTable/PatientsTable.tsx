@@ -25,7 +25,7 @@ export default function PatientsTable() {
 
   return (
     <section data-testid='patients-data' className={styles['patients-data']}>
-      <main className={styles['patients-selection']}>
+      <div className={styles['patients-selection']}>
         <div>
           <button
             className={`${activeView === 'Activos' && styles.isActive}`}
@@ -112,7 +112,7 @@ export default function PatientsTable() {
             </tbody>
           </table>
         </div>
-      </main>
+      </div>
       <aside>
         <CircleUser width={120} height={120} strokeWidth={1} color='#9ca3af' />
         <p>Selectiona un paciente para ver la información previa</p>

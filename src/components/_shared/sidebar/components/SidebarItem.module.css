@@ -3,7 +3,7 @@
   align-items: center;
   gap: 1rem;
   padding: 0.8rem 1rem;
-  color: var(----secondary-text);
+  color: var(--secondary-text);
   cursor: pointer;
   border-radius: var(--border-radius-md);
 

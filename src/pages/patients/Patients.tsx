@@ -29,7 +29,7 @@ export function Patients() {
             icon='Search'
             type='text'
             width='399px'
-            placeholder='Busca clientes, Archivos, Etc...'
+            placeholder='Busca Pacientes, Archivos, Etc...'
           />
           <div className={styles.filter}>
             <SlidersHorizontal aria-label='filter' />
