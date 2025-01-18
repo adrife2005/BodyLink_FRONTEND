@@ -15,4 +15,5 @@ export type ButtonStylesProps = {
   backgroundColor: string
   fontSize?: string
   color?: string
+  outline?: string
 }

@@ -29,7 +29,7 @@ export function Input(props: Props) {
           )}
           {type === 'select' && (
             <select name={property}>
-              <option value=''>{placeholder}</option>
+              <option>{placeholder}</option>
               <option value='male'>Masculino</option>
               <option value='female'>Femenino</option>
             </select>

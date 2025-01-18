@@ -4,7 +4,10 @@ import styles from './RegisterModal.module.css'
 import inputs from './register-inputs.json'
 import { CustomButton } from '@/components/ui/button/CustomButton'
 import { CircleCheckBig } from 'lucide-react'
-import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
+import {
+  btnPrimaryStyles,
+  btnSecondaryStyles,
+} from '@/components/ui/button/customStyles/buttonStyles'
 import { FormEvent } from 'react'
 
 interface Props {
@@ -59,7 +62,7 @@ export default function RegisterModal({ close }: Props) {
           Acepta recibir notificaciones por correo
         </label>
         <div>
-          <CustomButton customStyle={btnPrimaryStyles} onClick={close}>
+          <CustomButton customStyle={btnSecondaryStyles} onClick={close}>
             Cancelar
           </CustomButton>
           <CustomButton customStyle={btnPrimaryStyles} type='submit'>
