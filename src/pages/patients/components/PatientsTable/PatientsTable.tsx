@@ -106,7 +106,7 @@ export default function PatientsTable() {
                     <CustomButton customStyle={actionButtonStyle}>
                       <Archive />
                     </CustomButton>
-                    <ChevronRight height={35} />
+                    <ChevronRight className={styles.active} height={35} />
                   </td>
                 </tr>
               ))}

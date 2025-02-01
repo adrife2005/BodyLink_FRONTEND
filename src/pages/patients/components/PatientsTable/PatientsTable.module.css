@@ -65,15 +65,25 @@
       width: 100%;
 
       & tbody {
+        margin-top: 10px;
         display: block;
         overflow-y: scroll;
+        padding-right: 1rem;
         height: 420px;
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+        width: 100%;
+      }
 
-        &::-webkit-scrollbar {
-          display: none; /* Chrome */
-        }
+      & tbody::-webkit-scrollbar {
+        width: 15px;
+      }
+      & tbody::-webkit-scrollbar-track {
+        background: var(--container-color);
+        border-radius: 10px;
+      }
+
+      & tbody::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 10px;
       }
 
       & tr {
@@ -84,7 +94,6 @@
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius-md);
         font-size: 16px;
-        font-weight: 500;
         height: 34px;
 
         tbody & {
@@ -93,18 +102,24 @@
           cursor: pointer;
 
           & td:last-child {
-            justify-self: end;
+            z-index: 1;
 
             & > svg {
-              visibility: hidden;
+              display: none;
+            }
+
+            & button:hover {
+              border: 1px solid var(--accent-color);
             }
           }
 
           &:hover {
             border: 1px solid var(--accent-color);
+          }
 
+          &:active {
             & td:last-child > svg {
-              visibility: visible;
+              display: block;
             }
           }
         }
