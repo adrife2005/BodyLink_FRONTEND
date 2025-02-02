@@ -7,6 +7,7 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(3px);
+  z-index: 1;
 }
 
 .generic-modal {
@@ -20,6 +21,7 @@
   border-radius: var(--border-radius-xl);
   color: var(--primary-text);
   padding: 48px;
+  z-index: 99;
 
   & > div {
     display: flex;
