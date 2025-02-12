@@ -34,7 +34,7 @@
 
 .toggle {
   position: absolute;
-  right: -35px;
+  right: 0;
   cursor: pointer;
   color: var(--primary-text);
   opacity: 0.75;
@@ -62,7 +62,7 @@
 .toggle-compact {
   position: absolute;
   top: 2.5px;
-  right: -45px;
+  right: -50px;
   cursor: pointer;
   color: var(--primary-text);
   opacity: 0.75;

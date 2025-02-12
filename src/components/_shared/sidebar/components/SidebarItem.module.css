@@ -50,7 +50,7 @@
   & span {
     visibility: hidden;
     position: absolute;
-    width: 100px;
+    width: 80px;
     text-align: center;
     padding: 8px 8px;
     border-radius: 10px;
@@ -58,7 +58,7 @@
     color: var(--container-color);
     font-size: 0.85rem;
     top: 5px;
-    right: -100px;
+    right: -85px;
   }
 }
 
