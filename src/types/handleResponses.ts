@@ -10,4 +10,11 @@ interface ErrorResponseProps {
   success: boolean
 }
 
-export type { SuccessResponseProps, ErrorResponseProps }
+interface ServiceResult<T> {
+  data?: T | null
+  message: string | null
+  success: boolean
+  errorCode?: string | null
+}
+
+export type { SuccessResponseProps, ErrorResponseProps, ServiceResult }
