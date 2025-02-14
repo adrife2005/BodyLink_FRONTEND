@@ -1,5 +1,6 @@
 :root,
 .dark {
+  /* Styles */
   --body-color: #111111;
   --container-color: #1d1d1d;
   --border-color: #343434;
@@ -9,6 +10,8 @@
   --input-bg-color: #171717;
   --accent-color: #19a853;
   --destructive-color: #ff4f52;
+
+  /* Utils */
   --border-radius-sm: 4px;
   --border-radius-md: 6px;
   --border-radius-lg: 8px;
@@ -16,6 +19,7 @@
 }
 
 .light {
+  /* Styles */
   --body-color: #f4f5f7;
   --container-color: #ffffff;
   --border-color: #c8ccd5;
@@ -23,8 +27,6 @@
   --secondary-text: #9ca3af;
   --input-text: #acaeb3;
   --input-bg-color: #ffffff;
-  --accent-color: #19a853;
-  --destructive-color: #ff4f52;
 }
 
 * {
