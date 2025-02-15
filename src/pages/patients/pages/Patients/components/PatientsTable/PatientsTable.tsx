@@ -14,6 +14,7 @@ import objectives from './objectives'
 
 import { useState } from 'react'
 import Paginator from '../Paginator/Paginator'
+import { Link } from 'react-router-dom'
 
 const actionButtonStyle = {
   padding: '8px 13px',
@@ -84,31 +85,33 @@ export default function PatientsTable() {
             </thead>
             <tbody>
               {patients.map((patient, index) => (
-                <tr key={index}>
-                  <td>
-                    <CircleUser color='#19a853' />
-                    {patient.name}
-                  </td>
-                  <td>{patient.email}</td>
-                  <td>{patient.lastAppointment}</td>
-                  <td>
-                    <Label
-                      text={patient.objective}
-                      customStyle={{
-                        backgroundColor: objectives[patient.objective],
-                      }}
-                    />
-                  </td>
-                  <td>
-                    <CustomButton customStyle={actionButtonStyle}>
-                      <Pencil />
-                    </CustomButton>
-                    <CustomButton customStyle={actionButtonStyle}>
-                      <Archive />
-                    </CustomButton>
-                    <ChevronRight className={styles.active} height={35} />
-                  </td>
-                </tr>
+                <Link to={`/pacientes/${patient.name}`} key={index}>
+                  <tr>
+                    <td>
+                      <CircleUser color='#19a853' />
+                      {patient.name}
+                    </td>
+                    <td>{patient.email}</td>
+                    <td>{patient.lastAppointment}</td>
+                    <td>
+                      <Label
+                        text={patient.objective}
+                        customStyle={{
+                          backgroundColor: objectives[patient.objective],
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <CustomButton customStyle={actionButtonStyle}>
+                        <Pencil />
+                      </CustomButton>
+                      <CustomButton customStyle={actionButtonStyle}>
+                        <Archive />
+                      </CustomButton>
+                      <ChevronRight className={styles.active} height={35} />
+                    </td>
+                  </tr>
+                </Link>
               ))}
             </tbody>
           </table>
