@@ -1,5 +1,8 @@
-import { useParams } from 'react-router'
+import PatientSlider from './components/patientSlider/PatientSlider'
 import patients from '../Patients/components/PatientsTable/patients-table.json'
+
+import { useParams } from 'react-router'
+import { SliderProvider } from './context/SliderContext'
 
 export const PatientDetails = () => {
   const { id } = useParams()
@@ -8,5 +11,11 @@ export const PatientDetails = () => {
 
   console.log(findPatient)
 
-  return <h1>Patient Details</h1>
+  return (
+    <SliderProvider>
+      <section>
+        <PatientSlider />
+      </section>
+    </SliderProvider>
+  )
 }
