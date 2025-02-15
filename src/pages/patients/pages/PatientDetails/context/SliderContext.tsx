@@ -15,25 +15,18 @@ interface SliderProps {
   setDecc: () => void
 }
 
-const SliderContext = createContext<SliderProps>({
-  currentStep: 1,
-  setCurrentStep: () => {},
-  finishedStep: [],
-  setFinishedStep: () => {},
-  setDecc: () => {},
-  setIncc: () => {},
-})
+const SliderContext = createContext<SliderProps | null>(null)
 
 const SliderProvider = ({ children }: { children: ReactNode }) => {
   const [currentStep, setCurrentStep] = useState<number>(1)
   const [finishedStep, setFinishedStep] = useState<number[]>([])
 
   const setIncc = () => {
-    return setCurrentStep(prev => prev + 1)
+    setCurrentStep(prev => Math.min(prev + 1, 8))
   }
 
   const setDecc = () => {
-    return setCurrentStep(prev => prev - 1)
+    setCurrentStep(prev => Math.max(prev - 1, 1))
   }
 
   return (
