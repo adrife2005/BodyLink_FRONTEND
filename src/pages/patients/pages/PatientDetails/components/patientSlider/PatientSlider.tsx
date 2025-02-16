@@ -1,6 +1,7 @@
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './PatientSlider.module.css'
 import { useSliderContext } from '../../context/useSliderContext'
+import { useEffect, useRef, useState } from 'react'
 
 const sliderSteps: { step: number; title: string }[] = [
   {
@@ -37,11 +38,13 @@ const sliderSteps: { step: number; title: string }[] = [
   },
 ]
 
+const stepWith = 245
+
 const PatientSlider = () => {
   const { currentStep, setCurrentStep, finishedStep, setIncc, setDecc } =
     useSliderContext()
-
-  console.log(currentStep)
+  const sliderContainerRef = useRef<HTMLDivElement>(null)
+  const [visibleSteps, setVisibleSteps] = useState<number>(0)
 
   const getCurrentStep = (step: number): string => {
     if (currentStep === step) {
@@ -53,6 +56,23 @@ const PatientSlider = () => {
     }
   }
 
+  const updateVisibleSteps = () => {
+    if (sliderContainerRef.current) {
+      const containerWith = sliderContainerRef.current.offsetWidth
+      setVisibleSteps(Math.floor(containerWith / stepWith))
+    }
+  }
+
+  useEffect(() => {
+    updateVisibleSteps()
+    window.addEventListener('resize', updateVisibleSteps)
+
+    return () => window.removeEventListener('resize', updateVisibleSteps)
+  }, [])
+
+  const maxTranslateX = (sliderSteps.length - visibleSteps) * stepWith
+  const translateX = Math.min((currentStep - 1) * stepWith, maxTranslateX)
+
   return (
     <div className={styles.slider}>
       <div className={styles.slider_content_wrapper}>
@@ -63,8 +83,9 @@ const PatientSlider = () => {
         )}
         <div
           className={styles.slider_wrapper}
+          ref={sliderContainerRef}
           style={{
-            transform: `translateX(-${(currentStep - 1) * 245}px)`,
+            transform: `translateX(-${translateX}px)`,
             transition: 'transform 0.5s ease-in-out',
           }}
         >
