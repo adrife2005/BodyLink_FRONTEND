@@ -13,4 +13,5 @@
   overflow-y: auto;
   padding: 60px;
   padding-bottom: 33px;
+  position: relative;
 }

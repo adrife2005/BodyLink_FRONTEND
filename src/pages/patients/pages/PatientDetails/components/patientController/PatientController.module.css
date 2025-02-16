@@ -1,0 +1,23 @@
+.container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--input-bg-color);
+  border-top: 1px solid var(--border-color);
+  padding: 0 60px;
+  height: 70px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  & div {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+}

@@ -38,14 +38,15 @@ const sliderSteps: { step: number; title: string }[] = [
 ]
 
 const PatientSlider = () => {
-  const { currentStep, finishedStep, setIncc, setDecc } = useSliderContext()
+  const { currentStep, setCurrentStep, finishedStep, setIncc, setDecc } =
+    useSliderContext()
 
   console.log(currentStep)
 
   const getCurrentStep = (step: number): string => {
     if (currentStep === step) {
       return '-active'
-    } else if (finishedStep[step]) {
+    } else if (finishedStep.includes(step)) {
       return '-finished'
     } else {
       return ''
@@ -60,14 +61,23 @@ const PatientSlider = () => {
             <ChevronLeft />
           </button>
         )}
-        <div className={styles.slider_wrapper}>
+        <div
+          className={styles.slider_wrapper}
+          style={{
+            transform: `translateX(-${(currentStep - 1) * 245}px)`,
+            transition: 'transform 0.5s ease-in-out',
+          }}
+        >
           {sliderSteps.map(({ title, step }) => (
             <div className={styles.slider_content} key={step}>
               <div>
                 <span>0{step}</span>
                 <span>{title}</span>
               </div>
-              <div className={styles.slider_container}>
+              <div
+                className={styles.slider_container}
+                onClick={() => setCurrentStep(step)}
+              >
                 <div className={styles[`circle${getCurrentStep(step)}`]}>
                   {getCurrentStep(step) === '-finished' && <Check size={20} />}
                 </div>
