@@ -1,5 +1,5 @@
 const getSidebarStorage = (): boolean => {
-  const getSidebar = localStorage.getItem('sidebar') as 'true' | 'false'
+  const getSidebar = localStorage.getItem('sidebar') as 'true' | 'false' | null
 
   if (!getSidebar) return false
 
