@@ -6,11 +6,26 @@ import items from './SidebarMenuItems.json'
 import { getIcon } from '@/utils/getIcons'
 import { PanelLeftOpen, PanelRightOpen } from 'lucide-react'
 import { useState } from 'react'
+import {
+  getSidebarStorage,
+  setSidebarStorage,
+} from '@/localStorage/sidebar.storage'
 
 export function Sidebar() {
   const location = useLocation()
   const isActive = (path: string): boolean => location.pathname === path
-  const [sidebarCompact, setSidebarCompact] = useState<boolean>(false)
+  const [sidebarCompact, setSidebarCompact] =
+    useState<boolean>(getSidebarStorage())
+
+  const handleCloseSidebarCompact = () => {
+    setSidebarCompact(false)
+    setSidebarStorage('false')
+  }
+
+  const handleOpenSidebarCompact = () => {
+    setSidebarCompact(true)
+    setSidebarStorage('true')
+  }
 
   return (
     <>
@@ -21,7 +36,7 @@ export function Sidebar() {
               BD
               <PanelLeftOpen
                 className={styles['toggle-compact']}
-                onClick={() => setSidebarCompact(false)}
+                onClick={handleCloseSidebarCompact}
               />
             </h1>
             <div>
@@ -45,7 +60,7 @@ export function Sidebar() {
               BD <span>Body Link</span>
               <PanelRightOpen
                 className={styles.toggle}
-                onClick={() => setSidebarCompact(true)}
+                onClick={handleOpenSidebarCompact}
               />
             </h1>
             <div>
