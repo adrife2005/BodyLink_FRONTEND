@@ -85,33 +85,33 @@ export default function PatientsTable() {
             </thead>
             <tbody>
               {patients.map((patient, index) => (
-                <Link to={`/pacientes/${patient.name}`} key={index}>
-                  <tr>
-                    <td>
-                      <CircleUser color='#19a853' />
-                      {patient.name}
-                    </td>
-                    <td>{patient.email}</td>
-                    <td>{patient.lastAppointment}</td>
-                    <td>
-                      <Label
-                        text={patient.objective}
-                        customStyle={{
-                          backgroundColor: objectives[patient.objective],
-                        }}
-                      />
-                    </td>
-                    <td>
+                <tr key={index}>
+                  <td>
+                    <CircleUser color='#19a853' />
+                    {patient.name}
+                  </td>
+                  <td>{patient.email}</td>
+                  <td>{patient.lastAppointment}</td>
+                  <td>
+                    <Label
+                      text={patient.objective}
+                      customStyle={{
+                        backgroundColor: objectives[patient.objective],
+                      }}
+                    />
+                  </td>
+                  <td>
+                    <Link to={`/pacientes/${patient.name}`} key={index}>
                       <CustomButton customStyle={actionButtonStyle}>
                         <Pencil />
                       </CustomButton>
-                      <CustomButton customStyle={actionButtonStyle}>
-                        <Archive />
-                      </CustomButton>
-                      <ChevronRight className={styles.active} height={35} />
-                    </td>
-                  </tr>
-                </Link>
+                    </Link>
+                    <CustomButton customStyle={actionButtonStyle}>
+                      <Archive />
+                    </CustomButton>
+                    <ChevronRight className={styles.active} height={35} />
+                  </td>
+                </tr>
               ))}
             </tbody>
           </table>
