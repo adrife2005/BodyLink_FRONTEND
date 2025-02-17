@@ -8,20 +8,24 @@ import { News } from './pages/news/News'
 import { Route } from 'react-router-dom'
 import RoutesWithNotFound from './components/routesWithNotFound/RoutesWithNotFound'
 import AuthUser from './guard/AuthUser'
+import { PublicRoutes, PrivateRoutes } from './types/routes'
 
 function App() {
   return (
     <RoutesWithNotFound>
-      <Route path='/login' element={<h1>Login page</h1>} />
-      <Route path='/register' element={<h1>Register page</h1>} />
+      <Route path={PublicRoutes.login} element={<h1>Login page</h1>} />
+      <Route path={PublicRoutes.register} element={<h1>Register page</h1>} />
       <Route element={<AuthUser />}>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/pacientes' element={<Patients />} />
-        <Route path='/pacientes/:id' element={<PatientDetails />} />
-        <Route path='/citas' element={<Appointments />} />
-        <Route path='/finanzas' element={<Finances />} />
-        <Route path='/mensajes' element={<Messages />} />
-        <Route path='/noticias' element={<News />} />
+        <Route path={PrivateRoutes.root} element={<HomePage />} />
+        <Route path={PrivateRoutes.pacientes} element={<Patients />} />
+        <Route
+          path={`${PrivateRoutes.pacientes}/:id`}
+          element={<PatientDetails />}
+        />
+        <Route path={PrivateRoutes.citas} element={<Appointments />} />
+        <Route path={PrivateRoutes.finanzas} element={<Finances />} />
+        <Route path={PrivateRoutes.mensajes} element={<Messages />} />
+        <Route path={PrivateRoutes.noticias} element={<News />} />
       </Route>
     </RoutesWithNotFound>
   )
