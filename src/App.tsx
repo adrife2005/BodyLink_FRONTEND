@@ -9,11 +9,12 @@ import { Route } from 'react-router-dom'
 import RoutesWithNotFound from './components/routesWithNotFound/RoutesWithNotFound'
 import AuthUser from './guard/AuthUser'
 import { PublicRoutes, PrivateRoutes } from './types/routes'
+import AuthLogin from './pages/auth/login/AuthLogin'
 
 function App() {
   return (
     <RoutesWithNotFound>
-      <Route path={PublicRoutes.login} element={<h1>Login page</h1>} />
+      <Route path={PublicRoutes.login} element={<AuthLogin />} />
       <Route path={PublicRoutes.register} element={<h1>Register page</h1>} />
       <Route element={<AuthUser />}>
         <Route path={PrivateRoutes.root} element={<HomePage />} />

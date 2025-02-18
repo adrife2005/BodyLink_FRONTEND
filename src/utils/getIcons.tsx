@@ -15,6 +15,8 @@ import {
   BriefcaseBusiness,
   AtSign,
   Smartphone,
+  Mail,
+  Lock,
 } from 'lucide-react'
 import {
   type ForwardRefExoticComponent,
@@ -48,6 +50,8 @@ const icons: Icons = {
   BriefcaseBusiness,
   AtSign,
   Smartphone,
+  Mail,
+  Lock,
 }
 
 /**
