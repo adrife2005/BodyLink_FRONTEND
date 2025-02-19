@@ -5,8 +5,8 @@ import { CustomButton } from '@/components/ui/button/CustomButton'
 import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 import { Input } from '@/components/ui/input/Input'
 import { Link, useNavigate } from 'react-router-dom'
-import loginPatient from '@/services/loginPatient.services'
 import toast from 'react-hot-toast'
+import loginNutritionist from '@/services/nutritionist/loginNutritionist.services'
 
 const authLoginSchema = z.object({
   email: z
@@ -43,7 +43,7 @@ const AuthLoginHandleForm = () => {
 
     setErrors({})
 
-    const response = await loginPatient(validate.data)
+    const response = await loginNutritionist(validate.data)
 
     if ('errorCode' in response) {
       if (response.errorCode === 'UNAUTHORIZED') {

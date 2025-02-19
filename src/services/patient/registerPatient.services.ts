@@ -3,7 +3,7 @@ import {
   SuccessResponseProps,
 } from '@/types/handleResponses'
 import { RegisterPatientProps } from '@/types/patients'
-import handleHttpPostRequest from './client/handleHttpPostRequest'
+import handleHttpPostRequest from '../client/handleHttpPostRequest'
 
 const registerPatient = async (
   data: RegisterPatientProps
