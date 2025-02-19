@@ -15,7 +15,7 @@ const handleHttpGetRequest = async <T>(
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: options?.credentials,
+        credentials: options?.credentials || 'include',
       }
     )
 
