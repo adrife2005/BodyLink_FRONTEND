@@ -1,10 +1,19 @@
+import useAuthNutritionist from '@/context/auth/Nutritionist/useAuthNutritionist'
 import { DashBoardView } from '@/layouts/dashboard/DashBoardView'
 import { Navigate } from 'react-router-dom'
 
 const AuthUser = () => {
-  const isAuth = null
+  const { account, error, isLoading } = useAuthNutritionist()
 
-  return isAuth ? <DashBoardView /> : <Navigate to='/login' replace />
+  if (isLoading) {
+    return null
+  }
+
+  if (!account && error) {
+    return <Navigate to='/login' replace />
+  }
+
+  return <DashBoardView />
 }
 
 export default AuthUser

@@ -5,12 +5,15 @@ import App from './App.tsx'
 import { Toaster } from 'react-hot-toast'
 ;<Toaster />
 import './css/global.css'
+import { AuthNutritionistProvider } from './context/auth/Nutritionist/AuthNutritionist.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
-      <Toaster />
+      <AuthNutritionistProvider>
+        <App />
+        <Toaster />
+      </AuthNutritionistProvider>
     </BrowserRouter>
   </StrictMode>
 )

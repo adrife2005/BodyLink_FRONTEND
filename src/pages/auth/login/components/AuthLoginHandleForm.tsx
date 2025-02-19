@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input/Input'
 import { Link, useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import loginNutritionist from '@/services/nutritionist/loginNutritionist.services'
+import useAuthNutritionist from '@/context/auth/Nutritionist/useAuthNutritionist'
 
 const authLoginSchema = z.object({
   email: z
@@ -22,6 +23,7 @@ const AuthLoginHandleForm = () => {
   )
   const [checked, setChecked] = useState(false)
   const navigate = useNavigate()
+  const { setAccount } = useAuthNutritionist()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -58,6 +60,7 @@ const AuthLoginHandleForm = () => {
 
     if (response.success && response.data) {
       toast.success('Bienvenido de vuelta', { id: response.data.email })
+      setAccount(response.data)
       navigate('/')
       return
     }

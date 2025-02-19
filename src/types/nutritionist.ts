@@ -3,4 +3,10 @@ interface LoginNutritionistProps {
   password: string
 }
 
-export type { LoginNutritionistProps }
+interface NutritionistProps {
+  name: string
+  email: string
+  current_subscription_id: string
+}
+
+export type { LoginNutritionistProps, NutritionistProps }
