@@ -8,4 +8,9 @@ interface RegisterPatientProps {
   phone: number
 }
 
-export type { RegisterPatientProps }
+interface LoginPatientProps {
+  email: string
+  password: string
+}
+
+export type { RegisterPatientProps, LoginPatientProps }

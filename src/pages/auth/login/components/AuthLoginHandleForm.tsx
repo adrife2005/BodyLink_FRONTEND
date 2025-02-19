@@ -4,7 +4,9 @@ import styles from '../AuthLogin.module.css'
 import { CustomButton } from '@/components/ui/button/CustomButton'
 import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
 import { Input } from '@/components/ui/input/Input'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import loginPatient from '@/services/loginPatient.services'
+import toast from 'react-hot-toast'
 
 const authLoginSchema = z.object({
   email: z
@@ -19,8 +21,9 @@ const AuthLoginHandleForm = () => {
     {}
   )
   const [checked, setChecked] = useState(false)
+  const navigate = useNavigate()
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const formData = new FormData(event.target as HTMLFormElement)
@@ -40,7 +43,24 @@ const AuthLoginHandleForm = () => {
 
     setErrors({})
 
-    console.log('Yuppi', validate.data)
+    const response = await loginPatient(validate.data)
+
+    if ('errorCode' in response) {
+      if (response.errorCode === 'UNAUTHORIZED') {
+        return toast.error('Email o contraseña incorrectos', {
+          id: response.errorCode,
+        })
+      }
+      return toast.error('Favor de escribir correctamente las credenciales', {
+        id: response.errorCode,
+      })
+    }
+
+    if (response.success && response.data) {
+      toast.success('Bienvenido de vuelta', { id: response.data.email })
+      navigate('/')
+      return
+    }
   }
 
   return (
