@@ -9,7 +9,7 @@ const handleHttpGetRequest = async <T>(
 ): Promise<SuccessResponseProps<T> | ErrorResponseProps> => {
   try {
     const response = await fetch(
-      `http://localhost:5000/bodylink-api/v1${endpoint}`,
+      `https://bodylinkservice.vercel.app/bodylink-api/v1${endpoint}`,
       {
         method: 'GET',
         headers: {
