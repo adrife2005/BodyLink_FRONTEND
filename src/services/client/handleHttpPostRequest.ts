@@ -9,7 +9,7 @@ const handleHttpPostRequest = async <T>(
 ): Promise<SuccessResponseProps<T> | ErrorResponseProps> => {
   try {
     const response = await fetch(
-      `https://bodylinkservice.vercel.app/bodylink-api/v1${endpoint}`,
+      `http://localhost:5000/bodylink-api/v1${endpoint}`,
       {
         method: 'POST',
         headers: {

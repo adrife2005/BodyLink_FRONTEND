@@ -1,7 +1,7 @@
 interface RegisterPatientProps {
   full_name: string
-  date: Date
-  gender: 'Masculino' | 'Femenino'
+  date_of_birth: Date
+  gender: 'male' | 'female'
   country: string
   occupation: string
   email: string

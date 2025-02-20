@@ -10,7 +10,7 @@ const registerPatient = async (
 ): Promise<SuccessResponseProps<RegisterPatientProps> | ErrorResponseProps> => {
   return await handleHttpPostRequest<RegisterPatientProps>(
     '/patient/register',
-    { body: JSON.stringify(data) }
+    { body: JSON.stringify(data), credentials: 'include' }
   )
 }
 
