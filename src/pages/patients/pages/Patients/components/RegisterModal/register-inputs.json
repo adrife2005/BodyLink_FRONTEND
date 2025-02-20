@@ -13,7 +13,6 @@
       "type": "date",
       "icon": "Calendar",
       "width": "409px",
-      "placeholder": "__ / __ / ____",
       "property": "date_of_birth"
     },
     {

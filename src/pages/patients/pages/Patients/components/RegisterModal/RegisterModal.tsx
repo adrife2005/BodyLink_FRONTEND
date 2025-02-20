@@ -57,12 +57,12 @@ export default function RegisterModal({ close }: Props) {
             />
           ))}
         </div>
-        <label htmlFor='notifications'>
-          <input type='checkbox' name='notifications' />
-          Acepta recibir notificaciones por correo
-        </label>
         <div>
-          <CustomButton customStyle={btnSecondaryStyles} onClick={close}>
+          <CustomButton
+            type='button'
+            customStyle={btnSecondaryStyles}
+            onClick={close}
+          >
             Cancelar
           </CustomButton>
           <CustomButton customStyle={btnPrimaryStyles} type='submit'>
