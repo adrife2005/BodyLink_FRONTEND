@@ -80,7 +80,8 @@ export default function RegisterModal({ close }: Props) {
     const validate = registerPatientSchema.safeParse(patientData)
 
     if (!validate.success) {
-      return toast.error(validate.error.errors[0].message)
+      const showError = validate.error.errors[0].message
+      return toast.error(showError, { id: showError })
     }
 
     const apiCall = await registerPatient(validate.data)
