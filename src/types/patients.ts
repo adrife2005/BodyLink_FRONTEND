@@ -3,7 +3,7 @@ interface RegisterPatientProps {
   date_of_birth: Date
   gender: 'male' | 'female'
   country: string
-  occupation: string
+  occupacity: string
   email: string
   phone: number
 }

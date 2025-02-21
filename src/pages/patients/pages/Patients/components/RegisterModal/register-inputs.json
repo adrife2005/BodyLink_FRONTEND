@@ -37,7 +37,7 @@
       "icon": "BriefcaseBusiness",
       "width": "834px",
       "placeholder": "Ej: Diseñador Web",
-      "property": "occupation"
+      "property": "occupacity"
     }
   ],
   "contactInfo": [
