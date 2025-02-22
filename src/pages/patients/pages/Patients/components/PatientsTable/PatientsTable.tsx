@@ -9,12 +9,11 @@ import {
   ChevronRight,
 } from 'lucide-react'
 import styles from './PatientsTable.module.css'
-import patients from './patients-table.json'
 import objectives from './objectives'
 
-import { useState } from 'react'
 import Paginator from '../Paginator/Paginator'
 import { Link } from 'react-router-dom'
+import useGetPatients from '@/pages/patients/context/useGetPatients'
 
 const actionButtonStyle = {
   padding: '8px 13px',
@@ -22,22 +21,32 @@ const actionButtonStyle = {
   backgroundColor: 'var(--border-color)',
 }
 
+const formatDate = (date: Date) => {
+  const parsedDate = new Date(date)
+
+  if (isNaN(parsedDate.getTime())) {
+    return 'Invalid date'
+  }
+
+  return parsedDate.toLocaleDateString()
+}
+
 export default function PatientsTable() {
-  const [activeView, setActiveView] = useState('Activos')
+  const { patients, loading, activeView, setActiveView } = useGetPatients()
 
   return (
     <section data-testid='patients-data' className={styles['patients-data']}>
       <div className={styles['patients-selection']}>
         <div>
           <button
-            className={`${activeView === 'Activos' && styles.isActive}`}
-            onClick={() => setActiveView('Activos')}
+            className={`${activeView === 'active' && styles.isActive}`}
+            onClick={() => setActiveView('active')}
           >
             Activos
           </button>
           <button
-            className={`${activeView === 'Archivados' && styles.isActive}`}
-            onClick={() => setActiveView('Archivados')}
+            className={`${activeView === 'archived' && styles.isActive}`}
+            onClick={() => setActiveView('archived')}
           >
             Archivados
           </button>
@@ -84,35 +93,44 @@ export default function PatientsTable() {
               </tr>
             </thead>
             <tbody>
-              {patients.map((patient, index) => (
-                <tr key={index}>
-                  <td>
-                    <CircleUser color='#19a853' />
-                    {patient.name}
-                  </td>
-                  <td>{patient.email}</td>
-                  <td>{patient.lastAppointment}</td>
-                  <td>
-                    <Label
-                      text={patient.objective}
-                      customStyle={{
-                        backgroundColor: objectives[patient.objective],
-                      }}
-                    />
-                  </td>
-                  <td>
-                    <Link to={`/pacientes/${patient.name}`} key={index}>
-                      <CustomButton customStyle={actionButtonStyle}>
-                        <Pencil />
-                      </CustomButton>
-                    </Link>
-                    <CustomButton customStyle={actionButtonStyle}>
-                      <Archive />
-                    </CustomButton>
-                    <ChevronRight className={styles.active} height={35} />
-                  </td>
+              {loading ?
+                <tr>
+                  <td colSpan={5}>Cargando...</td>
                 </tr>
-              ))}
+              : patients.length === 0 ?
+                <tr>
+                  <td colSpan={5}>No hay pacientes</td>
+                </tr>
+              : patients.map((patient, index) => (
+                  <tr key={index}>
+                    <td>
+                      <CircleUser color='#19a853' />
+                      {patient.full_name}
+                    </td>
+                    <td>{patient.email}</td>
+                    <td>{formatDate(patient.createdAt)}</td>
+                    <td>
+                      <Label
+                        text={patient.occupacity}
+                        customStyle={{
+                          backgroundColor: objectives[patient.occupacity],
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <Link to={`/pacientes/${patient.id}`} key={index}>
+                        <CustomButton customStyle={actionButtonStyle}>
+                          <Pencil />
+                        </CustomButton>
+                      </Link>
+                      <CustomButton customStyle={actionButtonStyle}>
+                        <Archive />
+                      </CustomButton>
+                      <ChevronRight className={styles.active} height={35} />
+                    </td>
+                  </tr>
+                ))
+              }
             </tbody>
           </table>
         </div>

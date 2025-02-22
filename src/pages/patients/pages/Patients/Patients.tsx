@@ -3,10 +3,11 @@ import { SectionHeader } from '@/components/_shared/sectionHeader/SectionHeader'
 import SearchPatients from './components/Search/SearchPatients'
 
 import { UsersRound } from 'lucide-react'
+import { GetPatientsProvider } from '../../context/GetPatients'
 
 export function Patients() {
   return (
-    <>
+    <GetPatientsProvider>
       <SectionHeader
         icon={<UsersRound aria-label='Pacientes' />}
         title='Pacientes'
@@ -14,6 +15,6 @@ export function Patients() {
       />
       <SearchPatients />
       <PatientsTable />
-    </>
+    </GetPatientsProvider>
   )
 }

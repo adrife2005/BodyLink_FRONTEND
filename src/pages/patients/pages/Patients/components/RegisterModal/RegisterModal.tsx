@@ -13,6 +13,7 @@ import { z } from 'zod'
 import toast from 'react-hot-toast'
 import { RegisterPatientProps } from '@/types/patients'
 import registerPatient from '@/services/patient/registerPatient.services'
+import useGetPatients from '@/pages/patients/context/useGetPatients'
 
 interface Props {
   close: () => void
@@ -54,6 +55,8 @@ const registerPatientSchema = z.object({
 })
 
 export default function RegisterModal({ close }: Props) {
+  const { setPatients } = useGetPatients()
+
   const submitFormData = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const formData = new FormData(event.target as HTMLFormElement)
@@ -87,8 +90,10 @@ export default function RegisterModal({ close }: Props) {
     const apiCall = await registerPatient(validate.data)
 
     if ('errorCode' in apiCall) {
-      return toast.error(apiCall.message)
+      return toast.error(apiCall.message, { id: apiCall.message })
     }
+
+    setPatients(prev => [apiCall.data, ...prev])
 
     toast.success(apiCall.message)
   }
