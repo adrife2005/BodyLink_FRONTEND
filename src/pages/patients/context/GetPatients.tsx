@@ -32,7 +32,7 @@ const GetPatientsProvider = ({ children }: { children: ReactNode }) => {
     setLoading(true)
     const apiResponse = await getPatients(activeView)
 
-    if ('errorCode' in apiResponse) {
+    if (!apiResponse.success) {
       setError(apiResponse.message)
       setLoading(false)
       return

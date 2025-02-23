@@ -1,13 +1,13 @@
 interface SuccessResponseProps<T> {
   data: T
   message: string
-  success: boolean
+  success: true
 }
 
 interface ErrorResponseProps {
   errorCode: string
   message: string
-  success: boolean
+  success: false
 }
 
 interface ServiceResult<T> {

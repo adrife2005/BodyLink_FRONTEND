@@ -47,7 +47,7 @@ const AuthLoginHandleForm = () => {
 
     const response = await loginNutritionist(validate.data)
 
-    if ('errorCode' in response) {
+    if (!response.success) {
       if (response.errorCode === 'UNAUTHORIZED') {
         return toast.error('Email o contraseña incorrectos', {
           id: response.errorCode,

@@ -89,7 +89,7 @@ export default function RegisterModal({ close }: Props) {
 
     const apiCall = await registerPatient(validate.data)
 
-    if ('errorCode' in apiCall) {
+    if (!apiCall.success) {
       return toast.error(apiCall.message, { id: apiCall.message })
     }
 
