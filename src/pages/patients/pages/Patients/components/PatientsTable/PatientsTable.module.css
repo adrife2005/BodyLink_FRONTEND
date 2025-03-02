@@ -71,6 +71,7 @@
         margin-top: 10px;
         display: block;
         overflow-y: auto;
+        max-height: 350px;
         padding-right: 1rem;
 
         &::-webkit-scrollbar {
