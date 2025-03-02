@@ -134,12 +134,12 @@ export default function PatientsTable() {
             </tbody>
           </table>
         </div>
+        <Paginator />
       </div>
       <aside>
         <CircleUser width={120} height={120} strokeWidth={1} color='#9ca3af' />
         <p>Selectiona un paciente para ver la información previa</p>
       </aside>
-      <Paginator />
     </section>
   )
 }
