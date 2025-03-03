@@ -63,7 +63,7 @@
 
       & thead {
         & tr {
-          padding-right: 2rem;
+          padding-right: 3.5rem;
         }
       }
 
@@ -98,7 +98,11 @@
         border-radius: var(--border-radius-md);
         font-size: 16px;
         height: 34px;
-        padding-inline: 10px;
+        padding-inline: 25px;
+
+        & td:first-child {
+          justify-content: start;
+        }
 
         tbody & {
           height: 62px;
@@ -128,8 +132,7 @@
         align-items: center;
         justify-content: center;
         gap: 5px;
-        min-width: 150px;
-        max-width: 200px;
+        width: 200px;
 
         tbody &:not(:first-child) {
           color: var(--secondary-text);

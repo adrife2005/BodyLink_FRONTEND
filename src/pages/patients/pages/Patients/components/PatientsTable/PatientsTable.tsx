@@ -1,4 +1,3 @@
-import { Label } from '@/components/ui/label/Label'
 import { CustomButton } from '@/components/ui/button/CustomButton'
 import {
   ArrowUpDown,
@@ -9,7 +8,6 @@ import {
   ChevronRight,
 } from 'lucide-react'
 import styles from './PatientsTable.module.css'
-import objectives from './objectives'
 
 import Paginator from '../Paginator/Paginator'
 import { Link } from 'react-router-dom'
@@ -85,10 +83,6 @@ export default function PatientsTable() {
                   Ultima consulta
                   <ArrowUpDown />
                 </td>
-                <td>
-                  Objetivo
-                  <ArrowUpDown />
-                </td>
                 <td>Acción</td>
               </tr>
             </thead>
@@ -109,14 +103,6 @@ export default function PatientsTable() {
                     </td>
                     <td>{patient.email}</td>
                     <td>{formatDate(patient.createdAt)}</td>
-                    <td>
-                      <Label
-                        text={patient.occupacity}
-                        customStyle={{
-                          backgroundColor: objectives[patient.occupacity],
-                        }}
-                      />
-                    </td>
                     <td>
                       <Link to={`/pacientes/${patient.id}`} key={index}>
                         <CustomButton customStyle={actionButtonStyle}>
