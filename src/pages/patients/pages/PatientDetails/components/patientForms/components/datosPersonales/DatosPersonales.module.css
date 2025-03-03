@@ -1,0 +1,68 @@
+.container {
+  max-width: 900px;
+  padding: 24px;
+  background-color: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.form_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+
+  label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--secondary-text);
+  }
+
+  .input {
+    display: flex;
+    gap: 10.75px;
+    width: 100%;
+    height: 40px;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+
+    & div {
+      margin: 7px 0;
+      padding-inline: 10.75px;
+      border-right: 1px solid var(--border-color);
+
+      & svg {
+        width: 28px;
+      }
+    }
+
+    & input {
+      width: 100%;
+      height: 100%;
+      color: var(--input-text);
+      background-color: inherit;
+      border-radius: var(--border-radius-md);
+      padding-right: 10px;
+    }
+
+    & select {
+      width: 100%;
+      color: var(--input-text);
+      background-color: inherit;
+      position: relative;
+      border-radius: var(--border-radius-md);
+      margin-right: 10px;
+    }
+  }
+}
+
+& .personal-details,
+& .contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0;
+}
