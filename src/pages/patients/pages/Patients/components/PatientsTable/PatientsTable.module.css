@@ -104,6 +104,10 @@
           justify-content: start;
         }
 
+        & td:last-child {
+          width: 100px;
+        }
+
         tbody & {
           height: 62px;
           margin-top: 8px;
