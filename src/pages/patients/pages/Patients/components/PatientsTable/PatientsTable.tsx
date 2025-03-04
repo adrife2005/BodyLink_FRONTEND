@@ -13,6 +13,10 @@ import Paginator from '../Paginator/Paginator'
 import { Link } from 'react-router-dom'
 import useGetPatients from '@/pages/patients/context/useGetPatients'
 import { useState } from 'react'
+import {
+  getPagePerView,
+  setPagePerView,
+} from '../../localStorage/getPagePerView'
 
 const actionButtonStyle = {
   padding: '8px 13px',
@@ -32,7 +36,12 @@ const formatDate = (date: Date) => {
 
 export default function PatientsTable() {
   const { patients, loading, activeView, setActiveView } = useGetPatients()
-  const [sliceTable, setSliceTable] = useState(5)
+  const [sliceTable, setSliceTable] = useState(getPagePerView())
+
+  const handlePagePerView = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSliceTable(Number(event.target.value))
+    setPagePerView(event.target.value)
+  }
 
   return (
     <section data-testid='patients-data' className={styles['patients-data']}>
@@ -55,10 +64,7 @@ export default function PatientsTable() {
           <div>
             <div>
               <span>Vista por pagina</span>
-              <select
-                defaultValue={sliceTable}
-                onChange={event => setSliceTable(Number(event.target.value))}
-              >
+              <select defaultValue={sliceTable} onChange={handlePagePerView}>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
