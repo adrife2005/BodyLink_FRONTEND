@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { PatientContext } from './PatientContext'
 
-export const useSliderContext = () => {
+export const usePatientContext = () => {
   const context = useContext(PatientContext)
 
   if (!context) {

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import {
   AtSign,
   Calendar,
@@ -9,45 +8,28 @@ import {
 } from 'lucide-react'
 
 import styles from './DatosPersonales.module.css'
-import { useParams } from 'react-router-dom'
-import getPatient from '@/services/patient/getPatient'
-import { PatientProps } from '@/types/patients'
+import { usePatientContext } from '../../../../context/userPatientContext'
 
 const DatosPersonales = () => {
-  const { id } = useParams()
-  const [values, setValues] = useState<PatientProps | null>()
-  const [error, setError] = useState<string | null>(null)
+  const { data, setData, loading } = usePatientContext()
+
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    )
+  }
 
   const onChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target
 
-    if (values) {
-      setValues({
-        ...values,
-        [name]: value,
-      })
-    }
-  }
-
-  useEffect(() => {
-    if (id) {
-      const fethPatient = async () => {
-        const response = await getPatient(id)
-
-        if (!response.success) {
-          setError(response.message)
-          return
-        }
-
-        setValues(response.data)
-      }
-
-      fethPatient()
-    }
-  }, [id])
-
-  if (error) {
-    return
+    setData({
+      ...data,
+      [name]: value,
+    })
   }
 
   return (
@@ -66,7 +48,7 @@ const DatosPersonales = () => {
                   id='full_name'
                   type='text'
                   name='full_name'
-                  value={values?.full_name}
+                  value={data.full_name}
                   onChange={onChangeEvent}
                 />
               </div>
@@ -81,7 +63,7 @@ const DatosPersonales = () => {
                   id='date_of_birth'
                   type='date'
                   name='date_of_birth'
-                  value={values?.email}
+                  value={data.email}
                   onChange={onChangeEvent}
                 />
               </div>
@@ -93,7 +75,7 @@ const DatosPersonales = () => {
                   <PersonStanding />
                 </div>
                 <select name='gender'>
-                  {values?.gender === 'male' ? 'Masculino' : 'Femenino'}
+                  {data.gender === 'male' ? 'Masculino' : 'Femenino'}
                   <option value='male'>Masculino</option>
                   <option value='female'>Femenino</option>
                 </select>
@@ -109,7 +91,7 @@ const DatosPersonales = () => {
                   id='country'
                   type='text'
                   name='country'
-                  value={values?.country}
+                  value={data.country}
                   onChange={onChangeEvent}
                 />
               </div>
@@ -124,7 +106,7 @@ const DatosPersonales = () => {
                   id='occupacity'
                   type='text'
                   name='occupacity'
-                  value={values?.occupacity}
+                  value={data.occupacity}
                   onChange={onChangeEvent}
                 />
               </div>
@@ -142,7 +124,7 @@ const DatosPersonales = () => {
                   id='email'
                   type='text'
                   name='email'
-                  value={values?.email}
+                  value={data.email}
                   onChange={onChangeEvent}
                 />
               </div>
@@ -157,7 +139,7 @@ const DatosPersonales = () => {
                   id='phone'
                   type='number'
                   name='phone'
-                  value={values?.phone}
+                  value={data.phone}
                   onChange={onChangeEvent}
                 />
               </div>

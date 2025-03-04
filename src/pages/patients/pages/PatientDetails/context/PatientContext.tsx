@@ -2,9 +2,9 @@ import getPatient from '@/services/patient/getPatient'
 import { PatientProps } from '@/types/patients'
 import { createContext, useState, useEffect, ReactNode } from 'react'
 import { useParams } from 'react-router-dom'
-
 interface PatientContextProps {
-  data: PatientProps | null
+  data: PatientProps
+  setData: React.Dispatch<React.SetStateAction<PatientProps>>
   loading: boolean
   error: string | null
 }
@@ -13,7 +13,21 @@ const PatientContext = createContext<PatientContextProps | null>(null)
 
 const PatientProvider = ({ children }: { children: ReactNode }) => {
   const { id } = useParams()
-  const [data, setData] = useState<PatientProps | null>(null)
+  const [data, setData] = useState<PatientProps>({
+    country: '',
+    createdAt: new Date(),
+    date_of_birth: new Date(),
+    email: '',
+    full_name: '',
+    gender: 'male',
+    id: '',
+    is_active: true,
+    nutritionist_id: '',
+    occupacity: '',
+    phone: 0,
+    updatedAt: new Date(),
+    customFields: [],
+  })
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -36,7 +50,7 @@ const PatientProvider = ({ children }: { children: ReactNode }) => {
   }, [id])
 
   return (
-    <PatientContext.Provider value={{ data, error, loading }}>
+    <PatientContext.Provider value={{ data, setData, error, loading }}>
       {children}
     </PatientContext.Provider>
   )
