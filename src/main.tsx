@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import { Toaster } from 'react-hot-toast'
-;<Toaster />
 import './css/global.css'
 import { AuthNutritionistProvider } from './context/auth/Nutritionist/AuthNutritionist.tsx'
 

@@ -10,10 +10,28 @@ import {
 import styles from './DatosPersonales.module.css'
 import { usePatientContext } from '../../../../context/userPatientContext'
 
+const formatDate = (date: Date) => {
+  const parsedDate = new Date(date)
+
+  if (isNaN(parsedDate.getTime())) {
+    return 'Invalid date'
+  }
+
+  return formatedToUse(parsedDate.toLocaleDateString())
+}
+
+const formatedToUse = (dateString: string): string => {
+  const [month, day, year] = dateString.split('/').map(Number)
+
+  const formattedDate = new Date(year, month - 1, day)
+    .toISOString()
+    .split('T')[0]
+
+  return formattedDate
+}
+
 const DatosPersonales = () => {
   const { data, setData, loading } = usePatientContext()
-
-  console.log(new Date(data.date_of_birth))
 
   if (loading) {
     return (
@@ -65,7 +83,7 @@ const DatosPersonales = () => {
                   id='date_of_birth'
                   type='date'
                   name='date_of_birth'
-                  value={data.email}
+                  value={formatDate(data.date_of_birth)}
                   onChange={onChangeEvent}
                 />
               </div>
