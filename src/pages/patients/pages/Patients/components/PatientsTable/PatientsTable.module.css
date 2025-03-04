@@ -171,8 +171,8 @@
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-md);
 
-  div {
-    width: 100%;
+  & td {
+    width: 100% !important;
     height: 30px;
     border-radius: var(--border-radius-md);
     background-color: var(--border-color);

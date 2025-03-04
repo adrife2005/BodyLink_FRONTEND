@@ -12,6 +12,7 @@ import styles from './PatientsTable.module.css'
 import Paginator from '../Paginator/Paginator'
 import { Link } from 'react-router-dom'
 import useGetPatients from '@/pages/patients/context/useGetPatients'
+import { useState } from 'react'
 
 const actionButtonStyle = {
   padding: '8px 13px',
@@ -31,6 +32,7 @@ const formatDate = (date: Date) => {
 
 export default function PatientsTable() {
   const { patients, loading, activeView, setActiveView } = useGetPatients()
+  const [sliceTable, setSliceTable] = useState(5)
 
   return (
     <section data-testid='patients-data' className={styles['patients-data']}>
@@ -53,17 +55,20 @@ export default function PatientsTable() {
           <div>
             <div>
               <span>Vista por pagina</span>
-              <select defaultValue='6'>
+              <select
+                defaultValue={sliceTable}
+                onChange={event => setSliceTable(Number(event.target.value))}
+              >
                 <option value='1'>1</option>
-                <option value='1'>2</option>
-                <option value='1'>3</option>
-                <option value='1'>4</option>
-                <option value='1'>5</option>
-                <option value='1'>6</option>
-                <option value='1'>7</option>
-                <option value='1'>8</option>
-                <option value='1'>9</option>
-                <option value='1'>10</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+                <option value='6'>6</option>
+                <option value='7'>7</option>
+                <option value='8'>8</option>
+                <option value='9'>9</option>
+                <option value='10'>10</option>
               </select>
             </div>
             <Grid2x2 />
@@ -89,13 +94,13 @@ export default function PatientsTable() {
             <tbody>
               {loading ?
                 <tr className={styles.loading}>
-                  <div></div>
+                  <td></td>
                 </tr>
               : patients.length === 0 ?
                 <tr>
                   <td colSpan={5}>No hay pacientes</td>
                 </tr>
-              : patients.map((patient, index) => (
+              : patients.slice(0, sliceTable).map((patient, index) => (
                   <tr key={index}>
                     <td>
                       <CircleUser color='#19a853' />
