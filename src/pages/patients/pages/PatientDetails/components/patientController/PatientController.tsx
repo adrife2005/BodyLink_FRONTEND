@@ -10,8 +10,6 @@ const PatientController = () => {
   const { currentStep, setIncc, setDecc, setFinishedStep, finishedStep } =
     useSliderContext()
 
-  console.log(finishedStep)
-
   const handleNext = () => {
     setIncc()
     setFinishedStep([...finishedStep, currentStep])
