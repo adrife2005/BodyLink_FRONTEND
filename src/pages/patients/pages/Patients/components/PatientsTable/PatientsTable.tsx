@@ -88,8 +88,8 @@ export default function PatientsTable() {
             </thead>
             <tbody>
               {loading ?
-                <tr>
-                  <td colSpan={5}>Cargando...</td>
+                <tr className={styles.loading}>
+                  <div></div>
                 </tr>
               : patients.length === 0 ?
                 <tr>

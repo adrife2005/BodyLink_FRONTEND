@@ -13,6 +13,8 @@ import { usePatientContext } from '../../../../context/userPatientContext'
 const DatosPersonales = () => {
   const { data, setData, loading } = usePatientContext()
 
+  console.log(new Date(data.date_of_birth))
+
   if (loading) {
     return (
       <div className={styles.loading}>
