@@ -1,29 +1,58 @@
 import { CustomButton } from '@/components/ui/button/CustomButton'
 import { btnPrimaryStyles } from '@/components/ui/button/customStyles/buttonStyles'
-import { Input } from '@/components/ui/input/Input'
 import { Label } from '@/components/ui/label/Label'
 import labels from '../../filter-labels.json'
 import styles from './Search.module.css'
 import RegisterModal from '../RegisterModal/RegisterModal'
 
-import { Plus, SlidersHorizontal } from 'lucide-react'
+import { Plus, Search, SlidersHorizontal } from 'lucide-react'
 
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
+import useGetPatients from '@/pages/patients/context/useGetPatients'
+import toast from 'react-hot-toast'
 
 const SearchPatients = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [searchPatient, setSearchPatient] = useState('')
+  const { patients, setPatients } = useGetPatients()
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    if (!searchPatient) return
+
+    const searchPatientByFullName = patients.filter(patient =>
+      patient.full_name.toLowerCase().includes(searchPatient.toLowerCase())
+    )
+
+    if (searchPatientByFullName.length < 1) {
+      return toast.error('No se encontro el paciente', { id: searchPatient })
+    }
+
+    setPatients(searchPatientByFullName)
+    setSearchPatient('')
+  }
 
   return (
     <>
       <section data-testid='searchSection' className={styles['search-section']}>
         <div>
-          <Input
-            icon='Search'
-            type='text'
-            width='399px'
-            placeholder='Busca Pacientes, Archivos, Etc...'
-          />
+          <form onSubmit={handleSubmit} className={styles.form_wrapper}>
+            <div className={styles.input}>
+              <div>
+                <Search />
+              </div>
+              <input
+                id='search'
+                type='text'
+                name='search'
+                placeholder='Buscar Pacientes, Archivos, Etc...'
+                value={searchPatient}
+                onChange={e => setSearchPatient(e.target.value)}
+              />
+            </div>
+          </form>
           <div className={styles.filter}>
             <SlidersHorizontal aria-label='filter' />
           </div>
