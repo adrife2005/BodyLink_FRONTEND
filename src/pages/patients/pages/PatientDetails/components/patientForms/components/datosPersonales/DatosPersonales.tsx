@@ -5,6 +5,8 @@ import {
   PersonStanding,
   Smartphone,
   UserPen,
+  File,
+  FileInput,
 } from 'lucide-react'
 
 import styles from './DatosPersonales.module.css'
@@ -53,7 +55,7 @@ const DatosPersonales = () => {
   }
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <div className={styles.container}>
         <h2>Datos Personales</h2>
         <form>
@@ -170,6 +172,50 @@ const DatosPersonales = () => {
             </div>
           </div>
         </form>
+      </div>
+      <div className={styles.container}>
+        <div>
+          <h2>Archivos del paciente</h2>
+          {data.customFields && data.customFields.length > 0 ?
+            data.customFields.map((archivo, index) => (
+              <div key={index} className={styles['personal-details']}>
+                <div className={styles.form_wrapper}>
+                  <div className={styles.input}>
+                    <div>
+                      <File />
+                    </div>
+                    <input
+                      id='full_name'
+                      type='text'
+                      name='full_name'
+                      value={archivo.name}
+                      onChange={onChangeEvent}
+                    />
+                  </div>
+                </div>
+                <div className={styles.form_wrapper}>
+                  <div className={styles.input}>
+                    <div>
+                      <File />
+                    </div>
+                    <input
+                      id='full_name'
+                      type='text'
+                      name='full_name'
+                      value={archivo.name}
+                      onChange={onChangeEvent}
+                    />
+                  </div>
+                </div>
+              </div>
+            ))
+          : null}
+          <div className={styles.archivos}>
+            <FileInput color='#19a853' />
+            <span>Sube archivos del paciente</span>
+            <p>Máximo 10MB, Formato PDF</p>
+          </div>
+        </div>
       </div>
     </div>
   )
