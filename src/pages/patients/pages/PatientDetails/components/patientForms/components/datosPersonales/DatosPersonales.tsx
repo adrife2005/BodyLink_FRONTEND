@@ -88,6 +88,8 @@ const DatosPersonales = () => {
                 />
               </div>
             </div>
+          </div>
+          <div className={styles['personal-details']}>
             <div className={styles.form_wrapper}>
               <label htmlFor='genero'>Genero</label>
               <div className={styles.input}>
@@ -116,6 +118,8 @@ const DatosPersonales = () => {
                 />
               </div>
             </div>
+          </div>
+          <div className={styles['personal-details']}>
             <div className={styles.form_wrapper}>
               <label htmlFor='occupacity'>Ocupación</label>
               <div className={styles.input}>

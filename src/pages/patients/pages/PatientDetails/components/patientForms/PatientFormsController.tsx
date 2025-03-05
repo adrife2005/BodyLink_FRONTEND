@@ -7,8 +7,8 @@ import DatosGenerales from './components/datosGenerales/DatosGenerales'
 import DatosPersonales from './components/datosPersonales/DatosPersonales'
 import Entregables from './components/entregables/Entregables'
 import Mediciones from './components/mediciones/Mediciones'
-import PlanAlimentacion from './components/planAlimentacion/planAlimentacion'
-import PlanFisico from './components/planFisico/planFisico'
+import PlanAlimentacion from './components/planAlimentacion/PlanAlimentacion'
+import PlanFisico from './components/planFisico/PlanFisico'
 
 const PatientFormsController = () => {
   const { currentStep } = useSliderContext()

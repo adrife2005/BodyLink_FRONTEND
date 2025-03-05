@@ -1,5 +1,5 @@
 .container {
-  max-width: 870px;
+  max-width: 800px;
   padding: 24px;
   background-color: var(--container-color);
   border: 1px solid var(--border-color);
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 400px;
+  width: 100%;
 
   label {
     font-size: 1rem;
@@ -62,7 +62,6 @@
 & .personal-details,
 & .contact-details {
   display: flex;
-  flex-wrap: wrap;
   gap: 16px;
   margin: 24px 0;
 }
