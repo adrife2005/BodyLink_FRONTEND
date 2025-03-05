@@ -2,6 +2,14 @@
   display: flex;
   width: 100%;
   gap: 26px;
+
+  > div:last-child {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
 }
 
 .container {
@@ -112,6 +120,24 @@
 
   svg {
     background-color: var(-accent-color);
+  }
+}
+
+.wrapper_preferencias {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & .preferencias {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & svg {
+      width: 36px;
+      cursor: pointer;
+    }
   }
 }
 

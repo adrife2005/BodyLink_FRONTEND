@@ -7,10 +7,13 @@ import {
   UserPen,
   File,
   FileInput,
+  ToggleLeft,
+  ToggleRight,
 } from 'lucide-react'
 
 import styles from './DatosPersonales.module.css'
 import { usePatientContext } from '../../../../context/userPatientContext'
+import { useState } from 'react'
 
 const formatDate = (date: Date) => {
   const parsedDate = new Date(date)
@@ -34,6 +37,7 @@ const formatedToUse = (dateString: string): string => {
 
 const DatosPersonales = () => {
   const { data, setData, loading } = usePatientContext()
+  const [toggle, setToggle] = useState(false)
 
   if (loading) {
     return (
@@ -173,8 +177,8 @@ const DatosPersonales = () => {
           </div>
         </form>
       </div>
-      <div className={styles.container}>
-        <div>
+      <div>
+        <div className={styles.container}>
           <h2>Archivos del paciente</h2>
           {data.customFields && data.customFields.length > 0 ?
             data.customFields.map((archivo, index) => (
@@ -214,6 +218,53 @@ const DatosPersonales = () => {
             <FileInput color='#19a853' />
             <span>Sube archivos del paciente</span>
             <p>Máximo 10MB, Formato PDF</p>
+          </div>
+        </div>
+        <div className={styles.container}>
+          <h2>Preferencias de la App del paciente</h2>
+          <div className={styles.wrapper_preferencias}>
+            <div className={styles.preferencias}>
+              <span>Acceso a la App</span>
+              {toggle ?
+                <ToggleLeft color='#19a853' onClick={() => setToggle(false)} />
+              : <ToggleRight onClick={() => setToggle(true)} />}
+            </div>
+            <div className={styles.preferencias}>
+              <span>Enviar y recibir mensaje</span>
+              {toggle ?
+                <ToggleLeft color='#19a853' onClick={() => setToggle(false)} />
+              : <ToggleRight onClick={() => setToggle(true)} />}
+            </div>
+            <div className={styles.preferencias}>
+              <span>Acceso a la App</span>
+              {toggle ?
+                <ToggleLeft color='#19a853' onClick={() => setToggle(false)} />
+              : <ToggleRight onClick={() => setToggle(true)} />}
+            </div>
+            <div className={styles.preferencias}>
+              <span>Agendar consultas</span>
+              {toggle ?
+                <ToggleLeft color='#19a853' onClick={() => setToggle(false)} />
+              : <ToggleRight onClick={() => setToggle(true)} />}
+            </div>
+            <div className={styles.preferencias}>
+              <span>Ver el PDF de nutrición</span>
+              {toggle ?
+                <ToggleLeft color='#19a853' onClick={() => setToggle(false)} />
+              : <ToggleRight onClick={() => setToggle(true)} />}
+            </div>
+            <div className={styles.preferencias}>
+              <span>Ver el PDF de entrenamiento</span>
+              {toggle ?
+                <ToggleLeft color='#19a853' onClick={() => setToggle(false)} />
+              : <ToggleRight onClick={() => setToggle(true)} />}
+            </div>
+            <div className={styles.preferencias}>
+              <span>Subir estudios en PDF</span>
+              {toggle ?
+                <ToggleLeft color='#19a853' onClick={() => setToggle(false)} />
+              : <ToggleRight onClick={() => setToggle(true)} />}
+            </div>
           </div>
         </div>
       </div>
