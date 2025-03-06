@@ -37,11 +37,16 @@ const formatDate = (date: Date) => {
 export default function PatientsTable() {
   const { patients, loading, activeView, setActiveView } = useGetPatients()
   const [sliceTable, setSliceTable] = useState(getPagePerView())
+  const [currentPage, setCurrentPage] = useState(1)
 
   const handlePagePerView = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSliceTable(Number(event.target.value))
     setPagePerView(event.target.value)
   }
+
+  const startIndex = (currentPage - 1) * sliceTable
+  const currentPageData = patients.slice(startIndex, startIndex + sliceTable)
+  const totalPages = Math.ceil(patients.length / sliceTable)
 
   return (
     <section data-testid='patients-data' className={styles['patients-data']}>
@@ -106,7 +111,7 @@ export default function PatientsTable() {
                 <tr>
                   <td colSpan={5}>No hay pacientes</td>
                 </tr>
-              : patients.slice(0, sliceTable).map((patient, index) => (
+              : currentPageData.map((patient, index) => (
                   <tr key={index}>
                     <td>
                       <CircleUser color='#19a853' />
@@ -131,7 +136,11 @@ export default function PatientsTable() {
             </tbody>
           </table>
         </div>
-        <Paginator />
+        <Paginator
+          length={totalPages}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
       </div>
       <aside>
         <CircleUser width={120} height={120} strokeWidth={1} color='#9ca3af' />
