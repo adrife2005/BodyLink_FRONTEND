@@ -12,6 +12,8 @@ interface GetPatientsContextProps {
   patients: PatientProps[]
   setPatients: React.Dispatch<React.SetStateAction<PatientProps[]>>
 
+  originalPatients: PatientProps[]
+
   activeView: 'active' | 'archived'
   setActiveView: React.Dispatch<React.SetStateAction<'active' | 'archived'>>
 
@@ -25,6 +27,7 @@ const GetPatientsContext = createContext<GetPatientsContextProps | null>(null)
 const GetPatientsProvider = ({ children }: { children: ReactNode }) => {
   const [activeView, setActiveView] = useState<'active' | 'archived'>('active')
   const [patients, setPatients] = useState<PatientProps[]>([])
+  const [originalPatients, setOriginalPatients] = useState<PatientProps[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -39,6 +42,7 @@ const GetPatientsProvider = ({ children }: { children: ReactNode }) => {
     }
 
     setPatients(apiResponse.data)
+    setOriginalPatients(apiResponse.data)
     setLoading(false)
   }, [activeView])
 
@@ -49,6 +53,7 @@ const GetPatientsProvider = ({ children }: { children: ReactNode }) => {
   return (
     <GetPatientsContext.Provider
       value={{
+        originalPatients,
         patients,
         loading,
         error,

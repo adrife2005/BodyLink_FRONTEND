@@ -7,38 +7,33 @@ import RegisterModal from '../RegisterModal/RegisterModal'
 
 import { Plus, Search, SlidersHorizontal } from 'lucide-react'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import useGetPatients from '@/pages/patients/context/useGetPatients'
-import toast from 'react-hot-toast'
 
 const SearchPatients = () => {
+  const { patients, setPatients, originalPatients } = useGetPatients()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [searchPatient, setSearchPatient] = useState('')
-  const { patients, setPatients } = useGetPatients()
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-
-    if (!searchPatient) return
-
-    const searchPatientByFullName = patients.filter(patient =>
-      patient.full_name.toLowerCase().includes(searchPatient.toLowerCase())
-    )
-
-    if (searchPatientByFullName.length < 1) {
-      return toast.error('No se encontro el paciente', { id: searchPatient })
+  useEffect(() => {
+    if (searchPatient === '') {
+      return setPatients(originalPatients)
     }
+    const sortPatients = patients
+      .filter(patient =>
+        patient.full_name.toLowerCase().includes(searchPatient.toLowerCase())
+      )
+      .sort((a, b) => a.full_name.localeCompare(b.full_name))
 
-    setPatients(searchPatientByFullName)
-    setSearchPatient('')
-  }
+    setPatients(sortPatients)
+  }, [searchPatient])
 
   return (
     <>
       <section data-testid='searchSection' className={styles['search-section']}>
         <div>
-          <form onSubmit={handleSubmit} className={styles.form_wrapper}>
+          <div className={styles.form_wrapper}>
             <div className={styles.input}>
               <div>
                 <Search />
@@ -52,7 +47,7 @@ const SearchPatients = () => {
                 onChange={e => setSearchPatient(e.target.value)}
               />
             </div>
-          </form>
+          </div>
           <div className={styles.filter}>
             <SlidersHorizontal aria-label='filter' />
           </div>
