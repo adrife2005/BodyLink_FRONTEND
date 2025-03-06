@@ -10,6 +10,7 @@ import { Plus, Search, SlidersHorizontal } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import useGetPatients from '@/pages/patients/context/useGetPatients'
+import toast from 'react-hot-toast'
 
 const SearchPatients = () => {
   const { patients, setPatients, originalPatients } = useGetPatients()
@@ -20,6 +21,7 @@ const SearchPatients = () => {
     if (searchPatient === '') {
       return setPatients(originalPatients)
     }
+
     const sortPatients = patients
       .filter(patient =>
         patient.full_name.toLowerCase().includes(searchPatient.toLowerCase())
@@ -27,6 +29,14 @@ const SearchPatients = () => {
       .sort((a, b) => a.full_name.localeCompare(b.full_name))
 
     setPatients(sortPatients)
+
+    if (sortPatients.length < 1) {
+      toast.error('No se encontro ningun paciente con ese nombre', {
+        id: 'no-patient-found',
+      })
+      setPatients(originalPatients)
+      return
+    }
   }, [searchPatient])
 
   return (
