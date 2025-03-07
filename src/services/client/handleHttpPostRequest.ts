@@ -9,7 +9,7 @@ const handleHttpPostRequest = async <T>(
 ): Promise<SuccessResponseProps<T> | ErrorResponseProps> => {
   try {
     const response = await fetch(
-      `http://localhost:5000/bodylink-api/v1${endpoint}`,
+      `https://bodylink-backend.onrender.com/bodylink-api/v1${endpoint}`,
       {
         method: 'POST',
         headers: {
