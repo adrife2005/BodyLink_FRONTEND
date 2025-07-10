@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /documentacion
+Allow: /novedades
+
+# Disallow dashboard pages (private user data)
+Disallow: /dashboard/
+
+# Sitemap
+Sitemap: https://bodylink.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
