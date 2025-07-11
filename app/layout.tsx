@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     creator: "@bodylink",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
   metadataBase: new URL("https://bodylink.vercel.app"),
 };
