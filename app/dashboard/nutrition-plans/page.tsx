@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { TitulosSection } from "@/components/titulos-section"
+import { Apple } from "lucide-react"
 
 export const metadata: Metadata = {
   title: 'Planes Nutricionales - BodyLink',
@@ -7,23 +9,23 @@ export const metadata: Metadata = {
 
 export default function NutritionPlansPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-        <div className="text-center space-y-6">
-          <h1 className="text-4xl font-bold text-foreground">
-            Planes Nutricionales
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Diseña planes nutricionales personalizados basados en las necesidades específicas de cada paciente.
+    <div className="space-y-6">
+      <TitulosSection 
+        icon={Apple}
+        titulo="Planes Nutricionales"
+        descripcion="Diseña planes nutricionales personalizados basados en las necesidades específicas de cada paciente"
+      />
+      
+      <div className="flex items-center justify-center h-64">
+        <div className="text-center space-y-4">
+          <h2 className="text-2xl font-bold text-muted-foreground">
+            Próximamente...
+          </h2>
+          <p className="text-base text-muted-foreground">
+            Estamos desarrollando el sistema de creación y gestión de planes nutricionales
           </p>
-          <div className="mt-12">
-            <h2 className="text-3xl font-bold text-muted-foreground mb-4">
-              Próximamente...
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Estamos desarrollando el sistema de creación y gestión de planes nutricionales
-            </p>
-          </div>
         </div>
+      </div>
     </div>
   )
 }

@@ -37,6 +37,8 @@
 ### 2. Componentes
 - Generales: en `/components`
 - Específicos del dominio: en `/features/feature/components`
+- No crear componentes en la carpeta `/components/ui`
+
 
 ### 3. Hooks
 - Globales: en `/hooks`
@@ -84,3 +86,5 @@
 - `pre-commit`: linting automático
 - `commit-msg`: verificar con commitlint
 
+### 12. Medidas
+- Los inputs tienen que tener `height: 48px`

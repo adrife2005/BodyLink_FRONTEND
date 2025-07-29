@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { TitulosSection } from "@/components/titulos-section"
+import { DollarSign } from "lucide-react"
 
 export const metadata: Metadata = {
   title: 'Finanzas - BodyLink',
@@ -7,19 +9,19 @@ export const metadata: Metadata = {
 
 export default function FinancesPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center space-y-6">
-        <h1 className="text-4xl font-bold text-foreground">
-          Finanzas
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Controla los ingresos, gastos y facturación de tu consulta nutricional.
-        </p>
-        <div className="mt-12">
-          <h2 className="text-3xl font-bold text-muted-foreground mb-4">
+    <div className="space-y-6">
+      <TitulosSection 
+        icon={DollarSign}
+        titulo="Finanzas"
+        descripcion="Controla los ingresos, gastos y facturación de tu consulta nutricional"
+      />
+      
+      <div className="flex items-center justify-center h-64">
+        <div className="text-center space-y-4">
+          <h2 className="text-2xl font-bold text-muted-foreground">
             Próximamente...
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             Estamos desarrollando el módulo de gestión financiera
           </p>
         </div>

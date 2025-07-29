@@ -12,6 +12,7 @@ import {
   DollarSign,
   MessageSquare,
   Newspaper,
+  LayoutDashboard,
 } from "lucide-react"
 import { AvatarLogo } from "@/components/ui/avatar-logo"
 
@@ -48,9 +49,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     },
     navMain: [
       {
-        title: "Dashboard",
+        title: "Panel Principal",
         url: "/dashboard",
-        icon: Home,
+        icon: LayoutDashboard,
         isActive: pathname === "/dashboard",
         items: [],
       },
@@ -153,6 +154,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground transition-all duration-300 ease-in-out">
                   <AvatarLogo size="sm" />
                 </div>
+                <span className="text-lg text-foreground">BodyLink</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

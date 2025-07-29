@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { TitulosSection } from "@/components/titulos-section"
+import { Newspaper } from "lucide-react"
 
 export const metadata: Metadata = {
   title: 'Noticias - BodyLink',
@@ -7,19 +9,19 @@ export const metadata: Metadata = {
 
 export default function NewsPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center space-y-6">
-        <h1 className="text-4xl font-bold text-foreground">
-          Noticias
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Mantente al día con las últimas investigaciones, tendencias y noticias del mundo de la nutrición.
-        </p>
-        <div className="mt-12">
-          <h2 className="text-3xl font-bold text-muted-foreground mb-4">
+    <div className="space-y-6">
+      <TitulosSection 
+        icon={Newspaper}
+        titulo="Noticias"
+        descripcion="Mantente al día con las últimas investigaciones, tendencias y noticias del mundo de la nutrición"
+      />
+      
+      <div className="flex items-center justify-center h-64">
+        <div className="text-center space-y-4">
+          <h2 className="text-2xl font-bold text-muted-foreground">
             Próximamente...
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             Estamos desarrollando el feed de noticias especializadas
           </p>
         </div>

@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { TitulosSection } from "@/components/titulos-section"
+import { UserPlus } from "lucide-react"
 
 export const metadata: Metadata = {
   title: 'Nuevo Paciente - BodyLink',
@@ -7,26 +9,23 @@ export const metadata: Metadata = {
 
 export default function NewPatientPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center space-y-6 mb-8">
-            <h1 className="text-3xl font-bold text-foreground">
-              Registrar Nuevo Paciente
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Agrega la información básica y datos nutricionales del paciente
-            </p>
-          </div>
-          
-          <div className="text-center space-y-4">
-            <h2 className="text-2xl font-bold text-muted-foreground">
-              Próximamente...
-            </h2>
-            <p className="text-base text-muted-foreground">
-              Estamos desarrollando el formulario de registro de pacientes
-            </p>
-          </div>
+    <div className="space-y-6">
+      <TitulosSection 
+        icon={UserPlus}
+        titulo="Registrar Nuevo Paciente"
+        descripcion="Agrega la información básica y datos nutricionales del paciente"
+      />
+      
+      <div className="flex items-center justify-center h-64">
+        <div className="text-center space-y-4">
+          <h2 className="text-2xl font-bold text-muted-foreground">
+            Próximamente...
+          </h2>
+          <p className="text-base text-muted-foreground">
+            Estamos desarrollando el formulario de registro de pacientes
+          </p>
         </div>
+      </div>
     </div>
   )
 }

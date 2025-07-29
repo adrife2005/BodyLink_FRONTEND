@@ -1,0 +1,1 @@
+export { GoalBadge } from './goal-badge'
