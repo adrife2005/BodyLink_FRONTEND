@@ -51,7 +51,7 @@ export function PatientsHeader({ totalPatients, onSearchChange }: PatientsHeader
         </div>
         
         {/* Botón de nuevo paciente - alineado a la derecha */}
-        <Button onClick={handleNewPatient} className="h-12 text-clamp-sm">
+        <Button onClick={handleNewPatient} className="h-12 text-clamp-sm dark:text-foreground text-background">
           <Plus className="h-4 w-4 mr-2" />
           Nuevo Paciente
         </Button>
